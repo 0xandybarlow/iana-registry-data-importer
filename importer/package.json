@@ -1,0 +1,42 @@
+{
+  "name": "registry-importer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "generate-data": "node dist/importAndProcessDatasources.js",
+    "build": "tsc",
+    "pretty": "prettier --write .",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": ["iana", "registry", "oauth", "jose", "jwt", "rfc", "ietf", "importer", "data", "parser", "json", "csv"],
+  "author": "Andy Barlow",
+  "license": "MIT",
+  "description": "This code imports and processes data from various IANA registries such as the JOSE, OAuth and JWT registries, it is not available as a package on npm and is intended to be used as a standalone script.",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "csv-parse": "^5.5.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.12.0",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.4",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.11.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Except for the dist directory
+!dist/
+
+# Except for the LICENSE file
+!LICENSE
+
+# Except for the README.md file
+!README.md
