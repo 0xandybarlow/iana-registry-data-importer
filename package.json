@@ -12,5 +12,9 @@
     "build:importer": "npm run build -w importer"
   },
   "author": "Andy Barlow",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:0xandybarlow/iana-registry-data-importer.git"
+  }
 }
