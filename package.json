@@ -2,11 +2,14 @@
   "name": "iana-registry-data-importer",
   "version": "1.0.0",
   "workspaces": [
-    "importer"
+    "importer",
+    "iana-registry-data-lib"
   ],
   "scripts": {
     "import-data": "npm run generate-data -w importer",
-    "publish-data": "cd iana-registry-data-lib && npm publish"
+    "publish-data": "cd iana-registry-data-lib && npm publish",
+    "build:lib": "npm run build -w iana-registry-data-lib",
+    "build:importer": "npm run build -w importer"
   },
   "author": "Andy Barlow",
   "license": "MIT"
