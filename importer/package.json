@@ -1,7 +1,6 @@
 {
   "name": "registry-importer",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "generate-data": "node dist/importAndProcessDatasources.js",
     "build": "tsc",
