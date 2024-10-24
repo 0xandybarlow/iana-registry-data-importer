@@ -1,0 +1,13 @@
+{
+  "name": "iana-registry-data-importer",
+  "version": "1.0.0",
+  "workspaces": [
+    "importer"
+  ],
+  "scripts": {
+    "import-data": "npm run generate-data -w importer",
+    "publish-data": "cd iana-registry-data-lib && npm publish"
+  },
+  "author": "Andy Barlow",
+  "license": "MIT"
+}

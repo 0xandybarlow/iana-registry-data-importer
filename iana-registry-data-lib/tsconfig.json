@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+//    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true, // Generates source maps for easier debugging
+    "noImplicitAny": true, // Raises an error on expressions and declarations with an implied 'any' type
+    "strictNullChecks": true, // Ensures strict handling of null and undefined
+    "strictFunctionTypes": true, // Ensures function type compatibility is checked strictly
+    "strictPropertyInitialization": true, // Ensures class properties are initialized correctly
+    "noImplicitThis": true, // Raises an error on 'this' expressions with an implied 'any' type
+    "noUnusedLocals": true, // Reports errors on unused local variables
+    "noUnusedParameters": true, // Reports errors on unused parameters
+    "noFallthroughCasesInSwitch": true, // Ensures that switch statements have a default case or break
+    "forceConsistentCasingInFileNames": true // Ensures file names are treated with consistent casing
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
