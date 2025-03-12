@@ -1,1 +1,41 @@
-{"name":"JSON Web Key Types","metadata":{"required_specifications":["RFC7518","RFC7638"],"datasource_url":"https://www.iana.org/assignments/jose/web-key-types.csv","last_processed":"2024-10-24T17:49:28.465Z"},"parameters":[{"kty_parameter_value":"EC","key_type_description":"Elliptic Curve","jose_implementation_requirements":"Recommended+","change_controller":"IESG","reference":"RFC7518 - Section 6.2"},{"kty_parameter_value":"RSA","key_type_description":"RSA","jose_implementation_requirements":"Required","change_controller":"IESG","reference":"RFC7518 - Section 6.3"},{"kty_parameter_value":"oct","key_type_description":"Octet sequence","jose_implementation_requirements":"Required","change_controller":"IESG","reference":"RFC7518 - Section 6.4"},{"kty_parameter_value":"OKP","key_type_description":"Octet string key pairs","jose_implementation_requirements":"Optional","change_controller":"IESG","reference":"RFC8037 - Section 2"}]}
+{
+  "name": "JSON Web Key Types",
+  "metadata": {
+    "required_specifications": [
+      "RFC7518",
+      "RFC7638"
+    ],
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-types.csv",
+    "last_processed": "2024-10-24T17:49:28.465Z"
+  },
+  "parameters": [
+    {
+      "kty_parameter_value": "EC",
+      "key_type_description": "Elliptic Curve",
+      "jose_implementation_requirements": "Recommended+",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.2"
+    },
+    {
+      "kty_parameter_value": "RSA",
+      "key_type_description": "RSA",
+      "jose_implementation_requirements": "Required",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.3"
+    },
+    {
+      "kty_parameter_value": "oct",
+      "key_type_description": "Octet sequence",
+      "jose_implementation_requirements": "Required",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.4"
+    },
+    {
+      "kty_parameter_value": "OKP",
+      "key_type_description": "Octet string key pairs",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IESG",
+      "reference": "RFC8037 - Section 2"
+    }
+  ]
+}

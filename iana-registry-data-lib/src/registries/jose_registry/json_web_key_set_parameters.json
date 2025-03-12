@@ -1,1 +1,18 @@
-{"name":"JSON Web Key Set Parameters","metadata":{"required_specifications":["RFC7517"],"datasource_url":"https://www.iana.org/assignments/jose/web-key-set-parameters.csv","last_processed":"2024-10-24T17:49:28.465Z"},"parameters":[{"parameter_name":"keys","parameter_description":"Array of JWK Values","change_controller":"IESG","reference":"RFC7517 - Section 5.1"}]}
+{
+  "name": "JSON Web Key Set Parameters",
+  "metadata": {
+    "required_specifications": [
+      "RFC7517"
+    ],
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-set-parameters.csv",
+    "last_processed": "2024-10-24T17:49:28.465Z"
+  },
+  "parameters": [
+    {
+      "parameter_name": "keys",
+      "parameter_description": "Array of JWK Values",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 5.1"
+    }
+  ]
+}
