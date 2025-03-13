@@ -15,6 +15,7 @@ interface RegistryJson {
     required_specifications: string[];
     datasource_url: string;
     last_updated: string;
+    last_processed?: string;
   };
   parameters: any[];
 }
@@ -41,20 +42,51 @@ const createDatasourceDirectories = async (
   }
 };
 
-const compareData = (existingData: RegistryJson | null, newData: RegistryJson): boolean => {
-  if (!existingData) return true;
+const getParameterChanges = (existingData: RegistryJson, newData: RegistryJson): string[] => {
+  const changes: string[] = [];
   
-  // Create copies without the last_updated field for comparison
-  const existingCopy = { ...existingData };
-  const newCopy = { ...newData };
-  if (existingCopy.metadata?.last_updated !== undefined) {
-    existingCopy.metadata.last_updated = '';
+  // Compare each parameter
+  newData.parameters.forEach((newParam: any, index: number) => {
+    const existingParam = existingData.parameters[index];
+    if (!existingParam) {
+      changes.push(`Added new parameter: ${JSON.stringify(newParam)}`);
+      return;
+    }
+
+    // Compare each field in the parameter
+    Object.keys(newParam).forEach(key => {
+      if (JSON.stringify(newParam[key]) !== JSON.stringify(existingParam[key])) {
+        changes.push(`Parameter ${index + 1} changed: ${key} from "${existingParam[key]}" to "${newParam[key]}"`);
+      }
+    });
+  });
+
+  // Check for removed parameters
+  if (existingData.parameters.length > newData.parameters.length) {
+    for (let i = newData.parameters.length; i < existingData.parameters.length; i++) {
+      changes.push(`Removed parameter: ${JSON.stringify(existingData.parameters[i])}`);
+    }
   }
-  if (newCopy.metadata?.last_updated !== undefined) {
-    newCopy.metadata.last_updated = '';
-  }
+
+  return changes;
+};
+
+const compareData = (existingData: RegistryJson | null, newData: RegistryJson): { hasChanges: boolean; changes: string[] } => {
+  if (!existingData) return { hasChanges: true, changes: ['Initial import'] };
   
-  return JSON.stringify(existingCopy) !== JSON.stringify(newCopy);
+  // Create deep copies of the objects
+  const existingCopy = JSON.parse(JSON.stringify(existingData));
+  const newCopy = JSON.parse(JSON.stringify(newData));
+  
+  // Remove timestamp fields for comparison
+  delete existingCopy.metadata.last_updated;
+  delete existingCopy.metadata.last_processed;
+  delete newCopy.metadata.last_updated;
+  
+  const hasChanges = JSON.stringify(existingCopy) !== JSON.stringify(newCopy);
+  const changes = hasChanges ? getParameterChanges(existingData, newData) : [];
+  
+  return { hasChanges, changes };
 };
 
 const processDataSources = async () => {
@@ -80,7 +112,7 @@ const processDataSources = async () => {
           metadata: {
             required_specifications: datasource.required_specifications,
             datasource_url: datasource.url,
-            last_updated: new Date().toISOString(), // Set initial timestamp
+            last_updated: new Date().toISOString(),
           },
           parameters: data,
         };
@@ -94,18 +126,24 @@ const processDataSources = async () => {
           // File doesn't exist or can't be read, treat as new data
         }
 
-        const hasChanges = compareData(existingData, registryJson);
+        const { hasChanges, changes } = compareData(existingData, registryJson);
         
         if (!hasChanges && existingData) {
-          // If no changes, keep the existing timestamp
-          registryJson.metadata.last_updated = existingData.metadata.last_updated;
+          // Handle migration from last_processed to last_updated
+          if ('last_processed' in existingData.metadata) {
+            console.log(`Migrating ${filePath} from last_processed to last_updated`);
+            registryJson.metadata.last_updated = existingData.metadata.last_processed!;
+          } else {
+            registryJson.metadata.last_updated = existingData.metadata.last_updated;
+          }
         }
 
         await createDatasourceDirectories(dataDir);
         await writeJSON(filePath, registryJson, 2);
 
         if (hasChanges) {
-          console.log(`Changes detected and files written successfully: ${filePath}`);
+          console.log(`Changes detected in ${filePath}:`);
+          changes.forEach(change => console.log(`  - ${change}`));
         } else {
           console.log(`No changes detected for: ${filePath}`);
         }
