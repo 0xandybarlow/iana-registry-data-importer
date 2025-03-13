@@ -5,7 +5,7 @@
       "RFC7591"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/client-metadata.csv",
-    "last_processed": "2024-10-24T17:49:28.465Z"
+    "last_processed": "2025-03-12T22:49:51.281Z"
   },
   "parameters": [
     {
@@ -316,21 +316,21 @@
     },
     {
       "client_metadata_name": "introspection_signed_response_alg",
-      "client_metadata_description": "String value indicating the client's desired introspection response signing algorithm.",
+      "client_metadata_description": "String value indicating the client’s desired introspection response signing algorithm",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 6"
+      "reference": "RFC9701 - Section 6"
     },
     {
       "client_metadata_name": "introspection_encrypted_response_alg",
-      "client_metadata_description": "String value specifying the desired introspection response content key encryption algorithm (alg value).",
+      "client_metadata_description": "String value specifying the desired introspection response content key encryption algorithm (alg value)",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 6"
+      "reference": "RFC9701 - Section 6"
     },
     {
       "client_metadata_name": "introspection_encrypted_response_enc",
-      "client_metadata_description": "String value specifying the desired introspection response content encryption algorithm (enc value).",
+      "client_metadata_description": "String value specifying the desired introspection response content encryption algorithm (enc value)",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 6"
+      "reference": "RFC9701 - Section 6"
     },
     {
       "client_metadata_name": "frontchannel_logout_uri",

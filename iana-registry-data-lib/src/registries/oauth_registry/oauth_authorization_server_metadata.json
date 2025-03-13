@@ -5,7 +5,7 @@
       "RFC8414"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/authorization-server-metadata.csv",
-    "last_processed": "2024-10-24T17:49:28.465Z"
+    "last_processed": "2025-03-12T22:49:51.281Z"
   },
   "parameters": [
     {
@@ -322,21 +322,21 @@
     },
     {
       "metadata_name": "introspection_signing_alg_values_supported",
-      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response signing.",
+      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response signing",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 7"
+      "reference": "RFC9701 - Section 7"
     },
     {
       "metadata_name": "introspection_encryption_alg_values_supported",
-      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content key encryption (alg value).",
+      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content key encryption (alg value)",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 7"
+      "reference": "RFC9701 - Section 7"
     },
     {
       "metadata_name": "introspection_encryption_enc_values_supported",
-      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content encryption (enc value).",
+      "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content encryption (enc value)",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 7"
+      "reference": "RFC9701 - Section 7"
     },
     {
       "metadata_name": "authorization_response_iss_parameter_supported",

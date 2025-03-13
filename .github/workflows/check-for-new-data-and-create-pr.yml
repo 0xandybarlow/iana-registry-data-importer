@@ -24,22 +24,64 @@ jobs:
       - name: Build the project
         run: npm run build -w importer
 
+      - name: Store existing data state
+        run: |
+          if [ -d "iana-registry-data-lib/src/registries" ]; then
+            cp -r iana-registry-data-lib/src/registries iana-registry-data-lib/src/registries.bak
+          fi
+
       - name: Generate data
         run: npm run import-data
 
-      - name: Check for changes
+      - name: Compare and commit if changed
+        id: compare-and-commit
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git diff-index --quiet HEAD || git commit -m "Update data from IANA registries"
+          if [ -d "iana-registry-data-lib/src/registries.bak" ]; then
+            # Use git status to check for changes (this will catch both modifications and new files)
+            git add iana-registry-data-lib/src/registries
+            if git diff --cached --quiet; then
+              echo "No changes detected in the data"
+              rm -rf iana-registry-data-lib/src/registries.bak
+              exit 0
+            else
+              echo "Changes detected in the following files:"
+              git diff --cached --name-status
+              echo "DIFF_DETECTED=true" >> $GITHUB_OUTPUT
+              # Store the diff for PR description
+              git diff --cached --name-status > changes.txt
+              echo "CHANGES<<EOF" >> $GITHUB_OUTPUT
+              cat changes.txt >> $GITHUB_OUTPUT
+              echo "EOF" >> $GITHUB_OUTPUT
+              rm -rf iana-registry-data-lib/src/registries.bak
+              git config --global user.name 'github-actions[bot]'
+              git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+              git commit -m "Update data from IANA registries"
+            fi
+          else
+            echo "First run - no previous data to compare"
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+            git add .
+            git commit -m "Initial data import from IANA registries"
+            echo "DIFF_DETECTED=true" >> $GITHUB_OUTPUT
+            echo "CHANGES=Initial import of all registries" >> $GITHUB_OUTPUT
+          fi
 
       - name: Create Pull Request
+        if: steps.compare-and-commit.outputs.DIFF_DETECTED == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update data from IANA registries
           branch: update-data
           title: Update data from IANA registries
-          body: There has been an update to the data at the IANA registries.
+          body: |
+            There have been updates to the IANA registry data.
+            
+            ### Changes Detected:
+            ```
+            ${{ steps.compare-and-commit.outputs.CHANGES }}
+            ```
+            
+            Note: The `last_updated` timestamp is only updated for registries that have actual data changes.
           labels: update

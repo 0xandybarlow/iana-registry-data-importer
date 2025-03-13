@@ -5,7 +5,7 @@
       "RFC7519"
     ],
     "datasource_url": "https://www.iana.org/assignments/jwt/claims.csv",
-    "last_processed": "2024-10-24T17:49:28.465Z"
+    "last_processed": "2025-03-12T22:49:51.281Z"
   },
   "parameters": [
     {
@@ -426,7 +426,7 @@
       "claim_name": "token_introspection",
       "claim_description": "Token introspection response",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-jwt-introspection-response-12 - Section 5"
+      "reference": "RFC9701 - Section 5"
     },
     {
       "claim_name": "eat_nonce",
@@ -610,63 +610,63 @@
     },
     {
       "claim_name": "verified_claims",
-      "claim_description": "This container Claim is composed of the verification evidence related to a certain verification process and the corresponding Claims about the End-User which were verified in this process.",
+      "claim_description": "A structured claim containing end-user claims and the details of how those end-user claims were assured.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 5"
+      "reference": "OpenID Identity Assurance Schema Definition 1.0 - Section 5"
     },
     {
       "claim_name": "place_of_birth",
-      "claim_description": "A structured Claim representing the End-User's place of birth.",
+      "claim_description": "A structured claim representing the end-user's place of birth.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "nationalities",
-      "claim_description": "String array representing the End-User's nationalities.",
+      "claim_description": "String array representing the end-user's nationalities.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "birth_family_name",
       "claim_description": "Family name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the family name(s) later in life for any reason. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "birth_given_name",
       "claim_description": "Given name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the given name later in life for any reason. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "birth_middle_name",
       "claim_description": "Middle name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the middle name later in life for any reason. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "salutation",
-      "claim_description": "End-User's salutation, e.g., \"Mr.\"",
+      "claim_description": "End-user's salutation, e.g., \"Mr\"",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "title",
-      "claim_description": "End-User's title, e.g., \"Dr.\"",
+      "claim_description": "End-user's title, e.g., \"Dr\"",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "msisdn",
-      "claim_description": "End-User's mobile phone number formatted according to ITU-T recommendation E.164",
+      "claim_description": "End-user's mobile phone number formatted according to ITU-T recommendation E.164",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "also_known_as",
-      "claim_description": "Stage name, religious name or any other type of alias/pseudonym with which a person is known in a specific context besides its legal name. This must be part of the applicable legislation and thus the trust framework (e.g., be an attribute on the identity card).",
+      "claim_description": "Stage name, religious name or any other type of alias/pseudonym with which a person is known in a specific context besides its legal name.",
       "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance 1.0 - Section 4"
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
     },
     {
       "claim_name": "htm",
