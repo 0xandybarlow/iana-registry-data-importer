@@ -5,7 +5,7 @@
       "RFC7519"
     ],
     "datasource_url": "https://www.iana.org/assignments/jwt/claims.csv",
-    "last_processed": "2025-03-12T22:49:51.281Z"
+    "last_updated": ""
   },
   "parameters": [
     {
