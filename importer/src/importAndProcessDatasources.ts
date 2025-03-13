@@ -9,6 +9,16 @@ import { oauthRegistryDatasources } from './sources/oauth-registry-datasources';
 import { joseRegistryDatasources } from './sources/jose-registry-datasources';
 import { jwtRegistryDatasources } from './sources/jwt-registry-datasources';
 
+interface RegistryJson {
+  name: string;
+  metadata: {
+    required_specifications: string[];
+    datasource_url: string;
+    last_updated: string;
+  };
+  parameters: any[];
+}
+
 const IANA_REGISTRIES_TO_PUBLISH = [
   { name: 'OAuth Registry', source: oauthRegistryDatasources },
   { name: 'JOSE Registry', source: joseRegistryDatasources },
@@ -31,13 +41,18 @@ const createDatasourceDirectories = async (
   }
 };
 
-const compareData = (existingData: any, newData: any): boolean => {
-  // Create copies without the last_updated field for comparison
-  const existingCopy = existingData ? { ...existingData } : {};
-  const newCopy = { ...newData };
+const compareData = (existingData: RegistryJson | null, newData: RegistryJson): boolean => {
+  if (!existingData) return true;
   
-  if (existingCopy.metadata) delete existingCopy.metadata.last_updated;
-  if (newCopy.metadata) delete newCopy.metadata.last_updated;
+  // Create copies without the last_updated field for comparison
+  const existingCopy = { ...existingData };
+  const newCopy = { ...newData };
+  if (existingCopy.metadata?.last_updated !== undefined) {
+    existingCopy.metadata.last_updated = '';
+  }
+  if (newCopy.metadata?.last_updated !== undefined) {
+    newCopy.metadata.last_updated = '';
+  }
   
   return JSON.stringify(existingCopy) !== JSON.stringify(newCopy);
 };
@@ -59,19 +74,19 @@ const processDataSources = async () => {
           `${preparePathFriendlyName(datasource.name)}`,
         );
 
-        // Create new registry JSON without timestamp
-        const registryJson = {
+        // Create new registry JSON with initial timestamp
+        const registryJson: RegistryJson = {
           name: datasource.name,
           metadata: {
             required_specifications: datasource.required_specifications,
             datasource_url: datasource.url,
-            last_updated: null, // Will be set only if there are changes
+            last_updated: new Date().toISOString(), // Set initial timestamp
           },
           parameters: data,
         };
 
         // Check if file exists and compare
-        let existingData = null;
+        let existingData: RegistryJson | null = null;
         try {
           const existingContent = await fs.readFile(`${filePath}.json`, 'utf-8');
           existingData = JSON.parse(existingContent);
@@ -81,11 +96,8 @@ const processDataSources = async () => {
 
         const hasChanges = compareData(existingData, registryJson);
         
-        if (hasChanges || !existingData) {
-          // Only set last_updated if there are changes
-          registryJson.metadata.last_updated = new Date().toISOString();
-        } else {
-          // Keep the existing last_updated timestamp
+        if (!hasChanges && existingData) {
+          // If no changes, keep the existing timestamp
           registryJson.metadata.last_updated = existingData.metadata.last_updated;
         }
 
