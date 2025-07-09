@@ -5,7 +5,7 @@
       "RFC7662"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/token-introspection-response.csv",
-    "last_updated": "2025-04-20T20:00:30.416Z"
+    "last_updated": "2025-07-09T09:53:07.781Z"
   },
   "parameters": [
     {
