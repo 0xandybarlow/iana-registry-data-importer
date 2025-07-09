@@ -31,7 +31,6 @@ const createDatasourceDirectories = async (
   }
 };
 const processDataSources = async () => {
-  const processDate = new Date().toISOString();
   for (const registry of IANA_REGISTRIES_TO_PUBLISH) {
     for (const datasource of registry.source as RegistryMetadata[]) {
       try {
@@ -43,7 +42,7 @@ const processDataSources = async () => {
           metadata: {
             required_specifications: datasource.required_specifications,
             datasource_url: datasource.url,
-            last_processed: processDate,
+            last_updated: new Date().toISOString(),
           },
           parameters: data,
         };
