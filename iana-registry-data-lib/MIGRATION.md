@@ -54,9 +54,9 @@ const OAuth = require('iana-registry-data-lib/dist/index.v2.js');
 const dataset = OAuth.oauth_parameters;
 ```
 
-Direct JSON import (unchanged paths):
+Direct JSON import:
 ```ts
-import oauth_parameters from 'iana-registry-data-lib/src/registries/oauth_registry/oauth_parameters.json';
+import oauth_parameters from 'iana-registry-data-lib/dist/registries/oauth_registry/oauth_parameters.json';
 ```
 
 ## Migration Steps
