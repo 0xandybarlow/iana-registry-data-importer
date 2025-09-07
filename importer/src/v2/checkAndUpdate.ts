@@ -4,7 +4,7 @@ import { csvToObject } from '../convertCsvToObject';
 import { getData } from '../util/network';
 import { buildDatasetV2, normalizeCsvRecord } from './normalize';
 import { REGISTRIES_V2 } from './sources';
-import { DatasetChangeSummary, RegistryDatasetV2 } from './types';
+import { DatasetChangeSummary, RegistryDataset } from './types';
 import { diffDatasets } from './compare';
 import { renderChangelogBody } from './changelog';
 import { debug, error, info } from './logger';
@@ -35,18 +35,18 @@ const detectPrimaryKeys = (record: Record<string, string>): string[] => {
 const readExistingDataset = async (
   registry_id: string,
   dataset_id: string,
-): Promise<RegistryDatasetV2 | undefined> => {
+): Promise<RegistryDataset | undefined> => {
   const dataDir = path.join(LIB_DATA_ROOT, registry_id);
   const file = path.join(dataDir, `${dataset_id}.json`);
   try {
     const raw = await fs.readFile(file, 'utf8');
-    return JSON.parse(raw) as RegistryDatasetV2;
+    return JSON.parse(raw) as RegistryDataset;
   } catch {
     return undefined;
   }
 };
 
-const writeDataset = async (dataset: RegistryDatasetV2) => {
+const writeDataset = async (dataset: RegistryDataset) => {
   const dataDir = path.join(LIB_DATA_ROOT, dataset.registry_id);
   await fs.mkdir(dataDir, { recursive: true });
   const outFile = path.join(dataDir, `${dataset.dataset_id}.json`);
@@ -61,13 +61,13 @@ type ExistingV1Like = {
 
 const coerceExistingToV2 = (
   existing: unknown,
-  fallback: RegistryDatasetV2,
+  fallback: RegistryDataset,
   primaryKeys: string[],
-): RegistryDatasetV2 => {
-  if (!existing) return existing as unknown as RegistryDatasetV2;
+): RegistryDataset => {
+  if (!existing) return existing as unknown as RegistryDataset;
   const maybeV2 = existing as ExistingV2Like;
   if (maybeV2 && Array.isArray(maybeV2.entries))
-    return existing as RegistryDatasetV2;
+    return existing as RegistryDataset;
   const maybeV1 = existing as ExistingV1Like;
   const v1Params = maybeV1.parameters;
   if (Array.isArray(v1Params)) {
