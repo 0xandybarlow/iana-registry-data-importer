@@ -1,4 +1,4 @@
-export type { V2RegistryDataset, V2RegistryEntry, V2RegistryMetadata } from './types.v2';
+export type { RegistryDataset, RegistryEntry, RegistryMetadata } from './types';
 
 export * as OAuth from './registries/oauth_registry/index';
 export * as JOSE from './registries/jose_registry/index';
