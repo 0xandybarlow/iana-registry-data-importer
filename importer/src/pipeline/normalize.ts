@@ -1,9 +1,4 @@
-import {
-  JSONObject,
-  JSONValue,
-  RegistryDatasetV2,
-  RegistryEntryV2,
-} from './types';
+import { JSONObject, JSONValue, RegistryDataset, RegistryEntry } from './types';
 
 const toSnakeCase = (str: string): string =>
   str
@@ -21,8 +16,6 @@ export const cleanText = (str: string): string =>
     .replace(/\s+/g, ' ')
     .replace(/, Section/g, ' - Section')
     .trim();
-
-// no hash fallback is used; keep IDs raw/cleaned for consistency
 
 export const stableSlug = (input: string): string => cleanText(String(input));
 
@@ -45,7 +38,7 @@ const deepMapKeysSnakeCase = (obj: JSONObject): JSONObject => {
 export const normalizeCsvRecord = (
   record: Record<string, string>,
   primaryKeyFields: string[],
-): RegistryEntryV2 => {
+): RegistryEntry => {
   const normalized = deepMapKeysSnakeCase(record as unknown as JSONObject);
   const pkParts = primaryKeyFields
     .map((k) => normalized[toSnakeCase(k)])
@@ -55,13 +48,13 @@ export const normalizeCsvRecord = (
     pkParts.length > 0
       ? pkParts.join(' | ')
       : cleanText(JSON.stringify(normalized));
-  return { entry_id, ...normalized } as RegistryEntryV2;
+  return { entry_id, ...normalized } as RegistryEntry;
 };
 
 export const sortEntriesDeterministically = (
-  entries: RegistryEntryV2[],
+  entries: RegistryEntry[],
   sortKey: string,
-): RegistryEntryV2[] => {
+): RegistryEntry[] => {
   const key = toSnakeCase(sortKey);
   return [...entries].sort((a, b) => {
     const av = String(a[key] ?? a.entry_id);
@@ -89,14 +82,14 @@ export const deepSortObject = (obj: JSONObject): JSONObject => {
   return sorted;
 };
 
-export const buildDatasetV2 = (args: {
+export const buildDataset = (args: {
   registry_id: string;
   dataset_id: string;
   name: string;
   datasource_url: string;
   required_specifications: string[];
-  entries: RegistryEntryV2[];
-}): RegistryDatasetV2 => {
+  entries: RegistryEntry[];
+}): RegistryDataset => {
   const entries = sortEntriesDeterministically(args.entries, 'name');
   return {
     schema_version: 2,

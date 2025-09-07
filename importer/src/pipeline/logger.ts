@@ -1,7 +1,7 @@
 const toBool = (v: string | undefined): boolean =>
   /^(1|true|yes|on)$/i.test(v || '');
 
-const DEBUG = toBool(process.env.DEBUG_V2);
+const DEBUG = toBool(process.env.DEBUG_IMPORTER);
 
 export const debug = (...args: unknown[]) => {
   if (DEBUG) console.debug(...args);

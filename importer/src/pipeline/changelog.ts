@@ -13,23 +13,17 @@ export const renderDatasetChangelog = (sum: DatasetChangeSummary): string => {
   if (sum.formatUpgraded) {
     lines.push(`- Format: upgraded to v2 schema`);
   }
-  if (sum.added.length) {
-    lines.push(`- Added: ${sum.added.length}`);
-  }
-  if (sum.removed.length) {
-    lines.push(`- Removed: ${sum.removed.length}`);
-  }
+  if (sum.added.length) lines.push(`- Added: ${sum.added.length}`);
+  if (sum.removed.length) lines.push(`- Removed: ${sum.removed.length}`);
   if (sum.modified.length) {
     lines.push(`- Modified: ${sum.modified.length}`);
     for (const m of sum.modified.slice(0, 20)) {
       lines.push(`  - entry_id=${m.entry_id}`);
-      for (const ch of m.changes || []) {
+      for (const ch of m.changes || [])
         lines.push(`    ${renderFieldChange(ch)}`);
-      }
     }
-    if (sum.modified.length > 20) {
+    if (sum.modified.length > 20)
       lines.push(`  - …and ${sum.modified.length - 20} more modifications`);
-    }
   }
   lines.push('');
   return lines.join('\n');

@@ -1,15 +1,14 @@
 import {
   DatasetChangeSummary,
   FieldChange,
-  RegistryDatasetV2,
-  RegistryEntryV2,
+  RegistryDataset,
+  RegistryEntry,
   JSONValue,
 } from './types';
 
 const jsonEqual = (a: JSONValue, b: JSONValue): boolean => {
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length !== b.length) return false;
-    // Order-insensitive compare for arrays of scalars
     const sa = [...a].map(String).sort();
     const sb = [...b].map(String).sort();
     return sa.every((v, i) => v === sb[i]);
@@ -18,8 +17,8 @@ const jsonEqual = (a: JSONValue, b: JSONValue): boolean => {
 };
 
 const entryFieldDiff = (
-  oldE: RegistryEntryV2,
-  newE: RegistryEntryV2,
+  oldE: RegistryEntry,
+  newE: RegistryEntry,
 ): FieldChange[] => {
   const fields = new Set([...Object.keys(oldE), ...Object.keys(newE)]);
   fields.delete('entry_id');
@@ -35,8 +34,8 @@ const entryFieldDiff = (
 };
 
 export const diffDatasets = (
-  oldD: RegistryDatasetV2 | undefined,
-  newD: RegistryDatasetV2,
+  oldD: RegistryDataset | undefined,
+  newD: RegistryDataset,
 ): DatasetChangeSummary => {
   const summary: DatasetChangeSummary = {
     registry_id: newD.registry_id,
@@ -54,21 +53,17 @@ export const diffDatasets = (
     return summary;
   }
 
-  // Map by entry_id
-  const oldMap = new Map<string, RegistryEntryV2>(
+  const oldMap = new Map<string, RegistryEntry>(
     oldD.entries.map((e) => [e.entry_id, e]),
   );
-  const newMap = new Map<string, RegistryEntryV2>(
+  const newMap = new Map<string, RegistryEntry>(
     newD.entries.map((e) => [e.entry_id, e]),
   );
 
-  // Detect removed
   for (const [id, e] of oldMap) {
-    if (!newMap.has(id)) {
-      summary.removed.push(e);
-    }
+    if (!newMap.has(id)) summary.removed.push(e);
   }
-  // Detect added and modified
+
   for (const [id, newE] of newMap) {
     const oldE = oldMap.get(id);
     if (!oldE) {
