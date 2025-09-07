@@ -1,19 +1,24 @@
 {
+  "schema_version": 2,
+  "registry_id": "oauth_registry",
+  "dataset_id": "pkce_code_challenge_methods",
   "name": "PKCE Code Challenge Methods",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/pkce-code-challenge-method.csv",
     "required_specifications": [
       "RFC7636"
     ],
-    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/pkce-code-challenge-method.csv",
-    "last_updated": "2025-09-07T15:12:41.858Z"
+    "last_updated_iso": "2025-09-07T20:03:00.942Z"
   },
-  "parameters": [
+  "entries": [
     {
+      "entry_id": "plain",
       "code_challenge_method_parameter_name": "plain",
       "change_controller": "IESG",
       "reference": "Section 4.2 of RFC7636"
     },
     {
+      "entry_id": "S256",
       "code_challenge_method_parameter_name": "S256",
       "change_controller": "IESG",
       "reference": "Section 4.2 of RFC7636"
