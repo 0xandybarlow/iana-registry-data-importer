@@ -1,4 +1,4 @@
-import { normalizeCsvRecord, stableSlug } from '../v2/normalize';
+import { normalizeCsvRecord, stableSlug } from '../pipeline/normalize';
 
 describe('normalize & slug', () => {
   it('creates stable entry_id from primary key', () => {

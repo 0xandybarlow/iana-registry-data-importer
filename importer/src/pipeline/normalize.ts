@@ -17,8 +17,6 @@ export const cleanText = (str: string): string =>
     .replace(/, Section/g, ' - Section')
     .trim();
 
-// no hash fallback is used; keep IDs raw/cleaned for consistency
-
 export const stableSlug = (input: string): string => cleanText(String(input));
 
 const deepMapKeysSnakeCase = (obj: JSONObject): JSONObject => {
@@ -84,7 +82,7 @@ export const deepSortObject = (obj: JSONObject): JSONObject => {
   return sorted;
 };
 
-export const buildDatasetV2 = (args: {
+export const buildDataset = (args: {
   registry_id: string;
   dataset_id: string;
   name: string;

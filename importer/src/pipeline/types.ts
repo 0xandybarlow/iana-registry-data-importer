@@ -11,21 +11,20 @@ export interface JSONObject {
 export type JSONArray = JSONValue[];
 
 export interface RegistryEntry extends JSONObject {
-  entry_id: string; // stable slug/id from primary key(s)
-  // additional normalized fields per dataset; dynamic keys are allowed
+  entry_id: string;
 }
 
 export interface RegistryMetadata {
   datasource_url: string;
   required_specifications: string[];
-  last_updated_iso: string; // ISO 8601
+  last_updated_iso: string;
 }
 
 export interface RegistryDataset {
   schema_version: 2;
-  registry_id: string; // e.g., oauth_registry
-  dataset_id: string; // e.g., oauth_parameters
-  name: string; // human-friendly dataset name
+  registry_id: string;
+  dataset_id: string;
+  name: string;
   metadata: RegistryMetadata;
   entries: RegistryEntry[];
 }
@@ -59,5 +58,5 @@ export interface DatasetChangeSummary {
   added: RegistryEntry[];
   removed: RegistryEntry[];
   modified: EntryChange[];
-  formatUpgraded?: boolean; // true when v1 file was rewritten to v2 format
+  formatUpgraded?: boolean;
 }

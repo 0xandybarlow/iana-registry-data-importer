@@ -3,8 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "generate-data": "node dist/importAndProcessDatasources.js",
-    "check-and-update:v2": "node dist/v2/checkAndUpdate.js",
-    "generate-data:v2": "node dist/v2/checkAndUpdate.js",
+    "check-and-update": "node dist/pipeline/checkAndUpdate.js",
     "build": "tsc",
     "pretty": "prettier --write .",
     "lint": "eslint \"src/**/*.ts\"",

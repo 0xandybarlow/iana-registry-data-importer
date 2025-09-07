@@ -2,8 +2,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { csvToObject } from '../convertCsvToObject';
 import { getData } from '../util/network';
-import { buildDatasetV2, normalizeCsvRecord } from './normalize';
-import { REGISTRIES_V2 } from './sources';
+import { buildDataset, normalizeCsvRecord } from './normalize';
+import { REGISTRIES } from './sources';
 import { DatasetChangeSummary, RegistryDataset } from './types';
 import { diffDatasets } from './compare';
 import { renderChangelogBody } from './changelog';
@@ -53,20 +53,20 @@ const writeDataset = async (dataset: RegistryDataset) => {
   await fs.writeFile(outFile, JSON.stringify(dataset, null, 2));
 };
 
-type ExistingV2Like = { entries?: unknown };
+type ExistingEntriesLike = { entries?: unknown };
 type ExistingV1Like = {
   parameters?: Record<string, string>[];
   metadata?: { last_updated?: string; last_processed?: string };
 };
 
-const coerceExistingToV2 = (
+const coerceExisting = (
   existing: unknown,
   fallback: RegistryDataset,
   primaryKeys: string[],
 ): RegistryDataset => {
   if (!existing) return existing as unknown as RegistryDataset;
-  const maybeV2 = existing as ExistingV2Like;
-  if (maybeV2 && Array.isArray(maybeV2.entries))
+  const maybeEntries = existing as ExistingEntriesLike;
+  if (maybeEntries && Array.isArray(maybeEntries.entries))
     return existing as RegistryDataset;
   const maybeV1 = existing as ExistingV1Like;
   const v1Params = maybeV1.parameters;
@@ -91,7 +91,7 @@ const coerceExistingToV2 = (
       entries,
     };
   }
-  return fallback; // unknown shape; fall back (treated as full add)
+  return fallback;
 };
 
 const getFilter = () => {
@@ -109,16 +109,15 @@ export const checkAndUpdate = async (): Promise<{
   const summaries: DatasetChangeSummary[] = [];
   const filter = getFilter();
 
-  for (const reg of REGISTRIES_V2) {
+  for (const reg of REGISTRIES) {
     for (const ds of reg.sources) {
       const key = `${ds.registry_id}/${ds.dataset_id}`.toLowerCase();
       if (
         filter &&
         !key.includes(filter) &&
         !ds.dataset_id.toLowerCase().includes(filter)
-      ) {
+      )
         continue;
-      }
       try {
         const csv = await getData(ds.url);
         const rows = await csvToObject(csv);
@@ -129,20 +128,16 @@ export const checkAndUpdate = async (): Promise<{
           : ['name'];
         const primaryKeys = ds.primary_keys ?? detectedKeys;
         debug(
-          `[v2] Detected primary keys for ${ds.registry_id}/${ds.dataset_id}: ${primaryKeys.join(', ')}`,
+          `[importer] Keys for ${ds.registry_id}/${ds.dataset_id}: ${primaryKeys.join(', ')}`,
         );
-        debug(
-          `[v2] Rows type for ${ds.dataset_id}: ${Array.isArray(rows) ? 'array' : typeof rows}`,
-        );
-        if (Array.isArray(rows) && sampleRow) {
+        if (Array.isArray(rows) && sampleRow)
           debug(
-            `[v2] Sample keys for ${ds.dataset_id}: ${Object.keys(sampleRow).join(', ')}`,
+            `[importer] Sample keys ${ds.dataset_id}: ${Object.keys(sampleRow).join(', ')}`,
           );
-        }
         const entries = Array.isArray(rows)
           ? rows.map((r) => normalizeCsvRecord(r, primaryKeys))
           : [];
-        const dataset = buildDatasetV2({
+        const dataset = buildDataset({
           registry_id: ds.registry_id,
           dataset_id: ds.dataset_id,
           name: ds.name,
@@ -155,27 +150,23 @@ export const checkAndUpdate = async (): Promise<{
           dataset.registry_id,
           dataset.dataset_id,
         );
-        const isV2Shape =
+        const isNewShape =
           !!existingRaw &&
-          Array.isArray((existingRaw as ExistingV2Like).entries);
+          Array.isArray((existingRaw as ExistingEntriesLike).entries);
         const existing = existingRaw
-          ? coerceExistingToV2(existingRaw, dataset, primaryKeys)
+          ? coerceExisting(existingRaw, dataset, primaryKeys)
           : undefined;
         const diff = diffDatasets(existing, dataset);
-        // If content is effectively identical but on disk we had v1 shape, mark format upgrade
-        if (!diff.hasChanges && existingRaw && !isV2Shape) {
+        if (!diff.hasChanges && existingRaw && !isNewShape) {
           diff.formatUpgraded = true;
           diff.hasChanges = true;
         }
         summaries.push(diff);
-        if (diff.hasChanges) {
-          await writeDataset(dataset);
-        }
+        if (diff.hasChanges) await writeDataset(dataset);
       } catch (err) {
         error(`Failed processing ${ds.url}: ${(err as Error).message}`);
-        if (process.env.DEBUG_V2 && err instanceof Error && err.stack) {
+        if (process.env.DEBUG_IMPORTER && err instanceof Error && err.stack)
           error(err.stack);
-        }
       }
     }
   }

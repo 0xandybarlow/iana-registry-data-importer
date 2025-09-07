@@ -2,21 +2,21 @@
 
 This project imports and processes data from various IANA registries such as the JOSE, OAuth, and JWT registries. It is intended to be used as a standalone script and is not available as a package on npm.
 
-## v2 Pipeline (Breaking)
+## Data Pipeline (Breaking in 2.0)
 
 - Schema: Generates v2 datasets with `schema_version: 2`, `entries`, stable `entry_id`.
 - Semantic diff: Compares normalized data; ignores ordering and timestamps.
 - Format upgrade: Rewrites v1 JSON to v2 even if content unchanged.
 - Filtered runs:
-  - CLI: `npm run import-data:v2 -- --filter=oauth_registry/oauth_parameters`
-  - ENV: `DATASET_FILTER=oauth_parameters npm run import-data:v2`
-- Debug logging: `DEBUG_V2=1 npm run import-data:v2 -- --filter=jwt_registry/json_web_token_claims`
+  - CLI: `npm run import-data -- --filter=oauth_registry/oauth_parameters`
+  - ENV: `DATASET_FILTER=oauth_parameters npm run import-data`
+- Debug logging: `DEBUG_IMPORTER=1 npm run import-data -- --filter=jwt_registry/json_web_token_claims`
 
 ### Primary Keys
 
 - Purpose: identify entries consistently across runs for reliable diffs.
 - Source: derived from dataset-specific fields (e.g., `parameter`, `claim_name`, `uri`).
-- Config: see `importer/src/v2/sources.ts` under `primary_keys` overrides.
+- Config: see `importer/src/pipeline/sources.ts` under `primary_keys` overrides.
 - Behavior: `entry_id` is the raw/cleaned primary key value(s); if multiple, joined with `|`.
 
 ### Change Detection
@@ -27,7 +27,7 @@ This project imports and processes data from various IANA registries such as the
 
 ### Outputs
 
-- Writes v2 JSON to: `iana-registry-data-lib/src/registries/<registry_id>/<dataset_id>.json`.
+- Writes JSON to: `iana-registry-data-lib/src/registries/<registry_id>/<dataset_id>.json`.
 - On v1 files, performs a format-only upgrade to v2 when content matches.
 
 ## Workflows
@@ -51,8 +51,8 @@ This project imports and processes data from various IANA registries such as the
 ### Local Workflow Commands
 
 - Build importer: `npm run build:importer`
-- Filtered import: `npm run import-data:v2 -- --filter=<substring>` or `DATASET_FILTER=<substring> npm run import-data:v2`
-- Debug logs: `DEBUG_V2=1 npm run import-data:v2 -- --filter=...`
+- Filtered import: `npm run import-data -- --filter=<substring>` or `DATASET_FILTER=<substring> npm run import-data`
+- Debug logs: `DEBUG_IMPORTER=1 npm run import-data -- --filter=...`
 
 ## Installation
 
@@ -72,10 +72,10 @@ npm run build:importer
 npm run generate-data
 ```
 
-v2 entrypoint (writes v2 JSON into the library workspace):
+Entrypoint (writes JSON into the library workspace):
 
 ```sh
-npm run import-data:v2
+npm run import-data
 ```
 
 ## License
