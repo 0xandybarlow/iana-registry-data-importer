@@ -19,7 +19,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Semantic diff engine that ignores ordering and timestamps; classifies adds/removes/field changes.
 - Format upgrade: rewrites existing v1 JSON files to v2 even when content is identical.
 - Dataset filtering:
-  - CLI: `npm run import-data:v2 -- --filter=<substring>`
+  - CLI: `npm run import-data -- --filter=<substring>`
   - ENV: `DATASET_FILTER=<substring>`
 - Debug logging gated by `DEBUG_V2=1`.
 - Unit tests for normalization and diff behavior.

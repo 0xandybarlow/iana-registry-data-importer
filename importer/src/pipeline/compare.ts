@@ -9,7 +9,6 @@ import {
 const jsonEqual = (a: JSONValue, b: JSONValue): boolean => {
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length !== b.length) return false;
-    // Order-insensitive compare for arrays of scalars
     const sa = [...a].map(String).sort();
     const sb = [...b].map(String).sort();
     return sa.every((v, i) => v === sb[i]);
@@ -54,7 +53,6 @@ export const diffDatasets = (
     return summary;
   }
 
-  // Map by entry_id
   const oldMap = new Map<string, RegistryEntry>(
     oldD.entries.map((e) => [e.entry_id, e]),
   );
@@ -62,13 +60,10 @@ export const diffDatasets = (
     newD.entries.map((e) => [e.entry_id, e]),
   );
 
-  // Detect removed
   for (const [id, e] of oldMap) {
-    if (!newMap.has(id)) {
-      summary.removed.push(e);
-    }
+    if (!newMap.has(id)) summary.removed.push(e);
   }
-  // Detect added and modified
+
   for (const [id, newE] of newMap) {
     const oldE = oldMap.get(id);
     if (!oldE) {

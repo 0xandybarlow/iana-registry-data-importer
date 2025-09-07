@@ -1,5 +1,5 @@
-import { diffDatasets } from '../v2/compare';
-import { RegistryDataset, RegistryEntry } from '../v2/types';
+import { diffDatasets } from '../pipeline/compare';
+import { RegistryDataset, RegistryEntry } from '../pipeline/types';
 
 const makeDataset = (entries: RegistryEntry[]): RegistryDataset => ({
   schema_version: 2,
