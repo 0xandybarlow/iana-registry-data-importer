@@ -6,4 +6,4 @@ export interface RegistryJson {
     last_updated: string;
   };
   parameters: any[];
-} 
+}
