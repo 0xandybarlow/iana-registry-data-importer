@@ -5,7 +5,7 @@
       "RFC7636"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/pkce-code-challenge-method.csv",
-    "last_updated": "2025-04-20T20:00:30.311Z"
+    "last_updated": "2025-09-07T00:06:09.273Z"
   },
   "parameters": [
     {

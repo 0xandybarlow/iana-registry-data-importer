@@ -6,7 +6,7 @@
       "RFC7638"
     ],
     "datasource_url": "https://www.iana.org/assignments/jose/web-key-types.csv",
-    "last_updated": "2025-04-20T20:00:30.721Z"
+    "last_updated": "2025-09-07T00:06:09.546Z"
   },
   "parameters": [
     {
@@ -36,6 +36,13 @@
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
       "reference": "RFC8037 - Section 2"
+    },
+    {
+      "kty_parameter_value": "AKP",
+      "key_type_description": "Algorithm Key Pair (TEMPORARY - registered 2025-04-24, expires 2026-04-24)",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IETF",
+      "reference": "draft-ietf-cose-dilithium-06"
     }
   ]
 }

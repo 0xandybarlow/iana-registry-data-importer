@@ -6,7 +6,7 @@
       "RFC7638"
     ],
     "datasource_url": "https://www.iana.org/assignments/jose/web-key-elliptic-curve.csv",
-    "last_updated": "2025-04-20T20:00:30.822Z"
+    "last_updated": "2025-09-07T00:06:09.608Z"
   },
   "parameters": [
     {

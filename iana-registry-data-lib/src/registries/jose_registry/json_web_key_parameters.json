@@ -6,7 +6,7 @@
       "RFC7638"
     ],
     "datasource_url": "https://www.iana.org/assignments/jose/web-key-parameters.csv",
-    "last_updated": "2025-04-20T20:00:30.928Z"
+    "last_updated": "2025-09-07T00:06:09.678Z"
   },
   "parameters": [
     {
@@ -256,6 +256,22 @@
       "parameter_information_class": "Public",
       "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
       "reference": "OpenID Federation 1.0 - Section 8.7.2"
+    },
+    {
+      "parameter_name": "pub",
+      "parameter_description": "Public key (TEMPORARY - registered 2025-04-24, expires 2026-04-24)",
+      "used_with_kty_value": "AKP",
+      "parameter_information_class": "Public",
+      "change_controller": "IETF",
+      "reference": "draft-ietf-cose-dilithium-06"
+    },
+    {
+      "parameter_name": "priv",
+      "parameter_description": "Private key (TEMPORARY - registered 2025-07-24, expires 2026-07-24)",
+      "used_with_kty_value": "AKP",
+      "parameter_information_class": "Private",
+      "change_controller": "IETF",
+      "reference": "draft-ietf-cose-dilithium-08"
     }
   ]
 }

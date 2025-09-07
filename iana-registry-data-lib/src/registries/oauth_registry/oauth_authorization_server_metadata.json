@@ -5,7 +5,7 @@
       "RFC8414"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/authorization-server-metadata.csv",
-    "last_updated": "2025-04-20T20:00:30.522Z"
+    "last_updated": "2025-09-07T00:06:09.406Z"
   },
   "parameters": [
     {
@@ -474,7 +474,7 @@
       "metadata_name": "protected_resources",
       "metadata_description": "JSON array containing a list of resource identifiers for OAuth protected resources",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-resource-metadata-13 - Section 4"
+      "reference": "RFC9728 - Section 4"
     }
   ]
 }

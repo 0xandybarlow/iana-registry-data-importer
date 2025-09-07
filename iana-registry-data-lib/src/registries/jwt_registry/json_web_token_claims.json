@@ -5,7 +5,7 @@
       "RFC7519"
     ],
     "datasource_url": "https://www.iana.org/assignments/jwt/claims.csv",
-    "last_updated": "2025-04-20T20:00:31.351Z"
+    "last_updated": "2025-09-07T00:06:09.950Z"
   },
   "parameters": [
     {
@@ -432,127 +432,127 @@
       "claim_name": "eat_nonce",
       "claim_description": "Nonce",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "ueid",
-      "claim_description": "The Universal Entity ID",
+      "claim_description": "Universal Entity ID",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "sueids",
-      "claim_description": "Semi-permanent UEIDs",
+      "claim_description": "Semipermanent UEIDs",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "oemid",
       "claim_description": "Hardware OEM ID",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "hwmodel",
       "claim_description": "Model identifier for hardware",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "hwversion",
       "claim_description": "Hardware Version Identifier",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "oemboot",
       "claim_description": "Indicates whether the software booted was OEM authorized",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "dbgstat",
-      "claim_description": "Indicates status of debug facilities",
+      "claim_description": "The status of debug facilities",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "location",
       "claim_description": "The geographic location",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "eat_profile",
-      "claim_description": "Indicates the EAT profile followed",
+      "claim_description": "The EAT profile followed",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "submods",
       "claim_description": "The section containing submodules",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "uptime",
       "claim_description": "Uptime",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "bootcount",
-      "claim_description": "The number times the entity or submodule has been booted",
+      "claim_description": "The number of times the entity or submodule has been booted",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "bootseed",
       "claim_description": "Identifies a boot cycle",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "dloas",
       "claim_description": "Certifications received as Digital Letters of Approval",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "swname",
       "claim_description": "The name of the software running in the entity",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "swversion",
       "claim_description": "The version of software running in the entity",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "manifests",
       "claim_description": "Manifests describing the software installed on the entity",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "measurements",
-      "claim_description": "Measurements of the software, memory configuration and such on the entity",
+      "claim_description": "Measurements of the software, memory configuration, and such on the entity",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "measres",
       "claim_description": "The results of comparing software measurements to reference values",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "intuse",
-      "claim_description": "Indicates intended use of the EAT",
+      "claim_description": "The intended use of the EAT",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
+      "reference": "RFC9711"
     },
     {
       "claim_name": "cdniv",
@@ -702,19 +702,19 @@
       "claim_name": "rcd",
       "claim_description": "Rich Call Data Information",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
+      "reference": "RFC9795"
     },
     {
       "claim_name": "rcdi",
       "claim_description": "Rich Call Data Integrity Information",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
+      "reference": "RFC9795"
     },
     {
       "claim_name": "crn",
       "claim_description": "Call Reason",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
+      "reference": "RFC9795"
     },
     {
       "claim_name": "msgi",
@@ -751,6 +751,96 @@
       "claim_description": "Geohash String or Array",
       "change_controller": "Consumer_Technology_Association",
       "reference": "Fast and Readable Geographical Hashing (CTA-5009)"
+    },
+    {
+      "claim_name": "_sd",
+      "claim_description": "Digests of Disclosures for object properties",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.1"
+    },
+    {
+      "claim_name": "...",
+      "claim_description": "Digest of the Disclosure for an array element",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.2"
+    },
+    {
+      "claim_name": "_sd_alg",
+      "claim_description": "Hash algorithm used to generate Disclosure digests and digest over presentation",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.1.1"
+    },
+    {
+      "claim_name": "sd_hash",
+      "claim_description": "Digest of the SD-JWT to which the KB-JWT is tied",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.3"
+    },
+    {
+      "claim_name": "consumerPlmnId",
+      "claim_description": "PLMN ID of the NF service consumer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "consumerSnpnId",
+      "claim_description": "SNPN ID of the NF service consumer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerPlmnId",
+      "claim_description": "PLMN ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerSnpnId",
+      "claim_description": "SNPN ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerSnssaiList",
+      "claim_description": "List of S-NSSAIs of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerNsiList",
+      "claim_description": "List of NSIs of the NF service produce",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerNfSetId",
+      "claim_description": "NF Set ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "producerNfServiceSetId",
+      "claim_description": "NF Service Set ID of the NF Service Producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "sourceNfInstanceId",
+      "claim_description": "NF Instance ID of the source NF",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "analyticsIdList",
+      "claim_description": "Analytics IDs",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "claim_name": "resOwnerId",
+      "claim_description": "Contains the identifier of the resource owner, e.g., GPSI as specified in clause 5.3.2 of 3GPP TS 29.571.",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.222, Clause 8.5.4.2.8"
     }
   ]
 }

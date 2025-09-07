@@ -5,7 +5,7 @@
       "RFC7591"
     ],
     "datasource_url": "https://www.iana.org/assignments/oauth-parameters/client-metadata.csv",
-    "last_updated": "2025-04-20T20:00:29.698Z"
+    "last_updated": "2025-09-07T00:06:09.151Z"
   },
   "parameters": [
     {
@@ -397,6 +397,24 @@
       "client_metadata_description": "URL of a Web page for the organization owning this client",
       "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
       "reference": "Section 5.2.2 of OpenID Federation 1.0"
+    },
+    {
+      "client_metadata_name": "use_mtls_endpoint_aliases",
+      "client_metadata_description": "URL of a Web page for the organization owning this client",
+      "change_controller": "OpenID_Foundation_FAPI_Working_Group",
+      "reference": "Section 5.2.2.1.1 of FAPI 2.0 Security Profile"
+    },
+    {
+      "client_metadata_name": "encrypted_response_enc_values_supported",
+      "client_metadata_description": "Non-empty array of strings, where each string is a JWE RFC7516 enc algorithm that can be used as the content encryption algorithm for encrypting the Response",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_Working_Group",
+      "reference": "Section 5.1 of OpenID for Verifiable Presentations 1.0"
+    },
+    {
+      "client_metadata_name": "vp_formats_supported",
+      "client_metadata_description": "An object containing a list of name/value pairs, where the name is a string identifying a Credential format supported by the Verifier",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_Working_Group",
+      "reference": "Section 11.1 of OpenID for Verifiable Presentations 1.0"
     }
   ]
 }

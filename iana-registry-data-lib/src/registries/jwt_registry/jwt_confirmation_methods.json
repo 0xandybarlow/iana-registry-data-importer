@@ -5,7 +5,7 @@
       "RFC7800"
     ],
     "datasource_url": "https://www.iana.org/assignments/jwt/confirmation-methods.csv",
-    "last_updated": "2025-04-20T20:00:31.458Z"
+    "last_updated": "2025-09-07T00:06:10.015Z"
   },
   "parameters": [
     {
