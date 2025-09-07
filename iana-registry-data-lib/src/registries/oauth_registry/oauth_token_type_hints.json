@@ -1,27 +1,33 @@
 {
+  "schema_version": 2,
+  "registry_id": "oauth_registry",
+  "dataset_id": "oauth_token_type_hints",
   "name": "OAuth Token Type Hints",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/token-type-hint.csv",
     "required_specifications": [
       "RFC7009"
     ],
-    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/token-type-hint.csv",
-    "last_updated": "2025-09-07T15:12:41.813Z"
+    "last_updated_iso": "2025-09-07T20:03:00.863Z"
   },
-  "parameters": [
+  "entries": [
     {
+      "entry_id": "access_token",
       "hint_value": "access_token",
       "change_controller": "IETF",
       "reference": "RFC7009"
     },
     {
-      "hint_value": "refresh_token",
-      "change_controller": "IETF",
-      "reference": "RFC7009"
-    },
-    {
+      "entry_id": "pct",
       "hint_value": "pct",
       "change_controller": "Kantara_UMA_WG",
       "reference": "UMA 2.0 Grant for OAuth 2.0 - Section 3.7"
+    },
+    {
+      "entry_id": "refresh_token",
+      "hint_value": "refresh_token",
+      "change_controller": "IETF",
+      "reference": "RFC7009"
     }
   ]
 }
