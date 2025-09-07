@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 20
       - name: Install
-        run: npm ci
+        run: npm install
       - name: Build importer
         run: npm run build:importer
       - name: Build library
@@ -24,4 +24,3 @@ jobs:
         run: npm run lint -w importer
       - name: Test importer
         run: npm run test -w importer --if-present
-
