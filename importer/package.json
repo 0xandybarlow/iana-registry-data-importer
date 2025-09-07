@@ -1,6 +1,6 @@
 {
   "name": "registry-importer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "generate-data": "node dist/importAndProcessDatasources.js",
     "check-and-update:v2": "node dist/v2/checkAndUpdate.js",
