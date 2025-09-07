@@ -7,7 +7,8 @@ const parseAsync: (
 ) => Promise<Record<string, string>[]> = promisify(parse);
 
 const removeBrackets = (str: string): string => {
-  return str.replace(/[\[\]]/g, '');
+  // Match literal '[' or ']' inside a character class without escaping '['
+  return str.replace(/[[\]]/g, '');
 };
 const transformKeyName = (key: string): string => {
   return key
@@ -26,7 +27,7 @@ const transformedRecords = (data: Record<string, string>[]) => {
         if (key === 'Reference') {
           const parts = value
             .split('][')
-            .map((item) => item.replace(/[\[\]]/g, '').trim());
+            .map((item) => item.replace(/[[\]]/g, '').trim());
           transformedRecord[transformKeyName(key)] = parts
             .map((part) => part.replace(/, Section/g, ' - Section'))
             .join(', ');

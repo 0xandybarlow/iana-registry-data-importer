@@ -7,7 +7,7 @@
     "generate-data:v2": "node dist/v2/checkAndUpdate.js",
     "build": "tsc",
     "pretty": "prettier --write .",
-    "lint": "eslint .",
+    "lint": "eslint \"src/**/*.ts\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

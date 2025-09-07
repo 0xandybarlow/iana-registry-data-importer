@@ -53,15 +53,23 @@ const writeDataset = async (dataset: RegistryDatasetV2) => {
   await fs.writeFile(outFile, JSON.stringify(dataset, null, 2));
 };
 
+type ExistingV2Like = { entries?: unknown };
+type ExistingV1Like = {
+  parameters?: Record<string, string>[];
+  metadata?: { last_updated?: string; last_processed?: string };
+};
+
 const coerceExistingToV2 = (
-  existing: any,
+  existing: unknown,
   fallback: RegistryDatasetV2,
   primaryKeys: string[],
 ): RegistryDatasetV2 => {
-  if (!existing) return existing;
-  if (Array.isArray((existing as any).entries))
+  if (!existing) return existing as unknown as RegistryDatasetV2;
+  const maybeV2 = existing as ExistingV2Like;
+  if (maybeV2 && Array.isArray(maybeV2.entries))
     return existing as RegistryDatasetV2;
-  const v1Params = (existing as any).parameters;
+  const maybeV1 = existing as ExistingV1Like;
+  const v1Params = maybeV1.parameters;
   if (Array.isArray(v1Params)) {
     const entries = v1Params.map((r: Record<string, string>) =>
       normalizeCsvRecord(r, primaryKeys),
@@ -75,9 +83,9 @@ const coerceExistingToV2 = (
         datasource_url: fallback.metadata.datasource_url,
         required_specifications: fallback.metadata.required_specifications,
         last_updated_iso:
-          (existing.metadata &&
-            (existing.metadata.last_updated ||
-              existing.metadata.last_processed)) ||
+          (maybeV1.metadata &&
+            (maybeV1.metadata.last_updated ||
+              maybeV1.metadata.last_processed)) ||
           fallback.metadata.last_updated_iso,
       },
       entries,
@@ -148,7 +156,8 @@ export const checkAndUpdate = async (): Promise<{
           dataset.dataset_id,
         );
         const isV2Shape =
-          !!existingRaw && Array.isArray((existingRaw as any).entries);
+          !!existingRaw &&
+          Array.isArray((existingRaw as ExistingV2Like).entries);
         const existing = existingRaw
           ? coerceExistingToV2(existingRaw, dataset, primaryKeys)
           : undefined;
