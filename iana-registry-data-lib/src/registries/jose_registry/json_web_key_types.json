@@ -1,15 +1,27 @@
 {
+  "schema_version": 2,
+  "registry_id": "jose_registry",
+  "dataset_id": "json_web_key_types",
   "name": "JSON Web Key Types",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-types.csv",
     "required_specifications": [
       "RFC7518",
       "RFC7638"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jose/web-key-types.csv",
-    "last_updated": "2025-04-20T20:00:30.721Z"
+    "last_updated_iso": "2025-09-07T14:37:13.339Z"
   },
-  "parameters": [
+  "entries": [
     {
+      "entry_id": "AKP",
+      "kty_parameter_value": "AKP",
+      "key_type_description": "Algorithm Key Pair (TEMPORARY - registered 2025-04-24, expires 2026-04-24)",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IETF",
+      "reference": "draft-ietf-cose-dilithium-06"
+    },
+    {
+      "entry_id": "EC",
       "kty_parameter_value": "EC",
       "key_type_description": "Elliptic Curve",
       "jose_implementation_requirements": "Recommended+",
@@ -17,13 +29,7 @@
       "reference": "RFC7518 - Section 6.2"
     },
     {
-      "kty_parameter_value": "RSA",
-      "key_type_description": "RSA",
-      "jose_implementation_requirements": "Required",
-      "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.3"
-    },
-    {
+      "entry_id": "oct",
       "kty_parameter_value": "oct",
       "key_type_description": "Octet sequence",
       "jose_implementation_requirements": "Required",
@@ -31,11 +37,20 @@
       "reference": "RFC7518 - Section 6.4"
     },
     {
+      "entry_id": "OKP",
       "kty_parameter_value": "OKP",
       "key_type_description": "Octet string key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
       "reference": "RFC8037 - Section 2"
+    },
+    {
+      "entry_id": "RSA",
+      "kty_parameter_value": "RSA",
+      "key_type_description": "RSA",
+      "jose_implementation_requirements": "Required",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.3"
     }
   ]
 }

@@ -53,5 +53,5 @@ export interface DatasetChangeSummary {
   added: RegistryEntryV2[];
   removed: RegistryEntryV2[];
   modified: EntryChange[];
+  formatUpgraded?: boolean; // true when v1 file was rewritten to v2 format
 }
-
