@@ -16,7 +16,7 @@ interface DiffResult {
 
 const compareParameters = (oldParams: any[], newParams: any[]): string[] => {
   const changes: string[] = [];
-  
+
   // Check for added parameters
   newParams.forEach((newParam, index) => {
     const oldParam = oldParams[index];
@@ -26,9 +26,11 @@ const compareParameters = (oldParams: any[], newParams: any[]): string[] => {
     }
 
     // Compare each field
-    Object.keys(newParam).forEach(key => {
+    Object.keys(newParam).forEach((key) => {
       if (JSON.stringify(newParam[key]) !== JSON.stringify(oldParam[key])) {
-        changes.push(`Parameter ${index + 1} changed: ${key} from "${oldParam[key]}" to "${newParam[key]}"`);
+        changes.push(
+          `Parameter ${index + 1} changed: ${key} from "${oldParam[key]}" to "${newParam[key]}"`,
+        );
       }
     });
   });
@@ -46,11 +48,17 @@ const compareParameters = (oldParams: any[], newParams: any[]): string[] => {
 export const checkForNewData = async (): Promise<DiffResult> => {
   const result: DiffResult = {
     hasChanges: false,
-    changes: {}
+    changes: {},
   };
 
-  const registriesDir = path.resolve(__dirname, '../../iana-registry-data-lib/src/registries');
-  const backupDir = path.resolve(__dirname, '../../iana-registry-data-lib/src/registries.bak');
+  const registriesDir = path.resolve(
+    __dirname,
+    '../../iana-registry-data-lib/src/registries',
+  );
+  const backupDir = path.resolve(
+    __dirname,
+    '../../iana-registry-data-lib/src/registries.bak',
+  );
 
   try {
     // Create backup of current data
@@ -62,7 +70,7 @@ export const checkForNewData = async (): Promise<DiffResult> => {
 
     // Compare each file
     const files = await fs.readdir(registriesDir, { recursive: true });
-    
+
     for (const file of files) {
       if (!file.endsWith('.json')) continue;
 
@@ -85,14 +93,17 @@ export const checkForNewData = async (): Promise<DiffResult> => {
           delete newCopy.metadata.last_updated;
 
           if (JSON.stringify(oldCopy) !== JSON.stringify(newCopy)) {
-            const parameterChanges = compareParameters(oldData.parameters, newData.parameters);
+            const parameterChanges = compareParameters(
+              oldData.parameters,
+              newData.parameters,
+            );
             if (parameterChanges.length > 0) {
               result.hasChanges = true;
               result.changes[file] = {
                 type: 'modified',
                 details: parameterChanges,
                 oldData,
-                newData
+                newData,
               };
             }
           }
@@ -102,7 +113,7 @@ export const checkForNewData = async (): Promise<DiffResult> => {
           result.changes[file] = {
             type: 'added',
             details: ['New registry file added'],
-            newData: newData
+            newData: newData,
           };
         }
       } catch (err) {
@@ -113,7 +124,7 @@ export const checkForNewData = async (): Promise<DiffResult> => {
         result.changes[file] = {
           type: 'removed',
           details: ['Registry file removed'],
-          oldData
+          oldData,
         };
       }
     }
@@ -127,4 +138,4 @@ export const checkForNewData = async (): Promise<DiffResult> => {
     await fs.rm(backupDir, { recursive: true, force: true });
     throw error;
   }
-}; 
+};

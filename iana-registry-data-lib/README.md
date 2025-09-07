@@ -13,7 +13,7 @@ npm install iana-registry-data-lib
 ## Usage (v2)
 
 ```ts
-import * as OAuth from 'iana-registry-data-lib/dist/index.v2';
+import * as OAuth from 'iana-registry-data-lib';
 import type { V2RegistryDataset } from 'iana-registry-data-lib/dist/types.v2';
 
 const oauthParameters: V2RegistryDataset = OAuth.oauth_parameters;

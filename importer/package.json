@@ -1,6 +1,6 @@
 {
   "name": "registry-importer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "generate-data": "node dist/importAndProcessDatasources.js",
     "check-and-update:v2": "node dist/v2/checkAndUpdate.js",
@@ -12,7 +12,20 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
-  "keywords": ["iana", "registry", "oauth", "jose", "jwt", "rfc", "ietf", "importer", "data", "parser", "json", "csv"],
+  "keywords": [
+    "iana",
+    "registry",
+    "oauth",
+    "jose",
+    "jwt",
+    "rfc",
+    "ietf",
+    "importer",
+    "data",
+    "parser",
+    "json",
+    "csv"
+  ],
   "author": "Andy Barlow",
   "license": "MIT",
   "description": "This code imports and processes data from various IANA registries such as the JOSE, OAuth and JWT registries, it is not available as a package on npm and is intended to be used as a standalone script.",

@@ -1,4 +1,5 @@
-const toBool = (v: string | undefined): boolean => /^(1|true|yes|on)$/i.test(v || '');
+const toBool = (v: string | undefined): boolean =>
+  /^(1|true|yes|on)$/i.test(v || '');
 
 const DEBUG = toBool(process.env.DEBUG_V2);
 
@@ -17,4 +18,3 @@ export const warn = (...args: unknown[]) => {
 export const error = (...args: unknown[]) => {
   console.error(...args);
 };
-
