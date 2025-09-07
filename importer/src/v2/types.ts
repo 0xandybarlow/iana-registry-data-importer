@@ -8,7 +8,7 @@ export type JSONValue =
 export interface JSONObject {
   [key: string]: JSONValue;
 }
-export interface JSONArray extends Array<JSONValue> {}
+export type JSONArray = JSONValue[];
 
 export interface RegistryEntryV2 extends JSONObject {
   entry_id: string; // stable slug/id from primary key(s)
