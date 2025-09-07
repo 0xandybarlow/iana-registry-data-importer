@@ -1,7 +1,7 @@
 import { diffDatasets } from '../v2/compare';
-import { RegistryDatasetV2, RegistryEntryV2 } from '../v2/types';
+import { RegistryDataset, RegistryEntry } from '../v2/types';
 
-const makeDataset = (entries: RegistryEntryV2[]): RegistryDatasetV2 => ({
+const makeDataset = (entries: RegistryEntry[]): RegistryDataset => ({
   schema_version: 2,
   registry_id: 'test_registry',
   dataset_id: 'test_dataset',
