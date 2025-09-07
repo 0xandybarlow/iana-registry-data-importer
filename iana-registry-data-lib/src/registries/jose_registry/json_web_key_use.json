@@ -1,22 +1,27 @@
 {
+  "schema_version": 2,
+  "registry_id": "jose_registry",
+  "dataset_id": "json_web_key_use",
   "name": "JSON Web Key Use",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-use.csv",
     "required_specifications": [
       "RFC7517"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jose/web-key-use.csv",
-    "last_updated": "2025-09-07T15:12:41.923Z"
+    "last_updated_iso": "2025-09-07T20:03:01.080Z"
   },
-  "parameters": [
+  "entries": [
     {
-      "use_member_value": "sig",
-      "use_description": "Digital Signature or MAC",
+      "entry_id": "enc",
+      "use_member_value": "enc",
+      "use_description": "Encryption",
       "change_controller": "IESG",
       "reference": "RFC7517 - Section 4.2"
     },
     {
-      "use_member_value": "enc",
-      "use_description": "Encryption",
+      "entry_id": "sig",
+      "use_member_value": "sig",
+      "use_description": "Digital Signature or MAC",
       "change_controller": "IESG",
       "reference": "RFC7517 - Section 4.2"
     }
