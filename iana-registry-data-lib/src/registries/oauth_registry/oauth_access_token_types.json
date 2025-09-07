@@ -1,18 +1,14 @@
 {
-  "schema_version": 2,
-  "registry_id": "oauth_registry",
-  "dataset_id": "oauth_access_token_types",
   "name": "OAuth Access Token Types",
   "metadata": {
-    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/token-types.csv",
     "required_specifications": [
       "RFC6749, RFC8414"
     ],
-    "last_updated_iso": "2025-09-07T14:51:10.030Z"
+    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/token-types.csv",
+    "last_updated": "2025-09-07T15:12:41.765Z"
   },
-  "entries": [
+  "parameters": [
     {
-      "entry_id": "Bearer",
       "name": "Bearer",
       "additional_token_endpoint_response_parameters": "",
       "http_authentication_scheme": "Bearer",
@@ -20,15 +16,6 @@
       "reference": "RFC6750"
     },
     {
-      "entry_id": "DPoP",
-      "name": "DPoP",
-      "additional_token_endpoint_response_parameters": "",
-      "http_authentication_scheme": "DPoP",
-      "change_controller": "IETF",
-      "reference": "RFC9449"
-    },
-    {
-      "entry_id": "N_A",
       "name": "N_A",
       "additional_token_endpoint_response_parameters": "",
       "http_authentication_scheme": "",
@@ -36,12 +23,18 @@
       "reference": "RFC8693 - Section 2.2.1"
     },
     {
-      "entry_id": "PoP",
       "name": "PoP",
       "additional_token_endpoint_response_parameters": "cnf, rs_cnf (see section 3.1 of RFC8747 and section 3.2 of RFC9201).",
       "http_authentication_scheme": "N/A",
       "change_controller": "IETF",
       "reference": "RFC9200"
+    },
+    {
+      "name": "DPoP",
+      "additional_token_endpoint_response_parameters": "",
+      "http_authentication_scheme": "DPoP",
+      "change_controller": "IETF",
+      "reference": "RFC9449"
     }
   ]
 }
