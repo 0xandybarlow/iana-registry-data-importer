@@ -20,6 +20,6 @@
     "noFallthroughCasesInSwitch": true, // Ensures that switch statements have a default case or break
     "forceConsistentCasingInFileNames": true // Ensures file names are treated with consistent casing
   },
-  "include": ["**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,14 +1,18 @@
 {
+  "schema_version": 2,
+  "registry_id": "jose_registry",
+  "dataset_id": "json_web_key_set_parameters",
   "name": "JSON Web Key Set Parameters",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-set-parameters.csv",
     "required_specifications": [
       "RFC7517"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jose/web-key-set-parameters.csv",
-    "last_updated": "2025-04-20T20:00:31.232Z"
+    "last_updated_iso": "2025-09-07T14:51:12.875Z"
   },
-  "parameters": [
+  "entries": [
     {
+      "entry_id": "keys",
       "parameter_name": "keys",
       "parameter_description": "Array of JWK Values",
       "change_controller": "IESG",

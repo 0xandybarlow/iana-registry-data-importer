@@ -1,0 +1,45 @@
+name: Update IANA Data
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' # Mondays 05:00 UTC
+  workflow_dispatch:
+    inputs:
+      dataset_filter:
+        description: 'Filter datasets (e.g., oauth_registry/oauth_parameters or just oauth_parameters)'
+        required: false
+        default: ''
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install
+        run: npm ci
+      - name: Build importer
+        run: npm run build:importer
+      - name: Build library
+        run: npm run build:lib
+      - name: Run check-and-update (v2)
+        run: npm run check-and-update:v2 -w importer
+        env:
+          DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update data from IANA registries (v2)'
+          title: 'Update data from IANA registries (v2)'
+          body-path: 'CHANGELOG_UPDATE.md'
+          branch: chore/update-iana-data-v2
+          delete-branch: true
+          add-paths: |
+            iana-registry-data-lib/src/registries/**
+            CHANGELOG_UPDATE.md

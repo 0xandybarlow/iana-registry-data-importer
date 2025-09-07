@@ -1,61 +1,81 @@
-# Migration Guide: v1 to v2
+# Migration Guide: v1 → v2
 
-This guide helps you migrate from version 1.x to version 2.0.0 of `iana-registry-data-lib`.
+This guide helps you migrate from version 1.x to 2.x of `iana-registry-data-lib`.
 
-## Breaking Changes
+## Summary of Breaking Changes
 
-### Field Name Change
+- JSON schema now has `schema_version: 2` and uses `entries` instead of `parameters`.
+- Additional top-level fields: `registry_id`, `dataset_id`.
+- Metadata now uses `last_updated_iso` (ISO 8601) instead of `last_updated`.
+- Each entry includes a stable `entry_id` for deterministic tracking.
+- The recommended API entrypoint is now `dist/index.v2.js` (TypeScript: `src/index.v2.ts`).
 
-The `last_processed` field in registry metadata has been renamed to `last_updated`:
+## JSON Shape Changes
 
-```diff
+v1:
+```json
 {
   "name": "OAuth Parameters",
-  "metadata": {
-    "required_specifications": ["RFC6749"],
-    "datasource_url": "https://www.iana.org/assignments/oauth-parameters/oauth-parameters-1.csv",
--   "last_processed": "2024-01-01T00:00:00.000Z"
-+   "last_updated": "2024-01-01T00:00:00.000Z"
-  },
-  "parameters": [...]
+  "metadata": { "required_specifications": ["RFC6749"], "datasource_url": "…", "last_updated": "…" },
+  "parameters": [ { "parameter": "…", "reference": "…" } ]
 }
 ```
 
-### Timestamp Behavior Change
+v2:
+```json
+{
+  "schema_version": 2,
+  "registry_id": "oauth_registry",
+  "dataset_id": "oauth_parameters",
+  "name": "OAuth Parameters",
+  "metadata": { "required_specifications": ["RFC6749"], "datasource_url": "…", "last_updated_iso": "…" },
+  "entries": [ { "entry_id": "oauth_parameters_param", "parameter": "…", "reference": "…" } ]
+}
+```
 
-The timestamp field now only updates when actual data changes occur:
-- In v1: The timestamp was updated every time the data was processed
-- In v2: The timestamp only updates when the registry data actually changes
+Key mappings:
+- `parameters` → `entries`
+- `last_updated` → `last_updated_iso`
+
+## Importing Data
+
+TypeScript/ESM:
+```ts
+// v2 API (recommended)
+import * as OAuth from 'iana-registry-data-lib/dist/index.v2';
+import type { V2RegistryDataset } from 'iana-registry-data-lib/dist/types.v2';
+
+const dataset: V2RegistryDataset = OAuth.oauth_parameters; // named exports per dataset
+```
+
+CommonJS:
+```js
+const OAuth = require('iana-registry-data-lib/dist/index.v2.js');
+const dataset = OAuth.oauth_parameters;
+```
+
+Direct JSON import:
+```ts
+import oauth_parameters from 'iana-registry-data-lib/dist/registries/oauth_registry/oauth_parameters.json';
+```
 
 ## Migration Steps
 
-1. Update your package.json:
+1. Bump dependency:
 ```json
 {
-  "dependencies": {
-    "iana-registry-data-lib": "^2.0.0"
-  }
+  "dependencies": { "iana-registry-data-lib": "^2.0.0" }
 }
 ```
+2. Replace usages of `parameters` with `entries`.
+3. Replace `metadata.last_updated` with `metadata.last_updated_iso`.
+4. If you relied on class-based wrappers (`OAuthRegistry.*`), switch to named exports from `index.v2` or import JSON directly.
 
-2. Update any code that references the `last_processed` field:
-```typescript
-// Before
-const lastProcessed = registry.metadata.last_processed;
+## Notes
 
-// After
-const lastUpdated = registry.metadata.last_updated;
-```
-
-3. Update any documentation or tests that reference the old field name
-
-## Benefits of Upgrading
-
-- More accurate timestamps that reflect actual data changes
-- Better change detection and logging
-- Improved data consistency
-- Enhanced GitHub Actions workflow for automated updates
+- Entries and objects are normalized and sorted deterministically; key order is stable.
+- `entry_id` is derived from primary key fields to support consistent diffing.
 
 ## Support
 
-If you encounter any issues during migration, please open an issue in the GitHub repository. 
+Open an issue in the GitHub repository if you hit migration problems.
