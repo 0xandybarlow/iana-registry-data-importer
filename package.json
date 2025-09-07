@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "import-data": "npm run generate-data -w importer",
+    "import-data:v2": "npm run check-and-update:v2 -w importer",
     "publish-data": "cd iana-registry-data-lib && npm publish",
     "build:lib": "npm run build -w iana-registry-data-lib",
     "build:importer": "npm run build -w importer"
