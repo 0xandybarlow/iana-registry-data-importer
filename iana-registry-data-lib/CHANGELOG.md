@@ -5,21 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - 2024-07-09
+## [2.0.0] - 2025-09-07
 
 ### Breaking Changes
-- Changed `last_processed` field to `last_updated` in registry metadata
-  - This field now only updates when actual data changes occur
-  - The timestamp reflects when the data was last modified, not just when it was processed
+- New JSON schema (v2):
+  - Adds `schema_version: 2`, `registry_id`, and `dataset_id`.
+  - Renames `parameters` → `entries`.
+  - Metadata timestamp renamed to `last_updated_iso` (ISO 8601).
+- Stable entry identifiers:
+  - Every entry has `entry_id` derived from raw/cleaned primary key fields.
+- Library API:
+  - Default entrypoint is now the package root `iana-registry-data-lib` (Main: `dist/index.js`).
+  - Class wrappers replaced by plain named exports under namespace (e.g., `import * as OAuth from 'iana-registry-data-lib'`).
+  - Direct JSON imports should use `dist/registries/.../*.json`.
+
+See `MIGRATION.md` for detailed guidance and examples.
 
 ### Added
-- Improved change detection in registry data
-- Detailed logging of parameter changes
-- Better handling of data migrations
+- Deterministic normalization (key casing, whitespace cleanup) and output ordering.
+- Semantic diffing that ignores ordering/timestamps; classifies adds/removes/field changes.
+- Automated weekly update workflow that opens PRs with a concise changelog.
+- Format upgrade: v1 files are rewritten to v2 even when content is identical.
 
 ### Changed
-- Enhanced GitHub Actions workflow to only create PRs when actual changes are detected
-- Improved error handling and logging
+- CI and workflows aligned to Node 20; monorepo build for importer and library.
+- Release flow publishes on tags matching `iana-registry-data-lib@*` using `NPM_AUTOMATION_TOKEN`.
 
 ## [1.0.0] - 2024-01-01
 

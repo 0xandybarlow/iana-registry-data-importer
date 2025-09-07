@@ -1,8 +1,4 @@
-import JsonWebTokenClaims from './json_web_token_claims.json';
-import JwtConfirmationMethods from './jwt_confirmation_methods.json'
+import json_web_token_claims from './json_web_token_claims.json';
+import jwt_confirmation_methods from './jwt_confirmation_methods.json';
 
-
-export class JWTRegistry {
-  public static JsonWebTokenClaims = JsonWebTokenClaims;
-  public static JwtConfirmationMethods = JwtConfirmationMethods;
-}
+export { json_web_token_claims, jwt_confirmation_methods };
