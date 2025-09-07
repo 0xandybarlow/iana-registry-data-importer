@@ -1,4 +1,9 @@
-import { JSONObject, JSONValue, RegistryDatasetV2, RegistryEntryV2 } from './types';
+import {
+  JSONObject,
+  JSONValue,
+  RegistryDatasetV2,
+  RegistryEntryV2,
+} from './types';
 
 const toSnakeCase = (str: string): string =>
   str
@@ -27,10 +32,12 @@ const deepMapKeysSnakeCase = (obj: JSONObject): JSONObject => {
     const v = obj[k];
     const nk = toSnakeCase(k);
     out[nk] = Array.isArray(v)
-      ? (v as JSONValue[]).map((item) => (typeof item === 'string' ? cleanText(item) : item))
+      ? (v as JSONValue[]).map((item) =>
+          typeof item === 'string' ? cleanText(item) : item,
+        )
       : typeof v === 'string'
-      ? cleanText(v)
-      : (v as JSONValue);
+        ? cleanText(v)
+        : (v as JSONValue);
   });
   return out;
 };
@@ -44,7 +51,10 @@ export const normalizeCsvRecord = (
     .map((k) => normalized[toSnakeCase(k)])
     .map((v) => (v == null ? '' : String(v).trim()))
     .filter((v) => v.length > 0);
-  const entry_id = pkParts.length > 0 ? pkParts.join(' | ') : cleanText(JSON.stringify(normalized));
+  const entry_id =
+    pkParts.length > 0
+      ? pkParts.join(' | ')
+      : cleanText(JSON.stringify(normalized));
   return { entry_id, ...normalized } as RegistryEntryV2;
 };
 
@@ -67,7 +77,9 @@ export const deepSortObject = (obj: JSONObject): JSONObject => {
     .forEach((k) => {
       const v = obj[k];
       if (Array.isArray(v)) {
-        sorted[k] = v.map((i) => (typeof i === 'object' && i !== null ? i : i)) as JSONValue;
+        sorted[k] = v.map((i) =>
+          typeof i === 'object' && i !== null ? i : i,
+        ) as JSONValue;
       } else if (typeof v === 'object' && v !== null) {
         sorted[k] = deepSortObject(v as JSONObject);
       } else {

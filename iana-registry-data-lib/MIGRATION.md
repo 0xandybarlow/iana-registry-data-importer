@@ -39,10 +39,9 @@ Key mappings:
 
 ## Importing Data
 
-TypeScript/ESM:
+TypeScript/ESM (v2 default):
 ```ts
-// v2 API (recommended)
-import * as OAuth from 'iana-registry-data-lib/dist/index.v2';
+import * as OAuth from 'iana-registry-data-lib';
 import type { V2RegistryDataset } from 'iana-registry-data-lib/dist/types.v2';
 
 const dataset: V2RegistryDataset = OAuth.oauth_parameters; // named exports per dataset
@@ -50,7 +49,7 @@ const dataset: V2RegistryDataset = OAuth.oauth_parameters; // named exports per 
 
 CommonJS:
 ```js
-const OAuth = require('iana-registry-data-lib/dist/index.v2.js');
+const OAuth = require('iana-registry-data-lib');
 const dataset = OAuth.oauth_parameters;
 ```
 

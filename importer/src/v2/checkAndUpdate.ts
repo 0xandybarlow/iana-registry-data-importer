@@ -15,8 +15,19 @@ const LIB_DATA_ROOT = path.resolve(
 );
 
 const detectPrimaryKeys = (record: Record<string, string>): string[] => {
-  const preferred = ['name', 'value', 'parameter', 'claim', 'alg', 'type', 'token_type', 'uri'];
-  const keys = Object.keys(record).map((k) => k.toLowerCase().replace(/\s+/g, '_'));
+  const preferred = [
+    'name',
+    'value',
+    'parameter',
+    'claim',
+    'alg',
+    'type',
+    'token_type',
+    'uri',
+  ];
+  const keys = Object.keys(record).map((k) =>
+    k.toLowerCase().replace(/\s+/g, '_'),
+  );
   const hit = preferred.find((p) => keys.includes(p));
   return hit ? [hit] : [keys[0]];
 };
@@ -48,10 +59,13 @@ const coerceExistingToV2 = (
   primaryKeys: string[],
 ): RegistryDatasetV2 => {
   if (!existing) return existing;
-  if (Array.isArray((existing as any).entries)) return existing as RegistryDatasetV2;
+  if (Array.isArray((existing as any).entries))
+    return existing as RegistryDatasetV2;
   const v1Params = (existing as any).parameters;
   if (Array.isArray(v1Params)) {
-    const entries = v1Params.map((r: Record<string, string>) => normalizeCsvRecord(r, primaryKeys));
+    const entries = v1Params.map((r: Record<string, string>) =>
+      normalizeCsvRecord(r, primaryKeys),
+    );
     return {
       schema_version: 2,
       registry_id: fallback.registry_id,
@@ -61,7 +75,9 @@ const coerceExistingToV2 = (
         datasource_url: fallback.metadata.datasource_url,
         required_specifications: fallback.metadata.required_specifications,
         last_updated_iso:
-          (existing.metadata && (existing.metadata.last_updated || existing.metadata.last_processed)) ||
+          (existing.metadata &&
+            (existing.metadata.last_updated ||
+              existing.metadata.last_processed)) ||
           fallback.metadata.last_updated_iso,
       },
       entries,
@@ -78,21 +94,31 @@ const getFilter = () => {
   return (fromFlag || fromEnv || '').toLowerCase();
 };
 
-export const checkAndUpdate = async (): Promise<{ changed: boolean; summaries: DatasetChangeSummary[] }> => {
+export const checkAndUpdate = async (): Promise<{
+  changed: boolean;
+  summaries: DatasetChangeSummary[];
+}> => {
   const summaries: DatasetChangeSummary[] = [];
   const filter = getFilter();
 
   for (const reg of REGISTRIES_V2) {
     for (const ds of reg.sources) {
       const key = `${ds.registry_id}/${ds.dataset_id}`.toLowerCase();
-      if (filter && !key.includes(filter) && !ds.dataset_id.toLowerCase().includes(filter)) {
+      if (
+        filter &&
+        !key.includes(filter) &&
+        !ds.dataset_id.toLowerCase().includes(filter)
+      ) {
         continue;
       }
       try {
         const csv = await getData(ds.url);
         const rows = await csvToObject(csv);
-        const sampleRow = Array.isArray(rows) && rows.length ? rows[0] : undefined;
-        const detectedKeys = sampleRow ? detectPrimaryKeys(sampleRow) : ['name'];
+        const sampleRow =
+          Array.isArray(rows) && rows.length ? rows[0] : undefined;
+        const detectedKeys = sampleRow
+          ? detectPrimaryKeys(sampleRow)
+          : ['name'];
         const primaryKeys = ds.primary_keys ?? detectedKeys;
         debug(
           `[v2] Detected primary keys for ${ds.registry_id}/${ds.dataset_id}: ${primaryKeys.join(', ')}`,
@@ -101,7 +127,9 @@ export const checkAndUpdate = async (): Promise<{ changed: boolean; summaries: D
           `[v2] Rows type for ${ds.dataset_id}: ${Array.isArray(rows) ? 'array' : typeof rows}`,
         );
         if (Array.isArray(rows) && sampleRow) {
-          debug(`[v2] Sample keys for ${ds.dataset_id}: ${Object.keys(sampleRow).join(', ')}`);
+          debug(
+            `[v2] Sample keys for ${ds.dataset_id}: ${Object.keys(sampleRow).join(', ')}`,
+          );
         }
         const entries = Array.isArray(rows)
           ? rows.map((r) => normalizeCsvRecord(r, primaryKeys))
@@ -115,8 +143,12 @@ export const checkAndUpdate = async (): Promise<{ changed: boolean; summaries: D
           entries,
         });
 
-        const existingRaw = await readExistingDataset(dataset.registry_id, dataset.dataset_id);
-        const isV2Shape = !!existingRaw && Array.isArray((existingRaw as any).entries);
+        const existingRaw = await readExistingDataset(
+          dataset.registry_id,
+          dataset.dataset_id,
+        );
+        const isV2Shape =
+          !!existingRaw && Array.isArray((existingRaw as any).entries);
         const existing = existingRaw
           ? coerceExistingToV2(existingRaw, dataset, primaryKeys)
           : undefined;

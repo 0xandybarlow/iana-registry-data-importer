@@ -6,7 +6,11 @@ const makeDataset = (entries: any[]): RegistryDatasetV2 => ({
   registry_id: 'test_registry',
   dataset_id: 'test_dataset',
   name: 'Test Dataset',
-  metadata: { datasource_url: 'url', required_specifications: [], last_updated_iso: '2020-01-01T00:00:00.000Z' },
+  metadata: {
+    datasource_url: 'url',
+    required_specifications: [],
+    last_updated_iso: '2020-01-01T00:00:00.000Z',
+  },
   entries,
 });
 
@@ -32,4 +36,3 @@ describe('diffDatasets', () => {
     expect(diff.hasChanges).toBe(false);
   });
 });
-
