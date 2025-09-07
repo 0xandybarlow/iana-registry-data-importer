@@ -10,6 +10,9 @@ export const renderDatasetChangelog = (sum: DatasetChangeSummary): string => {
   if (!sum.hasChanges) return '';
   const lines: string[] = [];
   lines.push(`### ${sum.name} (${sum.registry_id}/${sum.dataset_id})`);
+  if (sum.formatUpgraded) {
+    lines.push(`- Format: upgraded to v2 schema`);
+  }
   if (sum.added.length) {
     lines.push(`- Added: ${sum.added.length}`);
   }
@@ -40,4 +43,3 @@ export const renderChangelogBody = (summaries: DatasetChangeSummary[]): string =
   if (parts.length === 0) return 'No data changes detected.';
   return ['## IANA Registry Data Updates', '', ...parts].join('\n');
 };
-

@@ -1,36 +1,19 @@
 {
+  "schema_version": 2,
+  "registry_id": "jose_registry",
+  "dataset_id": "json_web_key_elliptic_curve",
   "name": "JSON Web Key Elliptic Curve",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-elliptic-curve.csv",
     "required_specifications": [
       "RFC7518",
       "RFC7638"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jose/web-key-elliptic-curve.csv",
-    "last_updated": "2025-04-20T20:00:30.822Z"
+    "last_updated_iso": "2025-09-07T14:51:12.235Z"
   },
-  "parameters": [
+  "entries": [
     {
-      "curve_name": "P-256",
-      "curve_description": "P-256 Curve",
-      "jose_implementation_requirements": "Recommended+",
-      "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
-    },
-    {
-      "curve_name": "P-384",
-      "curve_description": "P-384 Curve",
-      "jose_implementation_requirements": "Optional",
-      "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
-    },
-    {
-      "curve_name": "P-521",
-      "curve_description": "P-521 Curve",
-      "jose_implementation_requirements": "Optional",
-      "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
-    },
-    {
+      "entry_id": "Ed25519",
       "curve_name": "Ed25519",
       "curve_description": "Ed25519 signature algorithm key pairs",
       "jose_implementation_requirements": "Optional",
@@ -38,6 +21,7 @@
       "reference": "RFC8037 - Section 3.1"
     },
     {
+      "entry_id": "Ed448",
       "curve_name": "Ed448",
       "curve_description": "Ed448 signature algorithm key pairs",
       "jose_implementation_requirements": "Optional",
@@ -45,6 +29,39 @@
       "reference": "RFC8037 - Section 3.1"
     },
     {
+      "entry_id": "P-256",
+      "curve_name": "P-256",
+      "curve_description": "P-256 Curve",
+      "jose_implementation_requirements": "Recommended+",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.2.1.1"
+    },
+    {
+      "entry_id": "P-384",
+      "curve_name": "P-384",
+      "curve_description": "P-384 Curve",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.2.1.1"
+    },
+    {
+      "entry_id": "P-521",
+      "curve_name": "P-521",
+      "curve_description": "P-521 Curve",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IESG",
+      "reference": "RFC7518 - Section 6.2.1.1"
+    },
+    {
+      "entry_id": "secp256k1",
+      "curve_name": "secp256k1",
+      "curve_description": "SECG secp256k1 curve",
+      "jose_implementation_requirements": "Optional",
+      "change_controller": "IESG",
+      "reference": "RFC8812 - Section 3.1"
+    },
+    {
+      "entry_id": "X25519",
       "curve_name": "X25519",
       "curve_description": "X25519 function key pairs",
       "jose_implementation_requirements": "Optional",
@@ -52,18 +69,12 @@
       "reference": "RFC8037 - Section 3.2"
     },
     {
+      "entry_id": "X448",
       "curve_name": "X448",
       "curve_description": "X448 function key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
       "reference": "RFC8037 - Section 3.2"
-    },
-    {
-      "curve_name": "secp256k1",
-      "curve_description": "SECG secp256k1 curve",
-      "jose_implementation_requirements": "Optional",
-      "change_controller": "IESG",
-      "reference": "RFC8812 - Section 3.1"
     }
   ]
 }

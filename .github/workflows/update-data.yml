@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 5 * * 1' # Mondays 05:00 UTC
   workflow_dispatch:
+    inputs:
+      dataset_filter:
+        description: 'Filter datasets (e.g., oauth_registry/oauth_parameters or just oauth_parameters)'
+        required: false
+        default: ''
 
 jobs:
   update:
@@ -20,8 +25,12 @@ jobs:
         run: npm ci
       - name: Build importer
         run: npm run build:importer
+      - name: Build library
+        run: npm run build:lib
       - name: Run check-and-update (v2)
         run: npm run check-and-update:v2 -w importer
+        env:
+          DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -34,4 +43,3 @@ jobs:
           add-paths: |
             iana-registry-data-lib/src/registries/**
             CHANGELOG_UPDATE.md
-

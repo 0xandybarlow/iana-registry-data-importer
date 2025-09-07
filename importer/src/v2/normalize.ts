@@ -17,10 +17,9 @@ export const cleanText = (str: string): string =>
     .replace(/, Section/g, ' - Section')
     .trim();
 
-export const stableSlug = (input: string): string =>
-  toSnakeCase(input)
-    .replace(/_{2,}/g, '_')
-    .slice(0, 120);
+// no hash fallback is used; keep IDs raw/cleaned for consistency
+
+export const stableSlug = (input: string): string => cleanText(String(input));
 
 const deepMapKeysSnakeCase = (obj: JSONObject): JSONObject => {
   const out: JSONObject = {};
@@ -41,11 +40,11 @@ export const normalizeCsvRecord = (
   primaryKeyFields: string[],
 ): RegistryEntryV2 => {
   const normalized = deepMapKeysSnakeCase(record as unknown as JSONObject);
-  const pk = primaryKeyFields
+  const pkParts = primaryKeyFields
     .map((k) => normalized[toSnakeCase(k)])
-    .filter(Boolean)
-    .join('_');
-  const entry_id = stableSlug(pk || JSON.stringify(normalized));
+    .map((v) => (v == null ? '' : String(v).trim()))
+    .filter((v) => v.length > 0);
+  const entry_id = pkParts.length > 0 ? pkParts.join(' | ') : cleanText(JSON.stringify(normalized));
   return { entry_id, ...normalized } as RegistryEntryV2;
 };
 
@@ -100,4 +99,3 @@ export const buildDatasetV2 = (args: {
     entries,
   };
 };
-

@@ -1,756 +1,988 @@
 {
+  "schema_version": 2,
+  "registry_id": "jwt_registry",
+  "dataset_id": "json_web_token_claims",
   "name": "JSON Web Token Claims",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jwt/claims.csv",
     "required_specifications": [
       "RFC7519"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jwt/claims.csv",
-    "last_updated": "2025-04-20T20:00:31.351Z"
+    "last_updated_iso": "2025-09-07T14:37:14.159Z"
   },
-  "parameters": [
+  "entries": [
     {
-      "claim_name": "iss",
-      "claim_description": "Issuer",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.1"
-    },
-    {
-      "claim_name": "sub",
-      "claim_description": "Subject",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.2"
-    },
-    {
-      "claim_name": "aud",
-      "claim_description": "Audience",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.3"
-    },
-    {
-      "claim_name": "exp",
-      "claim_description": "Expiration Time",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.4"
-    },
-    {
-      "claim_name": "nbf",
-      "claim_description": "Not Before",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.5"
-    },
-    {
-      "claim_name": "iat",
-      "claim_description": "Issued At",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.6"
-    },
-    {
-      "claim_name": "jti",
-      "claim_description": "JWT ID",
-      "change_controller": "IESG",
-      "reference": "RFC7519 - Section 4.1.7"
-    },
-    {
-      "claim_name": "name",
-      "claim_description": "Full name",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "given_name",
-      "claim_description": "Given name(s) or first name(s)",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "family_name",
-      "claim_description": "Surname(s) or last name(s)",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "middle_name",
-      "claim_description": "Middle name(s)",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "nickname",
-      "claim_description": "Casual name",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "preferred_username",
-      "claim_description": "Shorthand name by which the End-User wishes to be referred to",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "profile",
-      "claim_description": "Profile page URL",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "picture",
-      "claim_description": "Profile picture URL",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "website",
-      "claim_description": "Web page or blog URL",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "email",
-      "claim_description": "Preferred e-mail address",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "email_verified",
-      "claim_description": "True if the e-mail address has been verified; otherwise false",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "gender",
-      "claim_description": "Gender",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "birthdate",
-      "claim_description": "Birthday",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "zoneinfo",
-      "claim_description": "Time zone",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "locale",
-      "claim_description": "Locale",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "phone_number",
-      "claim_description": "Preferred telephone number",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "phone_number_verified",
-      "claim_description": "True if the phone number has been verified; otherwise false",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "address",
-      "claim_description": "Preferred postal address",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "updated_at",
-      "claim_description": "Time the information was last updated",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 5.1"
-    },
-    {
-      "claim_name": "azp",
-      "claim_description": "Authorized party - the party to which the ID Token was issued",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2"
-    },
-    {
-      "claim_name": "nonce",
-      "claim_description": "Value used to associate a Client session with an ID Token (MAY also be used for nonce values in other applications of JWTs)",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2, RFC9449"
-    },
-    {
-      "claim_name": "auth_time",
-      "claim_description": "Time when the authentication occurred",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2"
-    },
-    {
-      "claim_name": "at_hash",
-      "claim_description": "Access Token hash value",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2"
-    },
-    {
-      "claim_name": "c_hash",
-      "claim_description": "Code hash value",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 3.3.2.11"
-    },
-    {
-      "claim_name": "acr",
-      "claim_description": "Authentication Context Class Reference",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2"
-    },
-    {
-      "claim_name": "amr",
-      "claim_description": "Authentication Methods References",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 2"
-    },
-    {
-      "claim_name": "sub_jwk",
-      "claim_description": "Public key used to check the signature of an ID Token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Core 1.0 - Section 7.4"
-    },
-    {
-      "claim_name": "cnf",
-      "claim_description": "Confirmation",
-      "change_controller": "IESG",
-      "reference": "RFC7800 - Section 3.1"
-    },
-    {
-      "claim_name": "sip_from_tag",
-      "claim_description": "SIP From tag header field parameter value",
-      "change_controller": "IESG",
-      "reference": "RFC8055, RFC3261"
-    },
-    {
-      "claim_name": "sip_date",
-      "claim_description": "SIP Date header field value",
-      "change_controller": "IESG",
-      "reference": "RFC8055, RFC3261"
-    },
-    {
-      "claim_name": "sip_callid",
-      "claim_description": "SIP Call-Id header field value",
-      "change_controller": "IESG",
-      "reference": "RFC8055, RFC3261"
-    },
-    {
-      "claim_name": "sip_cseq_num",
-      "claim_description": "SIP CSeq numeric header field parameter value",
-      "change_controller": "IESG",
-      "reference": "RFC8055, RFC3261"
-    },
-    {
-      "claim_name": "sip_via_branch",
-      "claim_description": "SIP Via branch header field parameter value",
-      "change_controller": "IESG",
-      "reference": "RFC8055, RFC3261"
-    },
-    {
-      "claim_name": "orig",
-      "claim_description": "Originating Identity String",
-      "change_controller": "IESG",
-      "reference": "RFC8225 - Section 5.2.1"
-    },
-    {
-      "claim_name": "dest",
-      "claim_description": "Destination Identity String",
-      "change_controller": "IESG",
-      "reference": "RFC8225 - Section 5.2.1"
-    },
-    {
-      "claim_name": "mky",
-      "claim_description": "Media Key Fingerprint String",
-      "change_controller": "IESG",
-      "reference": "RFC8225 - Section 5.2.2"
-    },
-    {
-      "claim_name": "events",
-      "claim_description": "Security Events",
-      "change_controller": "IESG",
-      "reference": "RFC8417 - Section 2.2"
-    },
-    {
-      "claim_name": "toe",
-      "claim_description": "Time of Event",
-      "change_controller": "IESG",
-      "reference": "RFC8417 - Section 2.2"
-    },
-    {
-      "claim_name": "txn",
-      "claim_description": "Transaction Identifier",
-      "change_controller": "IESG",
-      "reference": "RFC8417 - Section 2.2"
-    },
-    {
-      "claim_name": "rph",
-      "claim_description": "Resource Priority Header Authorization",
-      "change_controller": "IESG",
-      "reference": "RFC8443 - Section 3"
-    },
-    {
-      "claim_name": "sid",
-      "claim_description": "Session ID",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
-      "reference": "OpenID Connect Front-Channel Logout 1.0 - Section 3"
-    },
-    {
-      "claim_name": "vot",
-      "claim_description": "Vector of Trust value",
-      "change_controller": "IESG",
-      "reference": "RFC8485"
-    },
-    {
-      "claim_name": "vtm",
-      "claim_description": "Vector of Trust trustmark URL",
-      "change_controller": "IESG",
-      "reference": "RFC8485"
-    },
-    {
-      "claim_name": "attest",
-      "claim_description": "Attestation level as defined in SHAKEN framework",
-      "change_controller": "IESG",
-      "reference": "RFC8588"
-    },
-    {
-      "claim_name": "origid",
-      "claim_description": "Originating Identifier as defined in SHAKEN framework",
-      "change_controller": "IESG",
-      "reference": "RFC8588"
-    },
-    {
-      "claim_name": "act",
-      "claim_description": "Actor",
-      "change_controller": "IESG",
-      "reference": "RFC8693 - Section 4.1"
-    },
-    {
-      "claim_name": "scope",
-      "claim_description": "Scope Values",
-      "change_controller": "IESG",
-      "reference": "RFC8693 - Section 4.2"
-    },
-    {
-      "claim_name": "client_id",
-      "claim_description": "Client Identifier",
-      "change_controller": "IESG",
-      "reference": "RFC8693 - Section 4.3"
-    },
-    {
-      "claim_name": "may_act",
-      "claim_description": "Authorized Actor - the party that is authorized to become the actor",
-      "change_controller": "IESG",
-      "reference": "RFC8693 - Section 4.4"
-    },
-    {
-      "claim_name": "jcard",
-      "claim_description": "jCard data",
-      "change_controller": "IESG",
-      "reference": "RFC8688, RFC7095"
-    },
-    {
-      "claim_name": "at_use_nbr",
-      "claim_description": "Number of API requests for which the access token can be used",
-      "change_controller": "ETSI",
-      "reference": "ETSI GS NFV-SEC 022 V2.7.1"
-    },
-    {
-      "claim_name": "div",
-      "claim_description": "Diverted Target of a Call",
-      "change_controller": "IESG",
-      "reference": "RFC8946"
-    },
-    {
-      "claim_name": "opt",
-      "claim_description": "Original PASSporT (in Full Form)",
-      "change_controller": "IESG",
-      "reference": "RFC8946"
-    },
-    {
-      "claim_name": "vc",
-      "claim_description": "Verifiable Credential as specified in the W3C Recommendation",
-      "change_controller": "IESG",
-      "reference": "W3C Recommendation\n  Verifiable Credentials Data Model 1.0 - Expressing verifiable information on the Web (19 November 2019) - Section 6.3.1"
-    },
-    {
-      "claim_name": "vp",
-      "claim_description": "Verifiable Presentation as specified in the W3C Recommendation",
-      "change_controller": "IESG",
-      "reference": "W3C Recommendation\n  Verifiable Credentials Data Model 1.0 - Expressing verifiable information on the Web (19 November 2019) - Section 6.3.1"
-    },
-    {
-      "claim_name": "sph",
-      "claim_description": "SIP Priority header field",
-      "change_controller": "IESG",
-      "reference": "RFC9027"
-    },
-    {
-      "claim_name": "ace_profile",
-      "claim_description": "The ACE profile a token is supposed to be used with.",
-      "change_controller": "IETF",
-      "reference": "RFC9200 - Section 5.10"
-    },
-    {
-      "claim_name": "cnonce",
-      "claim_description": "\"client-nonce\". A nonce previously provided to the AS by the RS via the client. Used to verify token freshness when the RS cannot synchronize its clock with the AS.",
-      "change_controller": "IETF",
-      "reference": "RFC9200 - Section 5.10"
-    },
-    {
-      "claim_name": "exi",
-      "claim_description": "\"Expires in\". Lifetime of the token in seconds from the time the RS first sees it. Used to implement a weaker from of token expiration for devices that cannot synchronize their internal clocks.",
-      "change_controller": "IETF",
-      "reference": "RFC9200 - Section 5.10.3"
-    },
-    {
-      "claim_name": "roles",
-      "claim_description": "Roles",
-      "change_controller": "IETF",
-      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
-    },
-    {
-      "claim_name": "groups",
-      "claim_description": "Groups",
-      "change_controller": "IETF",
-      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
-    },
-    {
-      "claim_name": "entitlements",
-      "claim_description": "Entitlements",
-      "change_controller": "IETF",
-      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
-    },
-    {
-      "claim_name": "token_introspection",
-      "claim_description": "Token introspection response",
-      "change_controller": "IETF",
-      "reference": "RFC9701 - Section 5"
-    },
-    {
-      "claim_name": "eat_nonce",
-      "claim_description": "Nonce",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "ueid",
-      "claim_description": "The Universal Entity ID",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "sueids",
-      "claim_description": "Semi-permanent UEIDs",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "oemid",
-      "claim_description": "Hardware OEM ID",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "hwmodel",
-      "claim_description": "Model identifier for hardware",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "hwversion",
-      "claim_description": "Hardware Version Identifier",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "oemboot",
-      "claim_description": "Indicates whether the software booted was OEM authorized",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "dbgstat",
-      "claim_description": "Indicates status of debug facilities",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "location",
-      "claim_description": "The geographic location",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "eat_profile",
-      "claim_description": "Indicates the EAT profile followed",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "submods",
-      "claim_description": "The section containing submodules",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "uptime",
-      "claim_description": "Uptime",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "bootcount",
-      "claim_description": "The number times the entity or submodule has been booted",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "bootseed",
-      "claim_description": "Identifies a boot cycle",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "dloas",
-      "claim_description": "Certifications received as Digital Letters of Approval",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "swname",
-      "claim_description": "The name of the software running in the entity",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "swversion",
-      "claim_description": "The version of software running in the entity",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "manifests",
-      "claim_description": "Manifests describing the software installed on the entity",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "measurements",
-      "claim_description": "Measurements of the software, memory configuration and such on the entity",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "measres",
-      "claim_description": "The results of comparing software measurements to reference values",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "intuse",
-      "claim_description": "Indicates intended use of the EAT",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-rats-eat-30"
-    },
-    {
-      "claim_name": "cdniv",
-      "claim_description": "CDNI Claim Set Version",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.8"
-    },
-    {
-      "claim_name": "cdnicrit",
-      "claim_description": "CDNI Critical Claims Set",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.9"
-    },
-    {
-      "claim_name": "cdniip",
-      "claim_description": "CDNI IP Address",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.10"
-    },
-    {
-      "claim_name": "cdniuc",
-      "claim_description": "CDNI URI Container",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.11"
-    },
-    {
-      "claim_name": "cdniets",
-      "claim_description": "CDNI Expiration Time Setting for Signed Token Renewal",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.12"
-    },
-    {
-      "claim_name": "cdnistt",
-      "claim_description": "CDNI Signed Token Transport Method for Signed Token Renewal",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.13"
-    },
-    {
-      "claim_name": "cdnistd",
-      "claim_description": "CDNI Signed Token Depth",
-      "change_controller": "IETF",
-      "reference": "RFC9246 - Section 2.1.14"
-    },
-    {
-      "claim_name": "sig_val_claims",
-      "claim_description": "Signature Validation Token",
-      "change_controller": "IETF",
-      "reference": "RFC9321 - Section 3.2.3"
-    },
-    {
-      "claim_name": "authorization_details",
-      "claim_description": "The claim authorization_details contains a JSON array of JSON objects representing the rights of the access token. Each JSON object contains the data to specify the authorization requirements for a certain type of resource.",
-      "change_controller": "IETF",
-      "reference": "RFC9396 - Section 9.1"
-    },
-    {
-      "claim_name": "verified_claims",
-      "claim_description": "A structured claim containing end-user claims and the details of how those end-user claims were assured.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Identity Assurance Schema Definition 1.0 - Section 5"
-    },
-    {
-      "claim_name": "place_of_birth",
-      "claim_description": "A structured claim representing the end-user's place of birth.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "nationalities",
-      "claim_description": "String array representing the end-user's nationalities.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "birth_family_name",
-      "claim_description": "Family name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the family name(s) later in life for any reason. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "birth_given_name",
-      "claim_description": "Given name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the given name later in life for any reason. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "birth_middle_name",
-      "claim_description": "Middle name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the middle name later in life for any reason. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "salutation",
-      "claim_description": "End-user's salutation, e.g., \"Mr\"",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "title",
-      "claim_description": "End-user's title, e.g., \"Dr\"",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "msisdn",
-      "claim_description": "End-user's mobile phone number formatted according to ITU-T recommendation E.164",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "also_known_as",
-      "claim_description": "Stage name, religious name or any other type of alias/pseudonym with which a person is known in a specific context besides its legal name.",
-      "change_controller": "eKYC_and_Identity_Assurance_WG",
-      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
-    },
-    {
-      "claim_name": "htm",
-      "claim_description": "The HTTP method of the request",
-      "change_controller": "IETF",
-      "reference": "RFC9449 - Section 4.2"
-    },
-    {
-      "claim_name": "htu",
-      "claim_description": "The HTTP URI of the request (without query and fragment parts)",
-      "change_controller": "IETF",
-      "reference": "RFC9449 - Section 4.2"
-    },
-    {
-      "claim_name": "ath",
-      "claim_description": "The base64url-encoded SHA-256 hash of the ASCII encoding of the associated access token's value",
-      "change_controller": "IETF",
-      "reference": "RFC9449 - Section 4.2"
-    },
-    {
-      "claim_name": "atc",
-      "claim_description": "Authority Token Challenge",
-      "change_controller": "IETF",
-      "reference": "RFC9447"
-    },
-    {
-      "claim_name": "sub_id",
-      "claim_description": "Subject Identifier",
-      "change_controller": "IETF",
-      "reference": "RFC9493 - Section 4.1"
-    },
-    {
-      "claim_name": "rcd",
-      "claim_description": "Rich Call Data Information",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
-    },
-    {
-      "claim_name": "rcdi",
-      "claim_description": "Rich Call Data Integrity Information",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
-    },
-    {
-      "claim_name": "crn",
-      "claim_description": "Call Reason",
-      "change_controller": "IETF",
-      "reference": "RFC-ietf-stir-passport-rcd-26"
-    },
-    {
-      "claim_name": "msgi",
-      "claim_description": "Message Integrity Information",
-      "change_controller": "IETF",
-      "reference": "RFC9475"
-    },
-    {
+      "entry_id": "_claim_names",
       "claim_name": "_claim_names",
       "claim_description": "JSON object whose member names are the Claim Names for the Aggregated and Distributed Claims",
       "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
       "reference": "OpenID Connect Core 1.0 - Section 5.6.2"
     },
     {
+      "entry_id": "_claim_sources",
       "claim_name": "_claim_sources",
       "claim_description": "JSON object whose member names are referenced by the member values of the _claim_names member",
       "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
       "reference": "OpenID Connect Core 1.0 - Section 5.6.2"
     },
     {
+      "entry_id": "_sd",
+      "claim_name": "_sd",
+      "claim_description": "Digests of Disclosures for object properties",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.1"
+    },
+    {
+      "entry_id": "_sd_alg",
+      "claim_name": "_sd_alg",
+      "claim_description": "Hash algorithm used to generate Disclosure digests and digest over presentation",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.1.1"
+    },
+    {
+      "entry_id": "...",
+      "claim_name": "...",
+      "claim_description": "Digest of the Disclosure for an array element",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.2"
+    },
+    {
+      "entry_id": "ace_profile",
+      "claim_name": "ace_profile",
+      "claim_description": "The ACE profile a token is supposed to be used with.",
+      "change_controller": "IETF",
+      "reference": "RFC9200 - Section 5.10"
+    },
+    {
+      "entry_id": "acr",
+      "claim_name": "acr",
+      "claim_description": "Authentication Context Class Reference",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "act",
+      "claim_name": "act",
+      "claim_description": "Actor",
+      "change_controller": "IESG",
+      "reference": "RFC8693 - Section 4.1"
+    },
+    {
+      "entry_id": "address",
+      "claim_name": "address",
+      "claim_description": "Preferred postal address",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "also_known_as",
+      "claim_name": "also_known_as",
+      "claim_description": "Stage name, religious name or any other type of alias/pseudonym with which a person is known in a specific context besides its legal name.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "amr",
+      "claim_name": "amr",
+      "claim_description": "Authentication Methods References",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "analyticsIdList",
+      "claim_name": "analyticsIdList",
+      "claim_description": "Analytics IDs",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "at_hash",
+      "claim_name": "at_hash",
+      "claim_description": "Access Token hash value",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "at_use_nbr",
+      "claim_name": "at_use_nbr",
+      "claim_description": "Number of API requests for which the access token can be used",
+      "change_controller": "ETSI",
+      "reference": "ETSI GS NFV-SEC 022 V2.7.1"
+    },
+    {
+      "entry_id": "atc",
+      "claim_name": "atc",
+      "claim_description": "Authority Token Challenge",
+      "change_controller": "IETF",
+      "reference": "RFC9447"
+    },
+    {
+      "entry_id": "ath",
+      "claim_name": "ath",
+      "claim_description": "The base64url-encoded SHA-256 hash of the ASCII encoding of the associated access token's value",
+      "change_controller": "IETF",
+      "reference": "RFC9449 - Section 4.2"
+    },
+    {
+      "entry_id": "attest",
+      "claim_name": "attest",
+      "claim_description": "Attestation level as defined in SHAKEN framework",
+      "change_controller": "IESG",
+      "reference": "RFC8588"
+    },
+    {
+      "entry_id": "aud",
+      "claim_name": "aud",
+      "claim_description": "Audience",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.3"
+    },
+    {
+      "entry_id": "auth_time",
+      "claim_name": "auth_time",
+      "claim_description": "Time when the authentication occurred",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "authorization_details",
+      "claim_name": "authorization_details",
+      "claim_description": "The claim authorization_details contains a JSON array of JSON objects representing the rights of the access token. Each JSON object contains the data to specify the authorization requirements for a certain type of resource.",
+      "change_controller": "IETF",
+      "reference": "RFC9396 - Section 9.1"
+    },
+    {
+      "entry_id": "azp",
+      "claim_name": "azp",
+      "claim_description": "Authorized party - the party to which the ID Token was issued",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "birth_family_name",
+      "claim_name": "birth_family_name",
+      "claim_description": "Family name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the family name(s) later in life for any reason. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "birth_given_name",
+      "claim_name": "birth_given_name",
+      "claim_description": "Given name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the given name later in life for any reason. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "birth_middle_name",
+      "claim_name": "birth_middle_name",
+      "claim_description": "Middle name(s) someone has when they were born, or at least from the time they were a child. This term can be used by a person who changes the middle name later in life for any reason. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "birthdate",
+      "claim_name": "birthdate",
+      "claim_description": "Birthday",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "bootcount",
+      "claim_name": "bootcount",
+      "claim_description": "The number of times the entity or submodule has been booted",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "bootseed",
+      "claim_name": "bootseed",
+      "claim_description": "Identifies a boot cycle",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "c_hash",
+      "claim_name": "c_hash",
+      "claim_description": "Code hash value",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 3.3.2.11"
+    },
+    {
+      "entry_id": "cdnicrit",
+      "claim_name": "cdnicrit",
+      "claim_description": "CDNI Critical Claims Set",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.9"
+    },
+    {
+      "entry_id": "cdniets",
+      "claim_name": "cdniets",
+      "claim_description": "CDNI Expiration Time Setting for Signed Token Renewal",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.12"
+    },
+    {
+      "entry_id": "cdniip",
+      "claim_name": "cdniip",
+      "claim_description": "CDNI IP Address",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.10"
+    },
+    {
+      "entry_id": "cdnistd",
+      "claim_name": "cdnistd",
+      "claim_description": "CDNI Signed Token Depth",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.14"
+    },
+    {
+      "entry_id": "cdnistt",
+      "claim_name": "cdnistt",
+      "claim_description": "CDNI Signed Token Transport Method for Signed Token Renewal",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.13"
+    },
+    {
+      "entry_id": "cdniuc",
+      "claim_name": "cdniuc",
+      "claim_description": "CDNI URI Container",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.11"
+    },
+    {
+      "entry_id": "cdniv",
+      "claim_name": "cdniv",
+      "claim_description": "CDNI Claim Set Version",
+      "change_controller": "IETF",
+      "reference": "RFC9246 - Section 2.1.8"
+    },
+    {
+      "entry_id": "client_id",
+      "claim_name": "client_id",
+      "claim_description": "Client Identifier",
+      "change_controller": "IESG",
+      "reference": "RFC8693 - Section 4.3"
+    },
+    {
+      "entry_id": "cnf",
+      "claim_name": "cnf",
+      "claim_description": "Confirmation",
+      "change_controller": "IESG",
+      "reference": "RFC7800 - Section 3.1"
+    },
+    {
+      "entry_id": "cnonce",
+      "claim_name": "cnonce",
+      "claim_description": "\"client-nonce\". A nonce previously provided to the AS by the RS via the client. Used to verify token freshness when the RS cannot synchronize its clock with the AS.",
+      "change_controller": "IETF",
+      "reference": "RFC9200 - Section 5.10"
+    },
+    {
+      "entry_id": "consumerPlmnId",
+      "claim_name": "consumerPlmnId",
+      "claim_description": "PLMN ID of the NF service consumer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "consumerSnpnId",
+      "claim_name": "consumerSnpnId",
+      "claim_description": "SNPN ID of the NF service consumer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "crn",
+      "claim_name": "crn",
+      "claim_description": "Call Reason",
+      "change_controller": "IETF",
+      "reference": "RFC9795"
+    },
+    {
+      "entry_id": "dbgstat",
+      "claim_name": "dbgstat",
+      "claim_description": "The status of debug facilities",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "dest",
+      "claim_name": "dest",
+      "claim_description": "Destination Identity String",
+      "change_controller": "IESG",
+      "reference": "RFC8225 - Section 5.2.1"
+    },
+    {
+      "entry_id": "div",
+      "claim_name": "div",
+      "claim_description": "Diverted Target of a Call",
+      "change_controller": "IESG",
+      "reference": "RFC8946"
+    },
+    {
+      "entry_id": "dloas",
+      "claim_name": "dloas",
+      "claim_description": "Certifications received as Digital Letters of Approval",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "eat_nonce",
+      "claim_name": "eat_nonce",
+      "claim_description": "Nonce",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "eat_profile",
+      "claim_name": "eat_profile",
+      "claim_description": "The EAT profile followed",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "email",
+      "claim_name": "email",
+      "claim_description": "Preferred e-mail address",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "email_verified",
+      "claim_name": "email_verified",
+      "claim_description": "True if the e-mail address has been verified; otherwise false",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "entitlements",
+      "claim_name": "entitlements",
+      "claim_description": "Entitlements",
+      "change_controller": "IETF",
+      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
+    },
+    {
+      "entry_id": "events",
+      "claim_name": "events",
+      "claim_description": "Security Events",
+      "change_controller": "IESG",
+      "reference": "RFC8417 - Section 2.2"
+    },
+    {
+      "entry_id": "exi",
+      "claim_name": "exi",
+      "claim_description": "\"Expires in\". Lifetime of the token in seconds from the time the RS first sees it. Used to implement a weaker from of token expiration for devices that cannot synchronize their internal clocks.",
+      "change_controller": "IETF",
+      "reference": "RFC9200 - Section 5.10.3"
+    },
+    {
+      "entry_id": "exp",
+      "claim_name": "exp",
+      "claim_description": "Expiration Time",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.4"
+    },
+    {
+      "entry_id": "family_name",
+      "claim_name": "family_name",
+      "claim_description": "Surname(s) or last name(s)",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "gender",
+      "claim_name": "gender",
+      "claim_description": "Gender",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "geohash",
+      "claim_name": "geohash",
+      "claim_description": "Geohash String or Array",
+      "change_controller": "Consumer_Technology_Association",
+      "reference": "Fast and Readable Geographical Hashing (CTA-5009)"
+    },
+    {
+      "entry_id": "given_name",
+      "claim_name": "given_name",
+      "claim_description": "Given name(s) or first name(s)",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "groups",
+      "claim_name": "groups",
+      "claim_description": "Groups",
+      "change_controller": "IETF",
+      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
+    },
+    {
+      "entry_id": "htm",
+      "claim_name": "htm",
+      "claim_description": "The HTTP method of the request",
+      "change_controller": "IETF",
+      "reference": "RFC9449 - Section 4.2"
+    },
+    {
+      "entry_id": "htu",
+      "claim_name": "htu",
+      "claim_description": "The HTTP URI of the request (without query and fragment parts)",
+      "change_controller": "IETF",
+      "reference": "RFC9449 - Section 4.2"
+    },
+    {
+      "entry_id": "hwmodel",
+      "claim_name": "hwmodel",
+      "claim_description": "Model identifier for hardware",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "hwversion",
+      "claim_name": "hwversion",
+      "claim_description": "Hardware Version Identifier",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "iat",
+      "claim_name": "iat",
+      "claim_description": "Issued At",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.6"
+    },
+    {
+      "entry_id": "intuse",
+      "claim_name": "intuse",
+      "claim_description": "The intended use of the EAT",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "iss",
+      "claim_name": "iss",
+      "claim_description": "Issuer",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.1"
+    },
+    {
+      "entry_id": "jcard",
+      "claim_name": "jcard",
+      "claim_description": "jCard data",
+      "change_controller": "IESG",
+      "reference": "RFC8688, RFC7095"
+    },
+    {
+      "entry_id": "jti",
+      "claim_name": "jti",
+      "claim_description": "JWT ID",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.7"
+    },
+    {
+      "entry_id": "locale",
+      "claim_name": "locale",
+      "claim_description": "Locale",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "location",
+      "claim_name": "location",
+      "claim_description": "The geographic location",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "manifests",
+      "claim_name": "manifests",
+      "claim_description": "Manifests describing the software installed on the entity",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "may_act",
+      "claim_name": "may_act",
+      "claim_description": "Authorized Actor - the party that is authorized to become the actor",
+      "change_controller": "IESG",
+      "reference": "RFC8693 - Section 4.4"
+    },
+    {
+      "entry_id": "measres",
+      "claim_name": "measres",
+      "claim_description": "The results of comparing software measurements to reference values",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "measurements",
+      "claim_name": "measurements",
+      "claim_description": "Measurements of the software, memory configuration, and such on the entity",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "middle_name",
+      "claim_name": "middle_name",
+      "claim_description": "Middle name(s)",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "mky",
+      "claim_name": "mky",
+      "claim_description": "Media Key Fingerprint String",
+      "change_controller": "IESG",
+      "reference": "RFC8225 - Section 5.2.2"
+    },
+    {
+      "entry_id": "msgi",
+      "claim_name": "msgi",
+      "claim_description": "Message Integrity Information",
+      "change_controller": "IETF",
+      "reference": "RFC9475"
+    },
+    {
+      "entry_id": "msisdn",
+      "claim_name": "msisdn",
+      "claim_description": "End-user's mobile phone number formatted according to ITU-T recommendation E.164",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "name",
+      "claim_name": "name",
+      "claim_description": "Full name",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "nationalities",
+      "claim_name": "nationalities",
+      "claim_description": "String array representing the end-user's nationalities.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "nbf",
+      "claim_name": "nbf",
+      "claim_description": "Not Before",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.5"
+    },
+    {
+      "entry_id": "nickname",
+      "claim_name": "nickname",
+      "claim_description": "Casual name",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "nonce",
+      "claim_name": "nonce",
+      "claim_description": "Value used to associate a Client session with an ID Token (MAY also be used for nonce values in other applications of JWTs)",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 2, RFC9449"
+    },
+    {
+      "entry_id": "oemboot",
+      "claim_name": "oemboot",
+      "claim_description": "Indicates whether the software booted was OEM authorized",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "oemid",
+      "claim_name": "oemid",
+      "claim_description": "Hardware OEM ID",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "opt",
+      "claim_name": "opt",
+      "claim_description": "Original PASSporT (in Full Form)",
+      "change_controller": "IESG",
+      "reference": "RFC8946"
+    },
+    {
+      "entry_id": "orig",
+      "claim_name": "orig",
+      "claim_description": "Originating Identity String",
+      "change_controller": "IESG",
+      "reference": "RFC8225 - Section 5.2.1"
+    },
+    {
+      "entry_id": "origid",
+      "claim_name": "origid",
+      "claim_description": "Originating Identifier as defined in SHAKEN framework",
+      "change_controller": "IESG",
+      "reference": "RFC8588"
+    },
+    {
+      "entry_id": "phone_number",
+      "claim_name": "phone_number",
+      "claim_description": "Preferred telephone number",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "phone_number_verified",
+      "claim_name": "phone_number_verified",
+      "claim_description": "True if the phone number has been verified; otherwise false",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "picture",
+      "claim_name": "picture",
+      "claim_description": "Profile picture URL",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "place_of_birth",
+      "claim_name": "place_of_birth",
+      "claim_description": "A structured claim representing the end-user's place of birth.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "preferred_username",
+      "claim_name": "preferred_username",
+      "claim_description": "Shorthand name by which the End-User wishes to be referred to",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "producerNfServiceSetId",
+      "claim_name": "producerNfServiceSetId",
+      "claim_description": "NF Service Set ID of the NF Service Producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "producerNfSetId",
+      "claim_name": "producerNfSetId",
+      "claim_description": "NF Set ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "producerNsiList",
+      "claim_name": "producerNsiList",
+      "claim_description": "List of NSIs of the NF service produce",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "producerPlmnId",
+      "claim_name": "producerPlmnId",
+      "claim_description": "PLMN ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "producerSnpnId",
+      "claim_name": "producerSnpnId",
+      "claim_description": "SNPN ID of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "producerSnssaiList",
+      "claim_name": "producerSnssaiList",
+      "claim_description": "List of S-NSSAIs of the NF service producer",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "profile",
+      "claim_name": "profile",
+      "claim_description": "Profile page URL",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "rcd",
+      "claim_name": "rcd",
+      "claim_description": "Rich Call Data Information",
+      "change_controller": "IETF",
+      "reference": "RFC9795"
+    },
+    {
+      "entry_id": "rcdi",
+      "claim_name": "rcdi",
+      "claim_description": "Rich Call Data Integrity Information",
+      "change_controller": "IETF",
+      "reference": "RFC9795"
+    },
+    {
+      "entry_id": "rdap_allowed_purposes",
       "claim_name": "rdap_allowed_purposes",
       "claim_description": "This claim describes the set of RDAP query purposes that are available to an identity that is presented for access to a protected RDAP resource.",
       "change_controller": "IETF",
       "reference": "RFC9560 - Section 3.1.5.1"
     },
     {
+      "entry_id": "rdap_dnt_allowed",
       "claim_name": "rdap_dnt_allowed",
       "claim_description": "This claim contains a JSON boolean literal that describes a \"do not track\" request for server-side tracking, logging, or recording of an identity that is presented for access to a protected RDAP resource.",
       "change_controller": "IETF",
       "reference": "RFC9560 - Section 3.1.5.2"
     },
     {
-      "claim_name": "geohash",
-      "claim_description": "Geohash String or Array",
-      "change_controller": "Consumer_Technology_Association",
-      "reference": "Fast and Readable Geographical Hashing (CTA-5009)"
+      "entry_id": "resOwnerId",
+      "claim_name": "resOwnerId",
+      "claim_description": "Contains the identifier of the resource owner, e.g., GPSI as specified in clause 5.3.2 of 3GPP TS 29.571.",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.222, Clause 8.5.4.2.8"
+    },
+    {
+      "entry_id": "roles",
+      "claim_name": "roles",
+      "claim_description": "Roles",
+      "change_controller": "IETF",
+      "reference": "RFC7643 - Section 4.1.2, RFC9068 - Section 2.2.3.1"
+    },
+    {
+      "entry_id": "rph",
+      "claim_name": "rph",
+      "claim_description": "Resource Priority Header Authorization",
+      "change_controller": "IESG",
+      "reference": "RFC8443 - Section 3"
+    },
+    {
+      "entry_id": "salutation",
+      "claim_name": "salutation",
+      "claim_description": "End-user's salutation, e.g., \"Mr\"",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "scope",
+      "claim_name": "scope",
+      "claim_description": "Scope Values",
+      "change_controller": "IESG",
+      "reference": "RFC8693 - Section 4.2"
+    },
+    {
+      "entry_id": "sd_hash",
+      "claim_name": "sd_hash",
+      "claim_description": "Digest of the SD-JWT to which the KB-JWT is tied",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.3"
+    },
+    {
+      "entry_id": "sid",
+      "claim_name": "sid",
+      "claim_description": "Session ID",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Front-Channel Logout 1.0 - Section 3"
+    },
+    {
+      "entry_id": "sig_val_claims",
+      "claim_name": "sig_val_claims",
+      "claim_description": "Signature Validation Token",
+      "change_controller": "IETF",
+      "reference": "RFC9321 - Section 3.2.3"
+    },
+    {
+      "entry_id": "sip_callid",
+      "claim_name": "sip_callid",
+      "claim_description": "SIP Call-Id header field value",
+      "change_controller": "IESG",
+      "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "sip_cseq_num",
+      "claim_name": "sip_cseq_num",
+      "claim_description": "SIP CSeq numeric header field parameter value",
+      "change_controller": "IESG",
+      "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "sip_date",
+      "claim_name": "sip_date",
+      "claim_description": "SIP Date header field value",
+      "change_controller": "IESG",
+      "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "sip_from_tag",
+      "claim_name": "sip_from_tag",
+      "claim_description": "SIP From tag header field parameter value",
+      "change_controller": "IESG",
+      "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "sip_via_branch",
+      "claim_name": "sip_via_branch",
+      "claim_description": "SIP Via branch header field parameter value",
+      "change_controller": "IESG",
+      "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "sourceNfInstanceId",
+      "claim_name": "sourceNfInstanceId",
+      "claim_description": "NF Instance ID of the source NF",
+      "change_controller": "_3GPP_Specifications_Manager",
+      "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
+    },
+    {
+      "entry_id": "sph",
+      "claim_name": "sph",
+      "claim_description": "SIP Priority header field",
+      "change_controller": "IESG",
+      "reference": "RFC9027"
+    },
+    {
+      "entry_id": "sub",
+      "claim_name": "sub",
+      "claim_description": "Subject",
+      "change_controller": "IESG",
+      "reference": "RFC7519 - Section 4.1.2"
+    },
+    {
+      "entry_id": "sub_id",
+      "claim_name": "sub_id",
+      "claim_description": "Subject Identifier",
+      "change_controller": "IETF",
+      "reference": "RFC9493 - Section 4.1"
+    },
+    {
+      "entry_id": "sub_jwk",
+      "claim_name": "sub_jwk",
+      "claim_description": "Public key used to check the signature of an ID Token",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 7.4"
+    },
+    {
+      "entry_id": "submods",
+      "claim_name": "submods",
+      "claim_description": "The section containing submodules",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "sueids",
+      "claim_name": "sueids",
+      "claim_description": "Semipermanent UEIDs",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "swname",
+      "claim_name": "swname",
+      "claim_description": "The name of the software running in the entity",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "swversion",
+      "claim_name": "swversion",
+      "claim_description": "The version of software running in the entity",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "title",
+      "claim_name": "title",
+      "claim_description": "End-user's title, e.g., \"Dr\"",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Connect for Identity Assurance Claims Registration 1.0 - Section 4"
+    },
+    {
+      "entry_id": "toe",
+      "claim_name": "toe",
+      "claim_description": "Time of Event",
+      "change_controller": "IESG",
+      "reference": "RFC8417 - Section 2.2"
+    },
+    {
+      "entry_id": "token_introspection",
+      "claim_name": "token_introspection",
+      "claim_description": "Token introspection response",
+      "change_controller": "IETF",
+      "reference": "RFC9701 - Section 5"
+    },
+    {
+      "entry_id": "txn",
+      "claim_name": "txn",
+      "claim_description": "Transaction Identifier",
+      "change_controller": "IESG",
+      "reference": "RFC8417 - Section 2.2"
+    },
+    {
+      "entry_id": "ueid",
+      "claim_name": "ueid",
+      "claim_description": "Universal Entity ID",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "updated_at",
+      "claim_name": "updated_at",
+      "claim_description": "Time the information was last updated",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "uptime",
+      "claim_name": "uptime",
+      "claim_description": "Uptime",
+      "change_controller": "IETF",
+      "reference": "RFC9711"
+    },
+    {
+      "entry_id": "vc",
+      "claim_name": "vc",
+      "claim_description": "Verifiable Credential as specified in the W3C Recommendation",
+      "change_controller": "IESG",
+      "reference": "W3C Recommendation Verifiable Credentials Data Model 1.0 - Expressing verifiable information on the Web (19 November 2019) - Section 6.3.1"
+    },
+    {
+      "entry_id": "verified_claims",
+      "claim_name": "verified_claims",
+      "claim_description": "A structured claim containing end-user claims and the details of how those end-user claims were assured.",
+      "change_controller": "eKYC_and_Identity_Assurance_WG",
+      "reference": "OpenID Identity Assurance Schema Definition 1.0 - Section 5"
+    },
+    {
+      "entry_id": "vot",
+      "claim_name": "vot",
+      "claim_description": "Vector of Trust value",
+      "change_controller": "IESG",
+      "reference": "RFC8485"
+    },
+    {
+      "entry_id": "vp",
+      "claim_name": "vp",
+      "claim_description": "Verifiable Presentation as specified in the W3C Recommendation",
+      "change_controller": "IESG",
+      "reference": "W3C Recommendation Verifiable Credentials Data Model 1.0 - Expressing verifiable information on the Web (19 November 2019) - Section 6.3.1"
+    },
+    {
+      "entry_id": "vtm",
+      "claim_name": "vtm",
+      "claim_description": "Vector of Trust trustmark URL",
+      "change_controller": "IESG",
+      "reference": "RFC8485"
+    },
+    {
+      "entry_id": "website",
+      "claim_name": "website",
+      "claim_description": "Web page or blog URL",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "zoneinfo",
+      "claim_name": "zoneinfo",
+      "claim_description": "Time zone",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Connect Core 1.0 - Section 5.1"
     }
   ]
 }

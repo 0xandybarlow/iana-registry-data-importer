@@ -1,14 +1,18 @@
 {
+  "schema_version": 2,
+  "registry_id": "jose_registry",
+  "dataset_id": "json_web_encryption_compression_algorithms",
   "name": "JSON Web Encryption Compression Algorithms",
   "metadata": {
+    "datasource_url": "https://www.iana.org/assignments/jose/web-encryption-compression-algorithms.csv",
     "required_specifications": [
       "RFC7518"
     ],
-    "datasource_url": "https://www.iana.org/assignments/jose/web-encryption-compression-algorithms.csv",
-    "last_updated": "2025-04-20T20:00:30.619Z"
+    "last_updated_iso": "2025-09-07T14:51:11.908Z"
   },
-  "parameters": [
+  "entries": [
     {
+      "entry_id": "DEF",
       "compression_algorithm_value": "DEF",
       "compression_algorithm_description": "DEFLATE",
       "change_controller": "IESG",
