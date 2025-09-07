@@ -5,5 +5,5 @@ export interface RegistryJson {
     datasource_url: string;
     last_updated: string;
   };
-  parameters: any[];
+  parameters: unknown[];
 }
