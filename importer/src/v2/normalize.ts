@@ -17,7 +17,7 @@ const toSnakeCase = (str: string): string =>
 
 export const cleanText = (str: string): string =>
   str
-    .replace(/[\[\]]/g, '')
+    .replace(/[[\]]/g, '')
     .replace(/\s+/g, ' ')
     .replace(/, Section/g, ' - Section')
     .trim();
