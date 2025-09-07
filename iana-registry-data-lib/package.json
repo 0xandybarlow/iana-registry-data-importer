@@ -1,8 +1,9 @@
 {
   "name": "iana-registry-data-lib",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A package containing JSON files reflecting the current state of various IANA registries such as the JOSE, OAuth and JWT registries. This package is intended to be used as a data source for other projects.",
-  "main": "dist/index.js",
+  "main": "dist/index.v2.js",
+  "types": "dist/index.v2.d.ts",
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",

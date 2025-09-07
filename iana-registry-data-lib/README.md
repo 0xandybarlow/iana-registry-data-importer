@@ -1,37 +1,42 @@
 # iana-registry-data-lib
 
-A package containing JSON files reflecting the current state of various IANA registries such as the JOSE, OAuth, and JWT registries. This package is intended to be used as a data source for other projects.
+JSON datasets for IANA registries (OAuth, JOSE, JWT), plus TypeScript entrypoints.
+
+Version 2 introduces a stable, deterministic schema and a new entrypoint.
 
 ## Installation
-
-You can install this package using npm:
 
 ```sh
 npm install iana-registry-data-lib
 ```
 
-```javascript
-const { OAuthRegistry } = require('iana-registry-data-lib');
-console.log(OAuthRegistry.OauthParameters.parameters);
+## Usage (v2)
+
+```ts
+import * as OAuth from 'iana-registry-data-lib/dist/index.v2';
+import type { V2RegistryDataset } from 'iana-registry-data-lib/dist/types.v2';
+
+const oauthParameters: V2RegistryDataset = OAuth.oauth_parameters;
+console.log(oauthParameters.entries.length);
 ```
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+Each dataset under `dist/registries/<registry>/<dataset>.json` conforms to:
 
-## Keywords
-- Keywords
-- iana
-- registry
-- oauth
-- jose
-- jwt
-- rfc
-- ietf
-- importer
-- data
-- parser
-- json
-- csv
+```json
+{
+  "schema_version": 2,
+  "registry_id": "oauth_registry",
+  "dataset_id": "oauth_parameters",
+  "name": "OAuth Parameters",
+  "metadata": { "datasource_url": "…", "required_specifications": [], "last_updated_iso": "…" },
+  "entries": [ { "entry_id": "…", "parameter": "…" } ]
+}
+```
+
+See `MIGRATION.md` for v1 → v2 changes.
+
+## License
+MIT
 
 ## Author
 Andy Barlow
