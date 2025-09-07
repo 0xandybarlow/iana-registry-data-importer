@@ -35,7 +35,9 @@ export const renderDatasetChangelog = (sum: DatasetChangeSummary): string => {
   return lines.join('\n');
 };
 
-export const renderChangelogBody = (summaries: DatasetChangeSummary[]): string => {
+export const renderChangelogBody = (
+  summaries: DatasetChangeSummary[],
+): string => {
   const parts = summaries
     .filter((s) => s.hasChanges)
     .map(renderDatasetChangelog)

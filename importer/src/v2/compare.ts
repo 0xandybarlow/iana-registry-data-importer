@@ -17,7 +17,10 @@ const jsonEqual = (a: JSONValue, b: JSONValue): boolean => {
   return JSON.stringify(a) === JSON.stringify(b);
 };
 
-const entryFieldDiff = (oldE: RegistryEntryV2, newE: RegistryEntryV2): FieldChange[] => {
+const entryFieldDiff = (
+  oldE: RegistryEntryV2,
+  newE: RegistryEntryV2,
+): FieldChange[] => {
   const fields = new Set([...Object.keys(oldE), ...Object.keys(newE)]);
   fields.delete('entry_id');
   const changes: FieldChange[] = [];
@@ -52,8 +55,12 @@ export const diffDatasets = (
   }
 
   // Map by entry_id
-  const oldMap = new Map<string, RegistryEntryV2>(oldD.entries.map((e) => [e.entry_id, e]));
-  const newMap = new Map<string, RegistryEntryV2>(newD.entries.map((e) => [e.entry_id, e]));
+  const oldMap = new Map<string, RegistryEntryV2>(
+    oldD.entries.map((e) => [e.entry_id, e]),
+  );
+  const newMap = new Map<string, RegistryEntryV2>(
+    newD.entries.map((e) => [e.entry_id, e]),
+  );
 
   // Detect removed
   for (const [id, e] of oldMap) {
@@ -70,12 +77,17 @@ export const diffDatasets = (
     }
     const fieldChanges = entryFieldDiff(oldE, newE);
     if (fieldChanges.length > 0) {
-      summary.modified.push({ entry_id: id, type: 'field_changed', changes: fieldChanges });
+      summary.modified.push({
+        entry_id: id,
+        type: 'field_changed',
+        changes: fieldChanges,
+      });
     }
   }
 
   summary.hasChanges =
-    summary.added.length > 0 || summary.removed.length > 0 || summary.modified.length > 0;
+    summary.added.length > 0 ||
+    summary.removed.length > 0 ||
+    summary.modified.length > 0;
   return summary;
 };
-
