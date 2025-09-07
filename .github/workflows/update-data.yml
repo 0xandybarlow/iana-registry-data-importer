@@ -39,6 +39,7 @@ jobs:
           title: 'Update data from IANA registries (v2)'
           body-path: 'CHANGELOG_UPDATE.md'
           branch: chore/update-iana-data-v2
+          base: master
           delete-branch: true
           add-paths: |
             iana-registry-data-lib/src/registries/**
