@@ -1,0 +1,4 @@
+# Exclude internal docs and generated PR body from archives
+AGENTS.md export-ignore
+PLAN.md export-ignore
+CHANGELOG_UPDATE.md export-ignore
