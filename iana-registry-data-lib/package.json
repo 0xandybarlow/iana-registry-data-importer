@@ -1,6 +1,6 @@
 {
   "name": "iana-registry-data-lib",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Machine-readable snapshots of IANA registries (JOSE, OAuth, JWT, etc.) refreshed by the iana-registry-data-importer for specs, security tooling, and compliance pipelines.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
