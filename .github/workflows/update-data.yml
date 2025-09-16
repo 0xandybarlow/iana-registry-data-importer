@@ -29,7 +29,21 @@ jobs:
         run: npm run import-data:update
         env:
           DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
+      - name: Remove empty changelog
+        run: |
+          if [ -f CHANGELOG_UPDATE.md ] && grep -Fxq "No data changes detected." CHANGELOG_UPDATE.md; then
+            rm CHANGELOG_UPDATE.md
+          fi
+      - name: Check for updates
+        id: diff
+        run: |
+          if git diff --quiet --ignore-submodules HEAD; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
       - name: Create Pull Request
+        if: steps.diff.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

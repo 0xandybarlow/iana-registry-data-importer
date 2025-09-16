@@ -1,6 +1,5 @@
 export interface RegistryEntry {
   entry_id: string;
-  [key: string]: unknown;
 }
 
 export interface RegistryMetadata {
@@ -9,11 +8,11 @@ export interface RegistryMetadata {
   last_updated_iso: string;
 }
 
-export interface RegistryDataset {
+export interface RegistryDataset<TEntry extends RegistryEntry = RegistryEntry> {
   schema_version: 2;
   registry_id: string;
   dataset_id: string;
   name: string;
   metadata: RegistryMetadata;
-  entries: RegistryEntry[];
+  entries: TEntry[];
 }
