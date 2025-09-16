@@ -4,9 +4,9 @@ This project imports and processes data from various IANA registries such as the
 
 ## Data Pipeline (Breaking in 2.0)
 
-- Schema: Generates v2 datasets with `schema_version: 2`, `entries`, stable `entry_id`.
+- Schema: Generates datasets with `schema_version: 2`, `entries`, stable `entry_id`.
 - Semantic diff: Compares normalized data; ignores ordering and timestamps.
-- Format upgrade: Rewrites v1 JSON to v2 even if content unchanged.
+- Format upgrade: Ensures legacy JSON is rewritten to the schema_version 2 shape even if content is unchanged.
 - Filtered runs:
   - CLI: `npm run import-data -- --filter=oauth_registry/oauth_parameters`
   - ENV: `DATASET_FILTER=oauth_parameters npm run import-data`
@@ -28,7 +28,7 @@ This project imports and processes data from various IANA registries such as the
 ### Outputs
 
 - Writes JSON to: `iana-registry-data-lib/src/registries/<registry_id>/<dataset_id>.json`.
-- On v1 files, performs a format-only upgrade to v2 when content matches.
+- Performs schema-only upgrades when existing files already match the latest content.
 
 ## Workflows
 
@@ -41,7 +41,7 @@ This project imports and processes data from various IANA registries such as the
 
   - Triggers: weekly (Mon 05:00 UTC) and manual dispatch.
   - Input: `dataset_filter` to limit scope (e.g., `jwt_registry/json_web_token_claims`).
-  - Behavior: fetch → normalize (v2) → semantic diff → write JSON and open PR with `CHANGELOG_UPDATE.md` if content changed or if a format-only v1→v2 upgrade is needed. Does not publish to npm.
+  - Behavior: fetch → normalize → semantic diff → write JSON and open PR with `CHANGELOG_UPDATE.md` if content changed or if a schema-only update is needed. Does not publish to npm.
 
 - Release Library (`.github/workflows/release.yml`):
   - Triggers: tag push `iana-registry-data-lib@*` (e.g., `iana-registry-data-lib@2.0.0`).
