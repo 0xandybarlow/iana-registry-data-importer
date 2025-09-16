@@ -9,16 +9,15 @@
 //    "skipLibCheck": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "sourceMap": true, // Generates source maps for easier debugging
-    "noImplicitAny": true, // Raises an error on expressions and declarations with an implied 'any' type
-    "strictNullChecks": true, // Ensures strict handling of null and undefined
-    "strictFunctionTypes": true, // Ensures function type compatibility is checked strictly
-    "strictPropertyInitialization": true, // Ensures class properties are initialized correctly
-    "noImplicitThis": true, // Raises an error on 'this' expressions with an implied 'any' type
-    "noUnusedLocals": true, // Reports errors on unused local variables
-    "noUnusedParameters": true, // Reports errors on unused parameters
-    "noFallthroughCasesInSwitch": true, // Ensures that switch statements have a default case or break
-    "forceConsistentCasingInFileNames": true // Ensures file names are treated with consistent casing
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
