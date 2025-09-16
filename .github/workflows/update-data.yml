@@ -23,12 +23,10 @@ jobs:
           node-version: 20
       - name: Install
         run: npm install
-      - name: Build importer
-        run: npm run build:importer
       - name: Build library
         run: npm run build:lib
       - name: Run check-and-update
-        run: npm run check-and-update -w importer
+        run: npm run import-data:update
         env:
           DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
       - name: Create Pull Request
