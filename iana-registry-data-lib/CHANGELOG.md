@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2025-09-07
 
 ### Breaking Changes
-- New JSON schema (v2):
+- New JSON schema:
   - Adds `schema_version: 2`, `registry_id`, and `dataset_id`.
   - Renames `parameters` → `entries`.
   - Metadata timestamp renamed to `last_updated_iso` (ISO 8601).
@@ -19,13 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Class wrappers replaced by plain named exports under namespace (e.g., `import * as OAuth from 'iana-registry-data-lib'`).
   - Direct JSON imports should use `dist/registries/.../*.json`.
 
-See `MIGRATION.md` for detailed guidance and examples.
-
 ### Added
 - Deterministic normalization (key casing, whitespace cleanup) and output ordering.
 - Semantic diffing that ignores ordering/timestamps; classifies adds/removes/field changes.
 - Automated weekly update workflow that opens PRs with a concise changelog.
-- Format upgrade: v1 files are rewritten to v2 even when content is identical.
+- Format upgrade: previous files are upgraded to the new schema even when content is identical.
 
 ### Changed
 - CI and workflows aligned to Node 20; monorepo build for importer and library.

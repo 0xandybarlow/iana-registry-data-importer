@@ -27,18 +27,18 @@ jobs:
         run: npm run build:importer
       - name: Build library
         run: npm run build:lib
-      - name: Run check-and-update (v2)
-        run: npm run check-and-update:v2 -w importer
+      - name: Run check-and-update
+        run: npm run check-and-update -w importer
         env:
           DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: update data from IANA registries (v2)'
-          title: 'Update data from IANA registries (v2)'
+          commit-message: 'chore: update data from IANA registries'
+          title: 'Update data from IANA registries'
           body-path: 'CHANGELOG_UPDATE.md'
-          branch: chore/update-iana-data-v2
+          branch: chore/update-iana-data
           base: master
           delete-branch: true
           add-paths: |

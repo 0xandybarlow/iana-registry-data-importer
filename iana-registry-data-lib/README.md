@@ -2,21 +2,19 @@
 
 JSON datasets for IANA registries (OAuth, JOSE, JWT), plus TypeScript entrypoints.
 
-Version 2 introduces a stable, deterministic schema and a new entrypoint.
-
 ## Installation
 
 ```sh
 npm install iana-registry-data-lib
 ```
 
-## Usage (v2)
+## Usage
 
 ```ts
 import * as OAuth from 'iana-registry-data-lib';
-import type { V2RegistryDataset } from 'iana-registry-data-lib/dist/types.v2';
+import type { RegistryDataset } from 'iana-registry-data-lib';
 
-const oauthParameters: V2RegistryDataset = OAuth.oauth_parameters;
+const oauthParameters: RegistryDataset = OAuth.oauth_parameters;
 console.log(oauthParameters.entries.length);
 ```
 
@@ -33,7 +31,7 @@ Each dataset under `dist/registries/<registry>/<dataset>.json` conforms to:
 }
 ```
 
-See `MIGRATION.md` for v1 → v2 changes.
+The schema is stable and deterministic across releases.
 
 ## License
 MIT

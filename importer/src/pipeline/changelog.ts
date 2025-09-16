@@ -11,7 +11,7 @@ export const renderDatasetChangelog = (sum: DatasetChangeSummary): string => {
   const lines: string[] = [];
   lines.push(`### ${sum.name} (${sum.registry_id}/${sum.dataset_id})`);
   if (sum.formatUpgraded) {
-    lines.push(`- Format: upgraded to v2 schema`);
+    lines.push(`- Format: upgraded to schema_version 2`);
   }
   if (sum.added.length) lines.push(`- Added: ${sum.added.length}`);
   if (sum.removed.length) lines.push(`- Removed: ${sum.removed.length}`);
