@@ -1,69 +1,58 @@
 {
-  "schema_version": 2,
-  "registry_id": "jose_registry",
-  "dataset_id": "json_web_key_operations",
   "name": "JSON Web Key Operations",
   "metadata": {
-    "datasource_url": "https://www.iana.org/assignments/jose/web-key-operations.csv",
     "required_specifications": [
       "RFC7517"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.097Z"
+    "datasource_url": "https://www.iana.org/assignments/jose/web-key-operations.csv",
+    "last_updated": "2025-09-18T16:31:32.995Z"
   },
-  "entries": [
+  "parameters": [
     {
-      "entry_id": "decrypt",
-      "key_operation_value": "decrypt",
-      "key_operation_description": "Decrypt content and validate decryption, if applicable",
-      "change_controller": "IESG",
-      "reference": "RFC7517 - Section 4.3"
-    },
-    {
-      "entry_id": "deriveBits",
-      "key_operation_value": "deriveBits",
-      "key_operation_description": "Derive bits not to be used as a key",
-      "change_controller": "IESG",
-      "reference": "RFC7517 - Section 4.3"
-    },
-    {
-      "entry_id": "deriveKey",
-      "key_operation_value": "deriveKey",
-      "key_operation_description": "Derive key",
-      "change_controller": "IESG",
-      "reference": "RFC7517 - Section 4.3"
-    },
-    {
-      "entry_id": "encrypt",
-      "key_operation_value": "encrypt",
-      "key_operation_description": "Encrypt content",
-      "change_controller": "IESG",
-      "reference": "RFC7517 - Section 4.3"
-    },
-    {
-      "entry_id": "sign",
       "key_operation_value": "sign",
       "key_operation_description": "Compute digital signature or MAC",
       "change_controller": "IESG",
       "reference": "RFC7517 - Section 4.3"
     },
     {
-      "entry_id": "unwrapKey",
-      "key_operation_value": "unwrapKey",
-      "key_operation_description": "Decrypt key and validate decryption, if applicable",
-      "change_controller": "IESG",
-      "reference": "RFC7517 - Section 4.3"
-    },
-    {
-      "entry_id": "verify",
       "key_operation_value": "verify",
       "key_operation_description": "Verify digital signature or MAC",
       "change_controller": "IESG",
       "reference": "RFC7517 - Section 4.3"
     },
     {
-      "entry_id": "wrapKey",
+      "key_operation_value": "encrypt",
+      "key_operation_description": "Encrypt content",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 4.3"
+    },
+    {
+      "key_operation_value": "decrypt",
+      "key_operation_description": "Decrypt content and validate decryption, if applicable",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 4.3"
+    },
+    {
       "key_operation_value": "wrapKey",
       "key_operation_description": "Encrypt key",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 4.3"
+    },
+    {
+      "key_operation_value": "unwrapKey",
+      "key_operation_description": "Decrypt key and validate decryption, if applicable",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 4.3"
+    },
+    {
+      "key_operation_value": "deriveKey",
+      "key_operation_description": "Derive key",
+      "change_controller": "IESG",
+      "reference": "RFC7517 - Section 4.3"
+    },
+    {
+      "key_operation_value": "deriveBits",
+      "key_operation_description": "Derive bits not to be used as a key",
       "change_controller": "IESG",
       "reference": "RFC7517 - Section 4.3"
     }
