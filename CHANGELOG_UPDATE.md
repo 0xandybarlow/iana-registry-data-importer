@@ -1,0 +1,176 @@
+## IANA Registry Data Updates
+
+### OAuth Authorization Endpoint Response Types (oauth_registry/oauth_authorization_endpoint_response_types)
+- Added: 2
+- Modified: 6
+  - entry_id=code id_token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=code id_token token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=code token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=none
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+
+### OAuth Extensions Error Registry (oauth_registry/oauth_extensions_error_registry)
+- Added: 3
+- Modified: 11
+  - entry_id=account_selection_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=consent_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=interaction_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=invalid_request_object
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=invalid_request_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=login_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=missing_trust_anchor
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=registration_not_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_not_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_uri_not_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=validation_failed
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+
+### OAuth Parameters (oauth_registry/oauth_parameters)
+- Added: 9
+- Modified: 17
+  - entry_id=acr_values
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claims
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claims_locales
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=display
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token_hint
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=login_hint
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=max_age
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=nonce
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=prompt
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=registration
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=response_mode
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=session_state
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=trust_chain
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=ui_locales
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+
+### OAuth Dynamic Client Registration Metadata (oauth_registry/oauth_dynamic_client_registration_metadata)
+- Modified: 30
+  - entry_id=application_type
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=backchannel_logout_session_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=backchannel_logout_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=client_registration_types
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=default_acr_values
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=default_max_age
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=encrypted_response_enc_values_supported
+    - change_controller: "OpenID_Foundation_Digital_Credentials_Protocols_Working_Group" → "OpenID_Foundation_Digital_Credentials_Protocols_WG"
+  - entry_id=frontchannel_logout_session_required
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=frontchannel_logout_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=homepage_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token_encrypted_response_alg
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token_encrypted_response_enc
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token_signed_response_alg
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=initiate_login_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=organization_name
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=post_logout_redirect_uris
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_object_encryption_alg
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_object_encryption_enc
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_object_signing_alg
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=request_uris
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - …and 10 more modifications
+
+### OAuth Token Endpoint Authentication Methods (oauth_registry/oauth_token_endpoint_authentication_methods)
+- Modified: 2
+  - entry_id=client_secret_jwt
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=private_key_jwt
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+
+### OAuth Authorization Server Metadata (oauth_registry/oauth_authorization_server_metadata)
+- Modified: 39
+  - entry_id=acr_values_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=backchannel_authentication_endpoint
+    - change_controller: "OpenID_Foundation_MODRNA_Working_Group" → "OpenID_Foundation_MODRNA_WG"
+  - entry_id=backchannel_authentication_request_signing_alg_values_supported
+    - change_controller: "OpenID_Foundation_MODRNA_Working_Group" → "OpenID_Foundation_MODRNA_WG"
+  - entry_id=backchannel_logout_session_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=backchannel_logout_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=backchannel_token_delivery_modes_supported
+    - change_controller: "OpenID_Foundation_MODRNA_Working_Group" → "OpenID_Foundation_MODRNA_WG"
+  - entry_id=backchannel_user_code_parameter_supported
+    - change_controller: "OpenID_Foundation_MODRNA_Working_Group" → "OpenID_Foundation_MODRNA_WG"
+  - entry_id=check_session_iframe
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claim_types_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claims_locales_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claims_parameter_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=claims_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=client_registration_types_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=contacts
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=display_values_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=end_session_endpoint
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=federation_registration_endpoint
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=frontchannel_logout_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=homepage_uri
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - entry_id=id_token_encryption_alg_values_supported
+    - change_controller: "OpenID_Foundation_Artifact_Binding_Working_Group" → "OpenID_Foundation_Artifact_Binding_WG"
+  - …and 19 more modifications
