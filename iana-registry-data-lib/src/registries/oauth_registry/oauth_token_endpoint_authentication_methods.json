@@ -9,7 +9,7 @@
       "RFC7591",
       "RFC8414"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.925Z"
+    "last_updated_iso": "2025-10-13T05:09:23.702Z"
   },
   "entries": [
     {
@@ -21,7 +21,7 @@
     {
       "entry_id": "client_secret_jwt",
       "token_endpoint_authentication_method_name": "client_secret_jwt",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -39,7 +39,7 @@
     {
       "entry_id": "private_key_jwt",
       "token_endpoint_authentication_method_name": "private_key_jwt",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
