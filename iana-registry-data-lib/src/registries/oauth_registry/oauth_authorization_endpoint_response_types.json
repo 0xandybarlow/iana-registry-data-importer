@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.795Z"
+    "last_updated_iso": "2025-10-13T05:09:23.282Z"
   },
   "entries": [
     {
@@ -20,37 +20,37 @@
     {
       "entry_id": "code id_token",
       "name": "code id_token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
       "entry_id": "code id_token token",
       "name": "code id_token token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
       "entry_id": "code token",
       "name": "code token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
       "entry_id": "id_token",
       "name": "id_token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
       "entry_id": "id_token token",
       "name": "id_token token",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
       "entry_id": "none",
       "name": "none",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
@@ -58,6 +58,18 @@
       "name": "token",
       "change_controller": "IETF",
       "reference": "RFC6749"
+    },
+    {
+      "entry_id": "vp_token",
+      "name": "vp_token",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 8"
+    },
+    {
+      "entry_id": "vp_token id_token",
+      "name": "vp_token id_token",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 8"
     }
   ]
 }

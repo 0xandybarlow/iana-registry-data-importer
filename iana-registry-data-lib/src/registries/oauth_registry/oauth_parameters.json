@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.844Z"
+    "last_updated_iso": "2025-10-13T05:09:23.426Z"
   },
   "entries": [
     {
@@ -43,7 +43,7 @@
       "entry_id": "acr_values",
       "name": "acr_values",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -99,14 +99,14 @@
       "entry_id": "claims",
       "name": "claims",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
       "entry_id": "claims_locales",
       "name": "claims_locales",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -129,6 +129,13 @@
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IETF",
       "reference": "RFC6749"
+    },
+    {
+      "entry_id": "client_metadata",
+      "name": "client_metadata",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.1"
     },
     {
       "entry_id": "client_secret",
@@ -173,6 +180,13 @@
       "reference": "RFC7636"
     },
     {
+      "entry_id": "dcql_query",
+      "name": "dcql_query",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.1"
+    },
+    {
       "entry_id": "device_code",
       "name": "device_code",
       "parameter_usage_location": "token request",
@@ -183,7 +197,7 @@
       "entry_id": "display",
       "name": "display",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -222,6 +236,13 @@
       "reference": "RFC7519 - Section 4.1.4, RFC9101"
     },
     {
+      "entry_id": "expected_origins",
+      "name": "expected_origins",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0, Appendix A.2"
+    },
+    {
       "entry_id": "expires_in",
       "name": "expires_in",
       "parameter_usage_location": "authorization response, token response",
@@ -246,14 +267,14 @@
       "entry_id": "id_token",
       "name": "id_token",
       "parameter_usage_location": "authorization response, access token response",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
       "entry_id": "id_token_hint",
       "name": "id_token_hint",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -288,14 +309,14 @@
       "entry_id": "login_hint",
       "name": "login_hint",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
       "entry_id": "max_age",
       "name": "max_age",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -316,7 +337,7 @@
       "entry_id": "nonce",
       "name": "nonce",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -358,7 +379,7 @@
       "entry_id": "prompt",
       "name": "prompt",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -379,7 +400,7 @@
       "entry_id": "registration",
       "name": "registration",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -393,15 +414,22 @@
       "entry_id": "request",
       "name": "request",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
       "entry_id": "request_uri",
       "name": "request_uri",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
+    },
+    {
+      "entry_id": "request_uri_method",
+      "name": "request_uri_method",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.1"
     },
     {
       "entry_id": "requested_token_type",
@@ -421,7 +449,7 @@
       "entry_id": "response_mode",
       "name": "response_mode",
       "parameter_usage_location": "Authorization Request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OAuth 2.0 Multiple Response Type Encoding Practices"
     },
     {
@@ -430,6 +458,13 @@
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
       "reference": "RFC6749"
+    },
+    {
+      "entry_id": "response_uri",
+      "name": "response_uri",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 8.2"
     },
     {
       "entry_id": "rpt",
@@ -456,7 +491,7 @@
       "entry_id": "session_state",
       "name": "session_state",
       "parameter_usage_location": "authorization response, access token response",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Session Management 1.0 - Section 2"
     },
     {
@@ -509,17 +544,24 @@
       "reference": "RFC6749"
     },
     {
+      "entry_id": "transaction_data",
+      "name": "transaction_data",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.1"
+    },
+    {
       "entry_id": "trust_chain",
       "name": "trust_chain",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "Section 12.1.1.1.2 of OpenID Federation 1.0"
     },
     {
       "entry_id": "ui_locales",
       "name": "ui_locales",
       "parameter_usage_location": "authorization request",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Core 1.0 incorporating errata set 1"
     },
     {
@@ -537,11 +579,32 @@
       "reference": "RFC6749"
     },
     {
+      "entry_id": "verifier_info",
+      "name": "verifier_info",
+      "parameter_usage_location": "authorization request",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.1"
+    },
+    {
+      "entry_id": "vp_token",
+      "name": "vp_token",
+      "parameter_usage_location": "authorization request, token response",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 8.1"
+    },
+    {
       "entry_id": "vtr",
       "name": "vtr",
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IESG",
       "reference": "RFC8485"
+    },
+    {
+      "entry_id": "wallet_nonce",
+      "name": "wallet_nonce",
+      "parameter_usage_location": "authorization request, token response",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
+      "reference": "OpenID for Verifiable Presentations 1.0 - Section 5.10"
     }
   ]
 }

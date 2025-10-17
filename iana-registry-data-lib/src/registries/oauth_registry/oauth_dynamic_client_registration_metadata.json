@@ -8,14 +8,14 @@
     "required_specifications": [
       "RFC7591"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.906Z"
+    "last_updated_iso": "2025-10-13T05:09:23.636Z"
   },
   "entries": [
     {
       "entry_id": "application_type",
       "client_metadata_name": "application_type",
       "client_metadata_description": "Kind of the application -- \"native\" or \"web\"",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -29,14 +29,14 @@
       "entry_id": "backchannel_logout_session_required",
       "client_metadata_name": "backchannel_logout_session_required",
       "client_metadata_description": "Boolean value specifying whether the RP requires that a sid (session ID) Claim be included in the Logout Token to identify the RP session with the OP when the backchannel_logout_uri is used",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Back-Channel Logout 1.0 - Section 2.2"
     },
     {
       "entry_id": "backchannel_logout_uri",
       "client_metadata_name": "backchannel_logout_uri",
       "client_metadata_description": "RP URL that will cause the RP to log itself out when sent a Logout Token by the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Back-Channel Logout 1.0 - Section 2.2"
     },
     {
@@ -71,7 +71,7 @@
       "entry_id": "client_registration_types",
       "client_metadata_name": "client_registration_types",
       "client_metadata_description": "An array of strings specifying the client registration types the RP wants to use",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "Section 5.1.2 of OpenID Federation 1.0"
     },
     {
@@ -106,14 +106,14 @@
       "entry_id": "default_acr_values",
       "client_metadata_name": "default_acr_values",
       "client_metadata_description": "Default requested Authentication Context Class Reference values",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "default_max_age",
       "client_metadata_name": "default_max_age",
       "client_metadata_description": "Default Maximum Authentication Age",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -127,21 +127,21 @@
       "entry_id": "encrypted_response_enc_values_supported",
       "client_metadata_name": "encrypted_response_enc_values_supported",
       "client_metadata_description": "Non-empty array of strings, where each string is a JWE RFC7516 enc algorithm that can be used as the content encryption algorithm for encrypting the Response",
-      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_Working_Group",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
       "reference": "Section 5.1 of OpenID for Verifiable Presentations 1.0"
     },
     {
       "entry_id": "frontchannel_logout_session_required",
       "client_metadata_name": "frontchannel_logout_session_required",
       "client_metadata_description": "Boolean value specifying whether the RP requires that a sid (session ID) query parameter be included to identify the RP session with the OP when the frontchannel_logout_uri is used",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Front-Channel Logout 1.0 - Section 2"
     },
     {
       "entry_id": "frontchannel_logout_uri",
       "client_metadata_name": "frontchannel_logout_uri",
       "client_metadata_description": "RP URL that will cause the RP to log itself out when rendered in an iframe by the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Front-Channel Logout 1.0 - Section 2"
     },
     {
@@ -155,35 +155,35 @@
       "entry_id": "homepage_uri",
       "client_metadata_name": "homepage_uri",
       "client_metadata_description": "URL of a Web page for the organization owning this client",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "Section 5.2.2 of OpenID Federation 1.0"
     },
     {
       "entry_id": "id_token_encrypted_response_alg",
       "client_metadata_name": "id_token_encrypted_response_alg",
       "client_metadata_description": "JWE alg algorithm REQUIRED for encrypting the ID Token issued to this Client",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "id_token_encrypted_response_enc",
       "client_metadata_name": "id_token_encrypted_response_enc",
       "client_metadata_description": "JWE enc algorithm REQUIRED for encrypting the ID Token issued to this Client",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "id_token_signed_response_alg",
       "client_metadata_name": "id_token_signed_response_alg",
       "client_metadata_description": "JWS alg algorithm REQUIRED for signing the ID Token issued to this Client",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "initiate_login_uri",
       "client_metadata_name": "initiate_login_uri",
       "client_metadata_description": "URI using the https scheme that a third party can use to initiate a login by the RP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -253,7 +253,7 @@
       "entry_id": "organization_name",
       "client_metadata_name": "organization_name",
       "client_metadata_description": "Human-readable name representing the organization owning this client",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "Section 5.2.2 of OpenID Federation 1.0"
     },
     {
@@ -267,7 +267,7 @@
       "entry_id": "post_logout_redirect_uris",
       "client_metadata_name": "post_logout_redirect_uris",
       "client_metadata_description": "Array of URLs supplied by the RP to which it MAY request that the End-User's User Agent be redirected using the post_logout_redirect_uri parameter after a logout has been performed",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect RP-Initiated Logout 1.0 - Section 3.1"
     },
     {
@@ -295,35 +295,35 @@
       "entry_id": "request_object_encryption_alg",
       "client_metadata_name": "request_object_encryption_alg",
       "client_metadata_description": "JWE alg algorithm the RP is declaring that it may use for encrypting Request Objects sent to the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "request_object_encryption_enc",
       "client_metadata_name": "request_object_encryption_enc",
       "client_metadata_description": "JWE enc algorithm the RP is declaring that it may use for encrypting Request Objects sent to the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "request_object_signing_alg",
       "client_metadata_name": "request_object_signing_alg",
       "client_metadata_description": "JWS alg algorithm that MUST be used for signing Request Objects sent to the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "request_uris",
       "client_metadata_name": "request_uris",
       "client_metadata_description": "Array of request_uri values that are pre-registered by the RP for use at the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "require_auth_time",
       "client_metadata_name": "require_auth_time",
       "client_metadata_description": "Boolean value specifying whether the auth_time Claim in the ID Token is REQUIRED",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -358,14 +358,14 @@
       "entry_id": "sector_identifier_uri",
       "client_metadata_name": "sector_identifier_uri",
       "client_metadata_description": "URL using the https scheme to be used in calculating Pseudonymous Identifiers by the OP",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "signed_jwks_uri",
       "client_metadata_name": "signed_jwks_uri",
       "client_metadata_description": "URL referencing a signed JWT having the client's JWK Set document as its payload",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "Section 5.2.1 of OpenID Federation 1.0"
     },
     {
@@ -386,7 +386,7 @@
       "entry_id": "subject_type",
       "client_metadata_name": "subject_type",
       "client_metadata_description": "subject_type requested for responses to this Client -- \"pairwise\" or \"public\"",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -442,7 +442,7 @@
       "entry_id": "token_endpoint_auth_signing_alg",
       "client_metadata_name": "token_endpoint_auth_signing_alg",
       "client_metadata_description": "JWS alg algorithm that MUST be used for signing the JWT used to authenticate the Client at the Token Endpoint for the private_key_jwt and client_secret_jwt authentication methods",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
@@ -456,35 +456,35 @@
       "entry_id": "use_mtls_endpoint_aliases",
       "client_metadata_name": "use_mtls_endpoint_aliases",
       "client_metadata_description": "URL of a Web page for the organization owning this client",
-      "change_controller": "OpenID_Foundation_FAPI_Working_Group",
+      "change_controller": "OpenID_Foundation_FAPI_WG",
       "reference": "Section 5.2.2.1.1 of FAPI 2.0 Security Profile"
     },
     {
       "entry_id": "userinfo_encrypted_response_alg",
       "client_metadata_name": "userinfo_encrypted_response_alg",
       "client_metadata_description": "JWE alg algorithm REQUIRED for encrypting UserInfo Responses",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "userinfo_encrypted_response_enc",
       "client_metadata_name": "userinfo_encrypted_response_enc",
       "client_metadata_description": "JWE enc algorithm REQUIRED for encrypting UserInfo Responses",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "userinfo_signed_response_alg",
       "client_metadata_name": "userinfo_signed_response_alg",
       "client_metadata_description": "JWS alg algorithm REQUIRED for signing UserInfo Responses",
-      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
       "entry_id": "vp_formats_supported",
       "client_metadata_name": "vp_formats_supported",
       "client_metadata_description": "An object containing a list of name/value pairs, where the name is a string identifying a Credential format supported by the Verifier",
-      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_Working_Group",
+      "change_controller": "OpenID_Foundation_Digital_Credentials_Protocols_WG",
       "reference": "Section 11.1 of OpenID for Verifiable Presentations 1.0"
     }
   ]
