@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC7519"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.142Z"
+    "last_updated_iso": "2026-03-23T05:38:11.931Z"
   },
   "entries": [
     {
@@ -30,21 +30,21 @@
       "claim_name": "_sd",
       "claim_description": "Digests of Disclosures for object properties",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.1"
+      "reference": "RFC9901 - Section 4.2.4.1"
     },
     {
       "entry_id": "_sd_alg",
       "claim_name": "_sd_alg",
       "claim_description": "Hash algorithm used to generate Disclosure digests and digest over presentation",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.1.1"
+      "reference": "RFC9901 - Section 4.1.1"
     },
     {
       "entry_id": "...",
       "claim_name": "...",
       "claim_description": "Digest of the Disclosure for an array element",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.2.4.2"
+      "reference": "RFC9901 - Section 4.2.4.2"
     },
     {
       "entry_id": "ace_profile",
@@ -143,6 +143,13 @@
       "claim_description": "Time when the authentication occurred",
       "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
       "reference": "OpenID Connect Core 1.0 - Section 2"
+    },
+    {
+      "entry_id": "authority_hints",
+      "claim_name": "authority_hints",
+      "claim_description": "Authority Hints",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.2"
     },
     {
       "entry_id": "authorization_details",
@@ -264,6 +271,13 @@
       "reference": "RFC8693 - Section 4.3"
     },
     {
+      "entry_id": "cmw",
+      "claim_name": "cmw",
+      "claim_description": "A RATS Conceptual Message Wrapper",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-rats-msg-wrap-22 - Sections 3.1, 3.3"
+    },
+    {
       "entry_id": "cnf",
       "claim_name": "cnf",
       "claim_description": "Confirmation",
@@ -276,6 +290,13 @@
       "claim_description": "\"client-nonce\". A nonce previously provided to the AS by the RS via the client. Used to verify token freshness when the RS cannot synchronize its clock with the AS.",
       "change_controller": "IETF",
       "reference": "RFC9200 - Section 5.10"
+    },
+    {
+      "entry_id": "constraints",
+      "claim_name": "constraints",
+      "claim_description": "Constraints object",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.3"
     },
     {
       "entry_id": "consumerPlmnId",
@@ -292,6 +313,13 @@
       "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
     },
     {
+      "entry_id": "crit",
+      "claim_name": "crit",
+      "claim_description": "List of Claims in this JWT defined by extensions to this kind of JWT that MUST be understood and processed",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.4"
+    },
+    {
       "entry_id": "crn",
       "claim_name": "crn",
       "claim_description": "Call Reason",
@@ -304,6 +332,13 @@
       "claim_description": "The status of debug facilities",
       "change_controller": "IETF",
       "reference": "RFC9711"
+    },
+    {
+      "entry_id": "delegation",
+      "claim_name": "delegation",
+      "claim_description": "Delegation",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.6"
     },
     {
       "entry_id": "dest",
@@ -481,6 +516,20 @@
       "reference": "RFC7519 - Section 4.1.7"
     },
     {
+      "entry_id": "jwks",
+      "claim_name": "jwks",
+      "claim_description": "JSON Web Key Set",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.1"
+    },
+    {
+      "entry_id": "keys",
+      "claim_name": "keys",
+      "claim_description": "Array of JWK values in a JWK Set",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 5.2.1"
+    },
+    {
       "entry_id": "locale",
       "claim_name": "locale",
       "claim_description": "Locale",
@@ -493,6 +542,13 @@
       "claim_description": "The geographic location",
       "change_controller": "IETF",
       "reference": "RFC9711"
+    },
+    {
+      "entry_id": "logo_uri",
+      "claim_name": "logo_uri",
+      "claim_description": "URI referencing a logo",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.7"
     },
     {
       "entry_id": "manifests",
@@ -521,6 +577,27 @@
       "claim_description": "Measurements of the software, memory configuration, and such on the entity",
       "change_controller": "IETF",
       "reference": "RFC9711"
+    },
+    {
+      "entry_id": "metadata",
+      "claim_name": "metadata",
+      "claim_description": "Metadata object",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.2"
+    },
+    {
+      "entry_id": "metadata_policy",
+      "claim_name": "metadata_policy",
+      "claim_description": "Metadata Policy object",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.3"
+    },
+    {
+      "entry_id": "metadata_policy_crit",
+      "claim_name": "metadata_policy_crit",
+      "claim_description": "Critical Metadata Policy Operators",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.3"
     },
     {
       "entry_id": "middle_name",
@@ -672,7 +749,7 @@
     {
       "entry_id": "producerNsiList",
       "claim_name": "producerNsiList",
-      "claim_description": "List of NSIs of the NF service produce",
+      "claim_description": "List of NSIs of the NF service producer which are authorized for the NF service consumer",
       "change_controller": "_3GPP_Specifications_Manager",
       "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
     },
@@ -693,7 +770,7 @@
     {
       "entry_id": "producerSnssaiList",
       "claim_name": "producerSnssaiList",
-      "claim_description": "List of S-NSSAIs of the NF service producer",
+      "claim_description": "list of S-NSSAIs of the NF service producer which are authorized for the NF service consumer",
       "change_controller": "_3GPP_Specifications_Manager",
       "reference": "3GPP TS 29.510, Clause 6.3.5.2.4"
     },
@@ -731,6 +808,13 @@
       "claim_description": "This claim contains a JSON boolean literal that describes a \"do not track\" request for server-side tracking, logging, or recording of an identity that is presented for access to a protected RDAP resource.",
       "change_controller": "IETF",
       "reference": "RFC9560 - Section 3.1.5.2"
+    },
+    {
+      "entry_id": "ref",
+      "claim_name": "ref",
+      "claim_description": "Reference",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 13.5"
     },
     {
       "entry_id": "resOwnerId",
@@ -772,7 +856,7 @@
       "claim_name": "sd_hash",
       "claim_description": "Digest of the SD-JWT to which the KB-JWT is tied",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-oauth-selective-disclosure-jwt-22 - Section 4.3"
+      "reference": "RFC9901 - Section 4.3"
     },
     {
       "entry_id": "sid",
@@ -822,6 +906,13 @@
       "claim_description": "SIP Via branch header field parameter value",
       "change_controller": "IESG",
       "reference": "RFC8055, RFC3261"
+    },
+    {
+      "entry_id": "source_endpoint",
+      "claim_name": "source_endpoint",
+      "claim_description": "Source Endpoint URL",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.3"
     },
     {
       "entry_id": "sourceNfInstanceId",
@@ -906,6 +997,55 @@
       "claim_description": "Token introspection response",
       "change_controller": "IETF",
       "reference": "RFC9701 - Section 5"
+    },
+    {
+      "entry_id": "trust_anchor",
+      "claim_name": "trust_anchor",
+      "claim_description": "Trust Anchor ID",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 12.2.3"
+    },
+    {
+      "entry_id": "trust_anchor_hints",
+      "claim_name": "trust_anchor_hints",
+      "claim_description": "Trust Anchor Hints",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.2"
+    },
+    {
+      "entry_id": "trust_chain",
+      "claim_name": "trust_chain",
+      "claim_description": "Trust Chain",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 8.3.2"
+    },
+    {
+      "entry_id": "trust_mark_issuers",
+      "claim_name": "trust_mark_issuers",
+      "claim_description": "Trust Mark Issuers",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.2"
+    },
+    {
+      "entry_id": "trust_mark_owners",
+      "claim_name": "trust_mark_owners",
+      "claim_description": "Trust Mark Owners",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.2"
+    },
+    {
+      "entry_id": "trust_mark_type",
+      "claim_name": "trust_mark_type",
+      "claim_description": "Trust Mark Type Identifier",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 7.1"
+    },
+    {
+      "entry_id": "trust_marks",
+      "claim_name": "trust_marks",
+      "claim_description": "Trust Marks",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_Working_Group",
+      "reference": "OpenID Federation 1.0 - Section 3.2"
     },
     {
       "entry_id": "txn",
