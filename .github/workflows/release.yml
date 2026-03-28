@@ -10,17 +10,33 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment: npm
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
       - name: Install
-        run: npm install
+        run: npm ci
       - name: Build library
         run: npm run build:lib
+      - name: Read package version
+        id: package
+        run: echo "version=$(npm pkg get version -w iana-registry-data-lib | tr -d '\"')" >> "$GITHUB_OUTPUT"
+      - name: Skip if version already exists on npm
+        id: published
+        run: |
+          if npm view "iana-registry-data-lib@${{ steps.package.outputs.version }}" version >/dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Publish to npm
-        run: cd iana-registry-data-lib && npm publish --access public
+        if: steps.published.outputs.skip != 'true'
+        run: cd iana-registry-data-lib && npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
