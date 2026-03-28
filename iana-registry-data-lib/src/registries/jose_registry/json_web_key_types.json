@@ -9,16 +9,16 @@
       "RFC7518",
       "RFC7638"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.023Z"
+    "last_updated_iso": "2026-03-23T05:38:11.640Z"
   },
   "entries": [
     {
       "entry_id": "AKP",
       "kty_parameter_value": "AKP",
-      "key_type_description": "Algorithm Key Pair (TEMPORARY - registered 2025-04-24, expires 2026-04-24)",
+      "key_type_description": "Algorithm Key Pair",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IETF",
-      "reference": "draft-ietf-cose-dilithium-06"
+      "reference": "RFC-ietf-cose-dilithium-10"
     },
     {
       "entry_id": "EC",
