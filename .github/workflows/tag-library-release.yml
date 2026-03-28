@@ -1,0 +1,44 @@
+name: Tag Library Release
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'iana-registry-data-lib/package.json'
+  workflow_dispatch:
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          package-manager-cache: false
+      - name: Read package version
+        id: package
+        run: echo "version=$(npm pkg get version -w iana-registry-data-lib | tr -d '\"')" >> "$GITHUB_OUTPUT"
+      - name: Prepare tag name
+        id: tag
+        run: echo "name=iana-registry-data-lib@${{ steps.package.outputs.version }}" >> "$GITHUB_OUTPUT"
+      - name: Skip if tag already exists
+        id: tag_check
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${{ steps.tag.outputs.name }}" >/dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create and push release tag
+        if: steps.tag_check.outputs.skip != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.tag.outputs.name }}"
+          git push origin "${{ steps.tag.outputs.name }}"
