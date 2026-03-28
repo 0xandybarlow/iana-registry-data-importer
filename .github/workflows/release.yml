@@ -26,7 +26,9 @@ jobs:
         run: npm run build:lib
       - name: Read package version
         id: package
-        run: echo "version=$(npm pkg get version -w iana-registry-data-lib | tr -d '\"')" >> "$GITHUB_OUTPUT"
+        run: |
+          version=$(node -e 'process.stdout.write(require("./iana-registry-data-lib/package.json").version)')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Skip if version already exists on npm
         id: published
         run: |

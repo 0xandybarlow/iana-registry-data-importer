@@ -23,7 +23,9 @@ jobs:
           package-manager-cache: false
       - name: Read package version
         id: package
-        run: echo "version=$(npm pkg get version -w iana-registry-data-lib | tr -d '\"')" >> "$GITHUB_OUTPUT"
+        run: |
+          version=$(node -e 'process.stdout.write(require("./iana-registry-data-lib/package.json").version)')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Prepare tag name
         id: tag
         run: echo "name=iana-registry-data-lib@${{ steps.package.outputs.version }}" >> "$GITHUB_OUTPUT"
