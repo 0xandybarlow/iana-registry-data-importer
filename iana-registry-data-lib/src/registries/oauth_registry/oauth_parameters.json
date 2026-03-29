@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749"
     ],
-    "last_updated_iso": "2026-03-23T05:38:11.207Z"
+    "last_updated_iso": "2026-03-29T00:03:13.830Z"
   },
   "entries": [
     {
@@ -208,6 +208,13 @@
       "reference": "RFC9449 - Section 10"
     },
     {
+      "entry_id": "ecdh_info",
+      "name": "ecdh_info",
+      "parameter_usage_location": "client-rs request, rs-client response",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-ace-key-groupcomm-oscore-21"
+    },
+    {
       "entry_id": "error",
       "name": "error",
       "parameter_usage_location": "authorization response, token response",
@@ -297,6 +304,13 @@
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
       "reference": "RFC7519 - Section 4.1.7, RFC9101"
+    },
+    {
+      "entry_id": "kdc_dh_creds",
+      "name": "kdc_dh_creds",
+      "parameter_usage_location": "client-rs request, rs-client response",
+      "change_controller": "IETF",
+      "reference": "RFC-ietf-ace-key-groupcomm-oscore-21"
     },
     {
       "entry_id": "kdcchallenge",
