@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6755"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.881Z"
+    "last_updated_iso": "2026-05-25T06:35:27.546Z"
   },
   "entries": [
     {
@@ -23,14 +23,14 @@
       "urn": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
       "common_name": "JWT Bearer Token Profile for OAuth 2.0 Client Authentication",
       "change_controller": "IESG",
-      "reference": "RFC7523"
+      "reference": "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "urn:ietf:params:oauth:client-assertion-type:saml2-bearer",
       "urn": "urn:ietf:params:oauth:client-assertion-type:saml2-bearer",
       "common_name": "SAML 2.0 Bearer Assertion Profile for OAuth 2.0 Client Authentication",
       "change_controller": "IESG",
-      "reference": "RFC7522"
+      "reference": "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "urn:ietf:params:oauth:grant-type:device_code",
@@ -44,14 +44,14 @@
       "urn": "urn:ietf:params:oauth:grant-type:jwt-bearer",
       "common_name": "JWT Bearer Token Grant Type Profile for OAuth 2.0",
       "change_controller": "IESG",
-      "reference": "RFC7523"
+      "reference": "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "urn:ietf:params:oauth:grant-type:saml2-bearer",
       "urn": "urn:ietf:params:oauth:grant-type:saml2-bearer",
       "common_name": "SAML 2.0 Bearer Assertion Grant Type Profile for OAuth 2.0",
       "change_controller": "IESG",
-      "reference": "RFC7522"
+      "reference": "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "urn:ietf:params:oauth:grant-type:token-exchange",

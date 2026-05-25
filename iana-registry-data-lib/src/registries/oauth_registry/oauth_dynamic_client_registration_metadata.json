@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC7591"
     ],
-    "last_updated_iso": "2026-03-23T05:38:11.354Z"
+    "last_updated_iso": "2026-05-25T06:35:27.567Z"
   },
   "entries": [
     {
@@ -393,6 +393,13 @@
       "entry_id": "software_id",
       "client_metadata_name": "software_id",
       "client_metadata_description": "Identifier for the software that comprises a client",
+      "change_controller": "IESG",
+      "reference": "RFC7591"
+    },
+    {
+      "entry_id": "software_statement",
+      "client_metadata_name": "software_statement",
+      "client_metadata_description": "A software statement containing client metadata values about the client software as claims. This is a string value containing the entire signed JWT.",
       "change_controller": "IESG",
       "reference": "RFC7591"
     },
