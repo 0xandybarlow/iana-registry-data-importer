@@ -9,7 +9,7 @@
       "RFC7517",
       "RFC7638"
     ],
-    "last_updated_iso": "2026-03-23T05:38:11.736Z"
+    "last_updated_iso": "2026-05-25T06:35:27.669Z"
   },
   "entries": [
     {
@@ -199,7 +199,7 @@
       "used_with_kty_value": "AKP",
       "parameter_information_class": "Private",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-cose-dilithium-10"
+      "reference": "RFC9964"
     },
     {
       "entry_id": "pub",
@@ -208,7 +208,7 @@
       "used_with_kty_value": "AKP",
       "parameter_information_class": "Public",
       "change_controller": "IETF",
-      "reference": "RFC-ietf-cose-dilithium-10"
+      "reference": "RFC9964"
     },
     {
       "entry_id": "q",
