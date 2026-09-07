@@ -1,36 +1,26 @@
 ## IANA Registry Data Updates
 
-### OAuth URI (oauth_registry/oauth_uri)
-- Modified: 4
-  - entry_id=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-    - reference: "RFC7523" → "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
-  - entry_id=urn:ietf:params:oauth:client-assertion-type:saml2-bearer
-    - reference: "RFC7522" → "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
-  - entry_id=urn:ietf:params:oauth:grant-type:jwt-bearer
-    - reference: "RFC7523" → "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
-  - entry_id=urn:ietf:params:oauth:grant-type:saml2-bearer
-    - reference: "RFC7522" → "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
+### OAuth Access Token Types (oauth_registry/oauth_access_token_types)
+- Modified: 1
+  - entry_id=PoP
+    - additional_token_endpoint_response_parameters: "cnf, rs_cnf (see section 3.1 of RFC8747 and section 3.2 of RFC9201)." → "cnf, rs_cnf (see RFC8747 - Section 3.1 and RFC9201 - Section 3.2)."
 
 ### OAuth Dynamic Client Registration Metadata (oauth_registry/oauth_dynamic_client_registration_metadata)
-- Added: 1
+- Added: 22
 
-### OAuth Token Endpoint Authentication Methods (oauth_registry/oauth_token_endpoint_authentication_methods)
+### PKCE Code Challenge Methods (oauth_registry/pkce_code_challenge_methods)
 - Modified: 2
-  - entry_id=client_secret_jwt
-    - change_controller: "OpenID_Foundation_Artifact_Binding_WG" → "IESG"
-    - reference: "OpenID Connect Core 1.0 incorporating errata set 1" → "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
-  - entry_id=private_key_jwt
-    - change_controller: "OpenID_Foundation_Artifact_Binding_WG" → "IESG"
-    - reference: "OpenID Connect Core 1.0 incorporating errata set 1" → "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
+  - entry_id=plain
+    - reference: "Section 4.2 of RFC7636" → "RFC7636 - Section 4.2"
+  - entry_id=S256
+    - reference: "Section 4.2 of RFC7636" → "RFC7636 - Section 4.2"
 
-### JSON Web Key Types (jose_registry/json_web_key_types)
+### OAuth Authorization Server Metadata (oauth_registry/oauth_authorization_server_metadata)
+- Added: 2
+
+### JSON Web Token Claims (jwt_registry/json_web_token_claims)
+- Added: 4
 - Modified: 1
-  - entry_id=AKP
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
-
-### JSON Web Key Parameters (jose_registry/json_web_key_parameters)
-- Modified: 2
-  - entry_id=priv
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
-  - entry_id=pub
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
+  - entry_id=cmw
+    - claim_description: "A RATS Conceptual Message Wrapper" → "RATS Conceptual Message Wrapper"
+    - reference: "RFC-ietf-rats-msg-wrap-22 - Sections 3.1, 3.3" → "RFC9999 - Sections 3.1, 3.3"

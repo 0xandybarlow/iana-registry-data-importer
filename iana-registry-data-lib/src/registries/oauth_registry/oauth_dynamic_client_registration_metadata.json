@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC7591"
     ],
-    "last_updated_iso": "2026-05-25T06:35:27.567Z"
+    "last_updated_iso": "2026-09-07T10:06:19.693Z"
   },
   "entries": [
     {
@@ -24,6 +24,55 @@
       "client_metadata_description": "Indicates what authorization details types the client uses.",
       "change_controller": "IETF",
       "reference": "RFC9396 - Section 10"
+    },
+    {
+      "entry_id": "authorization_encrypted_response_alg",
+      "client_metadata_name": "authorization_encrypted_response_alg",
+      "client_metadata_description": "String value specifying the desired authorization response encryption algorithm (alg value).",
+      "change_controller": "IESG",
+      "reference": "Section 3 of JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) incorporating errata set 1"
+    },
+    {
+      "entry_id": "authorization_encrypted_response_enc",
+      "client_metadata_name": "authorization_encrypted_response_enc",
+      "client_metadata_description": "String value specifying the desired authorization response encryption algorithm (enc value).",
+      "change_controller": "IESG",
+      "reference": "Section 3 of JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) incorporating errata set 1"
+    },
+    {
+      "entry_id": "authorization_encryption_alg_values_supported",
+      "client_metadata_name": "authorization_encryption_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE alg values supported by the Client for encrypted responses",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "authorization_encryption_enc_values_supported",
+      "client_metadata_name": "authorization_encryption_enc_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE enc values supported by the Client for encrypted responses",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "authorization_signed_response_alg",
+      "client_metadata_name": "authorization_signed_response_alg",
+      "client_metadata_description": "String value indicating the client's desired authorization response signing algorithm.",
+      "change_controller": "IESG",
+      "reference": "Section 3 of JWT Secured Authorization Response Mode for OAuth 2.0 (JARM) incorporating errata set 1"
+    },
+    {
+      "entry_id": "authorization_signing_alg_values_supported",
+      "client_metadata_name": "authorization_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the Client for signed responses",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "backchannel_authentication_request_signing_alg_values_supported",
+      "client_metadata_name": "backchannel_authentication_request_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the Client when signing the JWT used for CIBA authentication requests",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "backchannel_logout_session_required",
@@ -173,11 +222,32 @@
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
+      "entry_id": "id_token_encryption_alg_values_supported",
+      "client_metadata_name": "id_token_encryption_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE alg values supported by the RP when decrypting the ID Token",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "id_token_encryption_enc_values_supported",
+      "client_metadata_name": "id_token_encryption_enc_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE enc values supported by the RP when decrypting the ID Token",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "id_token_signed_response_alg",
       "client_metadata_name": "id_token_signed_response_alg",
       "client_metadata_description": "JWS alg algorithm REQUIRED for signing the ID Token issued to this Client",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
+    },
+    {
+      "entry_id": "id_token_signing_alg_values_supported",
+      "client_metadata_name": "id_token_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the RP when validating the ID Token signature",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "information_uri",
@@ -208,11 +278,32 @@
       "reference": "RFC9701 - Section 6"
     },
     {
+      "entry_id": "introspection_encryption_alg_values_supported",
+      "client_metadata_name": "introspection_encryption_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE alg values supported by the Client when decrypting the Introspection Response",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "introspection_encryption_enc_values_supported",
+      "client_metadata_name": "introspection_encryption_enc_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE enc values supported by the Client when decrypting the Introspection Response",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "introspection_signed_response_alg",
       "client_metadata_name": "introspection_signed_response_alg",
       "client_metadata_description": "String value indicating the client’s desired introspection response signing algorithm",
       "change_controller": "IETF",
       "reference": "RFC9701 - Section 6"
+    },
+    {
+      "entry_id": "introspection_signing_alg_values_supported",
+      "client_metadata_name": "introspection_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the Client when validating the Introspection Response signature",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "jwks",
@@ -320,6 +411,13 @@
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
+      "entry_id": "request_object_encryption_alg_values_supported",
+      "client_metadata_name": "request_object_encryption_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE alg values supported by the Client when encrypting Request Objects",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "request_object_encryption_enc",
       "client_metadata_name": "request_object_encryption_enc",
       "client_metadata_description": "JWE enc algorithm the RP is declaring that it may use for encrypting Request Objects sent to the OP",
@@ -327,11 +425,25 @@
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
+      "entry_id": "request_object_encryption_enc_values_supported",
+      "client_metadata_name": "request_object_encryption_enc_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE enc values supported by the Client when encrypting Request Objects",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "request_object_signing_alg",
       "client_metadata_name": "request_object_signing_alg",
       "client_metadata_description": "JWS alg algorithm that MUST be used for signing Request Objects sent to the OP",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
+    },
+    {
+      "entry_id": "request_object_signing_alg_values_supported",
+      "client_metadata_name": "request_object_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the Client when signing Request Objects",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "request_uris",
@@ -418,6 +530,13 @@
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
+      "entry_id": "subject_types_supported",
+      "client_metadata_name": "subject_types_supported",
+      "client_metadata_description": "JSON array containing a list of the subject_type values supported by the RP",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "tls_client_auth_san_dns",
       "client_metadata_name": "tls_client_auth_san_dns",
       "client_metadata_description": "String value specifying the expected dNSName SAN entry in the client certificate.",
@@ -467,11 +586,25 @@
       "reference": "RFC7591"
     },
     {
+      "entry_id": "token_endpoint_auth_methods_supported",
+      "client_metadata_name": "token_endpoint_auth_methods_supported",
+      "client_metadata_description": "JSON array containing a list of the Client Authentication methods supported by the Client",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "token_endpoint_auth_signing_alg",
       "client_metadata_name": "token_endpoint_auth_signing_alg",
       "client_metadata_description": "JWS alg algorithm that MUST be used for signing the JWT used to authenticate the Client at the Token Endpoint for the private_key_jwt and client_secret_jwt authentication methods",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
+    },
+    {
+      "entry_id": "token_endpoint_auth_signing_alg_values_supported",
+      "client_metadata_name": "token_endpoint_auth_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the Client when signing the JWT used to authenticate the Client at the Token Endpoint",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "tos_uri",
@@ -502,11 +635,32 @@
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
     },
     {
+      "entry_id": "userinfo_encryption_alg_values_supported",
+      "client_metadata_name": "userinfo_encryption_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE alg values supported by the RP when decrypting the UserInfo Response",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
+      "entry_id": "userinfo_encryption_enc_values_supported",
+      "client_metadata_name": "userinfo_encryption_enc_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWE enc values supported by the RP when decrypting the UserInfo Response",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
+    },
+    {
       "entry_id": "userinfo_signed_response_alg",
       "client_metadata_name": "userinfo_signed_response_alg",
       "client_metadata_description": "JWS alg algorithm REQUIRED for signing UserInfo Responses",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2"
+    },
+    {
+      "entry_id": "userinfo_signing_alg_values_supported",
+      "client_metadata_name": "userinfo_signing_alg_values_supported",
+      "client_metadata_description": "JSON array containing a list of the JWS alg values supported by the RP when validating the UserInfo Response signature",
+      "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
+      "reference": "Section 2 of OpenID Connect Relying Party Metadata Choices 1.0"
     },
     {
       "entry_id": "vp_formats_supported",

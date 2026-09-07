@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749, RFC8414"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.775Z"
+    "last_updated_iso": "2026-09-07T10:06:18.739Z"
   },
   "entries": [
     {
@@ -38,7 +38,7 @@
     {
       "entry_id": "PoP",
       "name": "PoP",
-      "additional_token_endpoint_response_parameters": "cnf, rs_cnf (see section 3.1 of RFC8747 and section 3.2 of RFC9201).",
+      "additional_token_endpoint_response_parameters": "cnf, rs_cnf (see RFC8747 - Section 3.1 and RFC9201 - Section 3.2).",
       "http_authentication_scheme": "N/A",
       "change_controller": "IETF",
       "reference": "RFC9200"
