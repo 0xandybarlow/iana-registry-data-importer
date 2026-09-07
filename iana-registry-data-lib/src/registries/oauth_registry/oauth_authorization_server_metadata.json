@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC8414"
     ],
-    "last_updated_iso": "2026-03-23T05:38:11.548Z"
+    "last_updated_iso": "2026-09-07T10:06:20.302Z"
   },
   "entries": [
     {
@@ -220,6 +220,13 @@
       "metadata_description": "JSON array containing a list of the JWS \"alg\" values supported by the OP for the ID Token",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Discovery 1.0 - Section 3"
+    },
+    {
+      "entry_id": "identity_chaining_requested_token_types_supported",
+      "metadata_name": "identity_chaining_requested_token_types_supported",
+      "metadata_description": "JSON array containing a list of Token Type Identifiers supported as a requested_token_type in an Identity and Authorization Chaining Token Exchange RFC8693 request.",
+      "change_controller": "IESG",
+      "reference": "RFC-ietf-oauth-identity-chaining-16 - Section 3"
     },
     {
       "entry_id": "information_uri",
@@ -500,6 +507,13 @@
       "metadata_description": "Signed JWT containing metadata values about the authorization server as claims",
       "change_controller": "IESG",
       "reference": "RFC8414 - Section 2.1"
+    },
+    {
+      "entry_id": "status_list_aggregation_endpoint",
+      "metadata_name": "status_list_aggregation_endpoint",
+      "metadata_description": "URL of the Authorization Server aggregating OAuth Token Status List URLs for token status management.",
+      "change_controller": "IESG",
+      "reference": "RFC-ietf-oauth-status-list-21 - Section 9"
     },
     {
       "entry_id": "subject_types_supported",

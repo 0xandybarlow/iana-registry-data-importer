@@ -8,20 +8,20 @@
     "required_specifications": [
       "RFC7636"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.942Z"
+    "last_updated_iso": "2026-09-07T10:06:20.000Z"
   },
   "entries": [
     {
       "entry_id": "plain",
       "code_challenge_method_parameter_name": "plain",
       "change_controller": "IESG",
-      "reference": "Section 4.2 of RFC7636"
+      "reference": "RFC7636 - Section 4.2"
     },
     {
       "entry_id": "S256",
       "code_challenge_method_parameter_name": "S256",
       "change_controller": "IESG",
-      "reference": "Section 4.2 of RFC7636"
+      "reference": "RFC7636 - Section 4.2"
     }
   ]
 }
