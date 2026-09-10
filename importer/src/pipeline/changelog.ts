@@ -1,4 +1,8 @@
-import { DatasetChangeSummary, FieldChange } from './types';
+import {
+  DatasetChangeSummary,
+  FieldChange,
+  UpdateSummaryDocument,
+} from './types';
 
 const renderFieldChange = (c: FieldChange): string => {
   const ov = c.oldValue === undefined ? '∅' : JSON.stringify(c.oldValue);
@@ -30,8 +34,9 @@ export const renderDatasetChangelog = (sum: DatasetChangeSummary): string => {
 };
 
 export const renderChangelogBody = (
-  summaries: DatasetChangeSummary[],
+  summary: DatasetChangeSummary[] | UpdateSummaryDocument,
 ): string => {
+  const summaries = Array.isArray(summary) ? summary : summary.datasets;
   const parts = summaries
     .filter((s) => s.hasChanges)
     .map(renderDatasetChangelog)

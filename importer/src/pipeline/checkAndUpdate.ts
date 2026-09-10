@@ -1,57 +1,37 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { csvToObject } from '../convertCsvToObject';
-import { getData } from '../util/network';
-import { buildDataset, normalizeCsvRecord } from './normalize';
-import { REGISTRIES } from './sources';
-import { DatasetChangeSummary, RegistryDataset } from './types';
 import { diffDatasets } from './compare';
 import { renderChangelogBody } from './changelog';
-import { debug, error, info } from './logger';
+import { info } from './logger';
+import { normalizeCsvRecord } from './normalize';
+import { DatasourceConfig, REGISTRIES } from './sources';
+import { collectSweep } from './sweep';
+import {
+  DatasetChangeSummary,
+  RegistryDataset,
+  UpdateSummaryDocument,
+} from './types';
+import { validateDatasetSet } from './validate';
 
 const LIB_DATA_ROOT = path.resolve(
   __dirname,
   '../../../iana-registry-data-lib/src/registries',
 );
 
-const detectPrimaryKeys = (record: Record<string, string>): string[] => {
-  const preferred = [
-    'name',
-    'value',
-    'parameter',
-    'claim',
-    'alg',
-    'type',
-    'token_type',
-    'uri',
-  ];
-  const keys = Object.keys(record).map((k) =>
-    k.toLowerCase().replace(/\s+/g, '_'),
-  );
-  const hit = preferred.find((p) => keys.includes(p));
-  return hit ? [hit] : [keys[0]];
-};
+type ReadText = (file: string) => Promise<string | undefined>;
+type WriteText = (file: string, contents: string) => Promise<void>;
 
-const readExistingDataset = async (
-  registry_id: string,
-  dataset_id: string,
-): Promise<RegistryDataset | undefined> => {
-  const dataDir = path.join(LIB_DATA_ROOT, registry_id);
-  const file = path.join(dataDir, `${dataset_id}.json`);
-  try {
-    const raw = await fs.readFile(file, 'utf8');
-    return JSON.parse(raw) as RegistryDataset;
-  } catch {
-    return undefined;
-  }
-};
-
-const writeDataset = async (dataset: RegistryDataset) => {
-  const dataDir = path.join(LIB_DATA_ROOT, dataset.registry_id);
-  await fs.mkdir(dataDir, { recursive: true });
-  const outFile = path.join(dataDir, `${dataset.dataset_id}.json`);
-  await fs.writeFile(outFile, JSON.stringify(dataset, null, 2));
-};
+export interface CheckAndUpdateOptions {
+  filter?: string;
+  summaryPath?: string;
+  prBodyPath?: string;
+  fetchText?: (url: string) => Promise<string>;
+  dataRoot?: string;
+  now?: () => Date;
+  configs?: DatasourceConfig[];
+  readText?: ReadText;
+  writeText?: WriteText;
+}
 
 type ExistingEntriesLike = { entries?: unknown };
 type ExistingV1Like = {
@@ -64,16 +44,10 @@ const coerceExisting = (
   fallback: RegistryDataset,
   primaryKeys: string[],
 ): RegistryDataset => {
-  if (!existing) return existing as unknown as RegistryDataset;
   const maybeEntries = existing as ExistingEntriesLike;
-  if (maybeEntries && Array.isArray(maybeEntries.entries))
-    return existing as RegistryDataset;
+  if (Array.isArray(maybeEntries.entries)) return existing as RegistryDataset;
   const maybeV1 = existing as ExistingV1Like;
-  const v1Params = maybeV1.parameters;
-  if (Array.isArray(v1Params)) {
-    const entries = v1Params.map((r: Record<string, string>) =>
-      normalizeCsvRecord(r, primaryKeys),
-    );
+  if (Array.isArray(maybeV1.parameters)) {
     return {
       schema_version: 2,
       registry_id: fallback.registry_id,
@@ -83,110 +57,137 @@ const coerceExisting = (
         datasource_url: fallback.metadata.datasource_url,
         required_specifications: fallback.metadata.required_specifications,
         last_updated_iso:
-          (maybeV1.metadata &&
-            (maybeV1.metadata.last_updated ||
-              maybeV1.metadata.last_processed)) ||
+          maybeV1.metadata?.last_updated ??
+          maybeV1.metadata?.last_processed ??
           fallback.metadata.last_updated_iso,
       },
-      entries,
+      entries: maybeV1.parameters.map((record) =>
+        normalizeCsvRecord(record, primaryKeys),
+      ),
     };
   }
-  return fallback;
+  throw new Error(
+    `${fallback.registry_id}/${fallback.dataset_id}: unsupported committed dataset shape`,
+  );
 };
 
-const getFilter = () => {
-  const argv = process.argv.slice(2);
-  const fFlag = argv.find((a) => a.startsWith('--filter='));
-  const fromFlag = fFlag ? fFlag.split('=')[1] : undefined;
-  const fromEnv = process.env.DATASET_FILTER;
-  return (fromFlag || fromEnv || '').toLowerCase();
+const defaultReadText: ReadText = async (file) => {
+  try {
+    return await fs.readFile(file, 'utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+    throw error;
+  }
 };
 
-export const checkAndUpdate = async (): Promise<{
-  changed: boolean;
-  summaries: DatasetChangeSummary[];
-}> => {
-  const summaries: DatasetChangeSummary[] = [];
-  const filter = getFilter();
+const defaultWriteText: WriteText = (file, contents) =>
+  fs.writeFile(file, contents, 'utf8');
 
-  for (const reg of REGISTRIES) {
-    for (const ds of reg.sources) {
-      const key = `${ds.registry_id}/${ds.dataset_id}`.toLowerCase();
-      if (
-        filter &&
-        !key.includes(filter) &&
-        !ds.dataset_id.toLowerCase().includes(filter)
-      )
-        continue;
-      try {
-        const csv = await getData(ds.url);
-        const rows = await csvToObject(csv);
-        const sampleRow =
-          Array.isArray(rows) && rows.length ? rows[0] : undefined;
-        const detectedKeys = sampleRow
-          ? detectPrimaryKeys(sampleRow)
-          : ['name'];
-        const primaryKeys = ds.primary_keys ?? detectedKeys;
-        debug(
-          `[importer] Keys for ${ds.registry_id}/${ds.dataset_id}: ${primaryKeys.join(', ')}`,
-        );
-        if (Array.isArray(rows) && sampleRow)
-          debug(
-            `[importer] Sample keys ${ds.dataset_id}: ${Object.keys(sampleRow).join(', ')}`,
-          );
-        const entries = Array.isArray(rows)
-          ? rows.map((r) => normalizeCsvRecord(r, primaryKeys))
-          : [];
-        const dataset = buildDataset({
-          registry_id: ds.registry_id,
-          dataset_id: ds.dataset_id,
-          name: ds.name,
-          datasource_url: ds.url,
-          required_specifications: ds.required_specifications,
-          entries,
-        });
+const cliOption = (name: string): string | undefined => {
+  const prefix = `${name}=`;
+  const value = process.argv.slice(2).find((arg) => arg.startsWith(prefix));
+  return value?.slice(prefix.length);
+};
 
-        const existingRaw = await readExistingDataset(
-          dataset.registry_id,
-          dataset.dataset_id,
+const configuredFilter = (): string =>
+  cliOption('--filter') ?? process.env.DATASET_FILTER ?? '';
+
+const datasetFile = (dataRoot: string, dataset: RegistryDataset): string =>
+  path.join(dataRoot, dataset.registry_id, `${dataset.dataset_id}.json`);
+
+export const checkAndUpdate = async (
+  options: CheckAndUpdateOptions = {},
+): Promise<UpdateSummaryDocument> => {
+  const configs =
+    options.configs ?? REGISTRIES.flatMap((registry) => registry.sources);
+  const filter = (options.filter ?? configuredFilter()).toLowerCase();
+  const selectedConfigs = filter
+    ? configs.filter((config) => {
+        const key = `${config.registry_id}/${config.dataset_id}`.toLowerCase();
+        return (
+          key.includes(filter) ||
+          config.dataset_id.toLowerCase().includes(filter)
         );
-        const isNewShape =
-          !!existingRaw &&
-          Array.isArray((existingRaw as ExistingEntriesLike).entries);
-        const existing = existingRaw
-          ? coerceExisting(existingRaw, dataset, primaryKeys)
-          : undefined;
-        const diff = diffDatasets(existing, dataset);
-        if (!diff.hasChanges && existingRaw && !isNewShape) {
-          diff.formatUpgraded = true;
-          diff.hasChanges = true;
-        }
-        summaries.push(diff);
-        if (diff.hasChanges) await writeDataset(dataset);
-      } catch (err) {
-        error(`Failed processing ${ds.url}: ${(err as Error).message}`);
-        if (process.env.DEBUG_IMPORTER && err instanceof Error && err.stack)
-          error(err.stack);
-      }
+      })
+    : configs;
+  const complete = filter.length === 0;
+  const diagnostic = !complete;
+  const dataRoot = options.dataRoot ?? LIB_DATA_ROOT;
+  const readText = options.readText ?? defaultReadText;
+  const writeText = options.writeText ?? defaultWriteText;
+  const datasets = await collectSweep(selectedConfigs, options.fetchText);
+
+  if (complete) validateDatasetSet(datasets, configs);
+
+  const comparisons: {
+    dataset: RegistryDataset;
+    summary: DatasetChangeSummary;
+  }[] = [];
+  for (let index = 0; index < datasets.length; index += 1) {
+    const dataset = datasets[index];
+    const config = selectedConfigs[index];
+    const raw = await readText(datasetFile(dataRoot, dataset));
+    const parsed = raw === undefined ? undefined : (JSON.parse(raw) as unknown);
+    const existing =
+      parsed === undefined
+        ? undefined
+        : coerceExisting(parsed, dataset, config.primary_keys ?? ['name']);
+    const summary = diffDatasets(existing, dataset);
+    if (
+      parsed !== undefined &&
+      !Array.isArray((parsed as ExistingEntriesLike).entries) &&
+      !summary.hasChanges
+    ) {
+      summary.formatUpgraded = true;
+      summary.hasChanges = true;
+    }
+    comparisons.push({ dataset, summary });
+  }
+
+  const document: UpdateSummaryDocument = {
+    schema_version: 1,
+    complete,
+    diagnostic,
+    changed: comparisons.some(({ summary }) => summary.hasChanges),
+    generated_at: (options.now ?? (() => new Date()))().toISOString(),
+    datasets: comparisons.map(({ summary }) => summary),
+  };
+  const body = renderChangelogBody(document);
+
+  if (!diagnostic) {
+    for (const { dataset, summary } of comparisons) {
+      if (!summary.hasChanges) continue;
+      const file = datasetFile(dataRoot, dataset);
+      await fs.mkdir(path.dirname(file), { recursive: true });
+      await writeText(file, JSON.stringify(dataset, null, 2));
+    }
+    if (options.summaryPath) {
+      await fs.mkdir(path.dirname(options.summaryPath), { recursive: true });
+      await writeText(
+        options.summaryPath,
+        `${JSON.stringify(document, null, 2)}\n`,
+      );
+    }
+    if (options.prBodyPath) {
+      await fs.mkdir(path.dirname(options.prBodyPath), { recursive: true });
+      await writeText(options.prBodyPath, `${body}\n`);
     }
   }
 
-  const changed = summaries.some((s) => s.hasChanges);
-  const body = renderChangelogBody(summaries);
-  const prBodyPath = path.resolve(process.cwd(), 'CHANGELOG_UPDATE.md');
-  await fs.writeFile(prBodyPath, body, 'utf8');
   info(body);
-  return { changed, summaries };
+  return document;
 };
 
 if (require.main === module) {
-  checkAndUpdate()
+  checkAndUpdate({
+    summaryPath: cliOption('--summary'),
+    prBodyPath: cliOption('--pr-body'),
+  })
     .then(({ changed }) => {
       console.log(changed ? 'Changes detected.' : 'No changes detected.');
-      process.exit(0);
     })
-    .catch((e) => {
-      console.error(e);
-      process.exit(1);
+    .catch((error: unknown) => {
+      console.error(error);
+      process.exitCode = 1;
     });
 }

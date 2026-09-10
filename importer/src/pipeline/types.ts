@@ -60,3 +60,12 @@ export interface DatasetChangeSummary {
   modified: EntryChange[];
   formatUpgraded?: boolean;
 }
+
+export interface UpdateSummaryDocument {
+  schema_version: 1;
+  complete: boolean;
+  diagnostic: boolean;
+  changed: boolean;
+  generated_at: string;
+  datasets: DatasetChangeSummary[];
+}

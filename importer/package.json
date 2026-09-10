@@ -2,8 +2,9 @@
   "name": "registry-importer",
   "version": "2.0.0",
   "scripts": {
-    "generate-data": "node dist/importAndProcessDatasources.js",
+    "generate-data": "node dist/pipeline/checkAndUpdate.js",
     "check-and-update": "node dist/pipeline/checkAndUpdate.js",
+    "validate-data": "node dist/pipeline/validateCommitted.js",
     "build": "tsc",
     "pretty": "prettier --write .",
     "lint": "eslint \"src/**/*.ts\"",
