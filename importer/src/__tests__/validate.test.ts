@@ -125,6 +125,57 @@ describe('validateDataset', () => {
       'test_registry/test_dataset: invalid entry',
     );
   });
+
+  it.each([
+    ['undefined', undefined, 'entries[0].payload'],
+    ['a function', () => 'not JSON', 'entries[0].payload'],
+    ['a symbol', Symbol('not JSON'), 'entries[0].payload'],
+    [
+      'a recursively invalid value',
+      { nested: ['valid', { invalid: undefined }] },
+      'entries[0].payload.nested[1].invalid',
+    ],
+    ['a non-finite number', Number.NaN, 'entries[0].payload'],
+    ['a non-JSON object', new Date(0), 'entries[0].payload'],
+  ])('rejects %s in an entry', (_description, payload, location) => {
+    const dataset = {
+      ...makeDataset([{ entry_id: 'one', name: 'One' }]),
+      entries: [{ entry_id: 'one', payload }],
+    };
+
+    expect(() => validateDataset(dataset, identity)).toThrow(
+      `test_registry/test_dataset: invalid JSON value at ${location}`,
+    );
+  });
+
+  it('rejects a circular entry value', () => {
+    const payload: Record<string, unknown> = {};
+    payload.self = payload;
+    const dataset = {
+      ...makeDataset([{ entry_id: 'one', name: 'One' }]),
+      entries: [{ entry_id: 'one', payload }],
+    };
+
+    expect(() => validateDataset(dataset, identity)).toThrow(
+      'test_registry/test_dataset: invalid JSON value at entries[0].payload.self',
+    );
+  });
+
+  it('rejects an entry object with a symbol key', () => {
+    const payload = { valid: true };
+    Object.defineProperty(payload, Symbol('hidden'), {
+      enumerable: true,
+      value: 'not JSON',
+    });
+    const dataset = {
+      ...makeDataset([{ entry_id: 'one', name: 'One' }]),
+      entries: [{ entry_id: 'one', payload }],
+    };
+
+    expect(() => validateDataset(dataset, identity)).toThrow(
+      'test_registry/test_dataset: invalid JSON value at entries[0].payload',
+    );
+  });
 });
 
 describe('validateDatasetSet', () => {
@@ -336,5 +387,15 @@ describe('validateCommittedDatasets legacy compatibility', () => {
     ).rejects.toThrow(
       'jose_registry/json_web_key_parameters: duplicate entry_id "unexpected"',
     );
+  });
+});
+
+describe('importer package safety', () => {
+  it('marks the importer workspace private to prevent publication', async () => {
+    const packageJson = JSON.parse(
+      await fs.readFile(path.resolve(__dirname, '../../package.json'), 'utf8'),
+    ) as { private?: unknown };
+
+    expect(packageJson.private).toBe(true);
   });
 });

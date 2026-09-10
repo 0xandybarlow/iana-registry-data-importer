@@ -16,6 +16,54 @@ const identityLabel = (identity: DatasetIdentity): string =>
 const isObject = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
+const findInvalidJsonValue = (
+  value: unknown,
+  path: string,
+  ancestors: WeakSet<object>,
+): string | undefined => {
+  if (
+    value === null ||
+    typeof value === 'string' ||
+    typeof value === 'boolean'
+  ) {
+    return undefined;
+  }
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? undefined : path;
+  }
+  if (typeof value !== 'object') return path;
+  if (ancestors.has(value)) return path;
+
+  if (!Array.isArray(value)) {
+    const prototype = Object.getPrototypeOf(value) as object | null;
+    if (prototype !== Object.prototype && prototype !== null) return path;
+    if (Object.getOwnPropertySymbols(value).length > 0) return path;
+  }
+
+  ancestors.add(value);
+  if (Array.isArray(value)) {
+    for (let index = 0; index < value.length; index += 1) {
+      const invalidPath = findInvalidJsonValue(
+        value[index],
+        `${path}[${index}]`,
+        ancestors,
+      );
+      if (invalidPath) return invalidPath;
+    }
+  } else {
+    for (const [key, item] of Object.entries(value)) {
+      const invalidPath = findInvalidJsonValue(
+        item,
+        `${path}.${key}`,
+        ancestors,
+      );
+      if (invalidPath) return invalidPath;
+    }
+  }
+  ancestors.delete(value);
+  return undefined;
+};
+
 const validateMetadata = (value: unknown): boolean => {
   if (!isObject(value)) return false;
   return (
@@ -55,7 +103,8 @@ export const validateDatasetWithOptions = (
   }
 
   const ids = new Set<string>();
-  for (const entry of value.entries) {
+  for (let index = 0; index < value.entries.length; index += 1) {
+    const entry = value.entries[index];
     if (!isObject(entry)) {
       throw new Error(`${label}: invalid entry`);
     }
@@ -69,6 +118,14 @@ export const validateDatasetWithOptions = (
       throw new Error(`${label}: duplicate entry_id "${entry.entry_id}"`);
     }
     ids.add(entry.entry_id);
+    const invalidPath = findInvalidJsonValue(
+      entry,
+      `entries[${index}]`,
+      new WeakSet<object>(),
+    );
+    if (invalidPath) {
+      throw new Error(`${label}: invalid JSON value at ${invalidPath}`);
+    }
   }
 
   return value as unknown as RegistryDataset;

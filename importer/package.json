@@ -1,6 +1,7 @@
 {
   "name": "registry-importer",
   "version": "2.0.0",
+  "private": true,
   "scripts": {
     "generate-data": "node dist/pipeline/checkAndUpdate.js",
     "check-and-update": "node dist/pipeline/checkAndUpdate.js",
