@@ -23,7 +23,8 @@ This project imports and processes data from various IANA registries such as the
 
 - Ignores: field order, array order, and timestamps.
 - Detects: entry additions/removals and per-field changes.
-- Changelog: `CHANGELOG_UPDATE.md` is generated with a concise summary for PRs.
+- Release detail: complete sweeps can write an explicit summary and PR body path;
+  these ephemeral files are never committed.
 
 ### Outputs
 
@@ -34,19 +35,21 @@ This project imports and processes data from various IANA registries such as the
 
 - CI (`.github/workflows/ci.yml`):
 
-  - Triggers: push/PR to `master`.
-  - Runs Node 20, installs deps, builds importer + library, lints, and runs importer tests.
+  - Triggers: push/PR to `master` and exposes the stable `validate` job.
+  - Uses Node 24 and root `npm ci`; validates importer, committed data, an
+    automated release PR's allowed paths/version, and the packed library.
 
 - Update IANA Data (`.github/workflows/update-data.yml`):
 
   - Triggers: weekly (Mon 05:00 UTC) and manual dispatch.
   - Input: `dataset_filter` to limit scope (e.g., `jwt_registry/json_web_token_claims`).
-  - Behavior: fetch → normalize → semantic diff → write JSON and open PR with `CHANGELOG_UPDATE.md` if content changed or if a schema-only update is needed. Does not publish to npm.
+  - Behavior: a complete run fetches → normalizes → validates → writes a
+    candidate release PR through a repository-scoped GitHub App. A filtered
+    dispatch is diagnostic-only and writes no registry data or PR.
 
 - Release Library (`.github/workflows/release.yml`):
-  - Triggers: tag push `iana-registry-data-lib@*` (e.g., `iana-registry-data-lib@2.0.0`).
-  - Publishes `iana-registry-data-lib` using `NPM_AUTOMATION_TOKEN`.
-  - Importer is not published; its version tracks pipeline changes only.
+  - The merge-gated OIDC publication transaction is being completed on the
+    feature branch; the importer is never published.
 
 ### Local Workflow Commands
 

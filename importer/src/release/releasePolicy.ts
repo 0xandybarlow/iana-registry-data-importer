@@ -198,6 +198,7 @@ const cliOption = (name: string): string | undefined => {
 
 if (require.main === module) {
   const baseRef = cliOption('--base') ?? cliOption('--base-ref');
+  const workingTree = process.argv.slice(2).includes('--working-tree');
   const repositoryRoot = path.resolve(
     cliOption('--repository-root') ?? path.join(__dirname, '../../../'),
   );
@@ -206,9 +207,11 @@ if (require.main === module) {
     console.error('Usage: validate-data-release --base=<git-ref>');
     process.exitCode = 1;
   } else {
-    execFileAsync('git', ['diff', '--name-only', `${baseRef}...HEAD`], {
-      cwd: repositoryRoot,
-    })
+    execFileAsync(
+      'git',
+      ['diff', '--name-only', workingTree ? baseRef : `${baseRef}...HEAD`],
+      { cwd: repositoryRoot },
+    )
       .then(({ stdout }) =>
         validateAutomatedRelease({
           changedPaths: stdout.split('\n').filter(Boolean),

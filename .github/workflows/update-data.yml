@@ -2,57 +2,81 @@ name: Update IANA Data
 
 on:
   schedule:
-    - cron: '0 5 * * 1' # Mondays 05:00 UTC
+    - cron: '0 5 * * 1'
   workflow_dispatch:
     inputs:
       dataset_filter:
-        description: 'Filter datasets (e.g., oauth_registry/oauth_parameters or just oauth_parameters)'
+        description: Optional diagnostic dataset filter; filtered runs never update a PR.
         required: false
-        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-iana-data
+  cancel-in-progress: false
 
 jobs:
-  update:
+  update-data:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
         with:
-          node-version: 20
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
       - name: Install
-        run: npm install
-      - name: Build library
-        run: npm run build:lib
-      - name: Run check-and-update
-        run: npm run import-data:update
-        env:
-          DATASET_FILTER: ${{ github.event.inputs.dataset_filter }}
-      - name: Remove empty changelog
+        run: npm ci
+      - name: Build importer
+        run: npm run build:importer
+      - name: Collect registry data
+        id: sweep
         run: |
-          if [ -f CHANGELOG_UPDATE.md ] && grep -Fxq "No data changes detected." CHANGELOG_UPDATE.md; then
-            rm CHANGELOG_UPDATE.md
-          fi
-      - name: Check for updates
-        id: diff
-        run: |
-          if git diff --quiet --ignore-submodules HEAD; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-      - name: Create Pull Request
-        if: steps.diff.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v6
+          args="--summary=$RUNNER_TEMP/iana-summary.json --pr-body=$RUNNER_TEMP/iana-pr-body.md"
+          if [ -n "${{ inputs.dataset_filter }}" ]; then args="$args --filter=${{ inputs.dataset_filter }}"; fi
+          node importer/dist/pipeline/checkAndUpdate.js $args
+          node -e 'const s=require(process.env.RUNNER_TEMP + "/iana-summary.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `changed=${s.changed}\ndiagnostic=${s.diagnostic}\n`)'
+      - name: Upload diagnostic summary
+        if: steps.sweep.outputs.diagnostic == 'true'
+        uses: actions/upload-artifact@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: update data from IANA registries'
-          title: 'Update data from IANA registries'
-          body-path: 'CHANGELOG_UPDATE.md'
+          name: iana-diagnostic-summary
+          path: ${{ runner.temp }}/iana-summary.json
+      - name: Prepare data release
+        if: steps.sweep.outputs.changed == 'true' && steps.sweep.outputs.diagnostic == 'false'
+        run: npm run prepare-data-release -- --summary="$RUNNER_TEMP/iana-summary.json" --detail="$RUNNER_TEMP/iana-pr-body.md" --pr-body="$RUNNER_TEMP/release-pr-body.md"
+      - name: Validate candidate release
+        if: steps.sweep.outputs.changed == 'true' && steps.sweep.outputs.diagnostic == 'false'
+        run: |
+          npm run validate-data-release -- --base=HEAD --working-tree
+          npm run validate:datasets
+          npm run build:lib
+      - name: Create GitHub App token
+        id: app-token
+        if: steps.sweep.outputs.changed == 'true' && steps.sweep.outputs.diagnostic == 'false'
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.IANA_RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.IANA_RELEASE_APP_PRIVATE_KEY }}
+      - name: Create or refresh release pull request
+        if: steps.sweep.outputs.changed == 'true' && steps.sweep.outputs.diagnostic == 'false'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          commit-message: "chore: update IANA registry data"
           branch: chore/update-iana-data
-          base: master
-          delete-branch: true
+          title: "chore: update IANA registry data"
+          body-path: ${{ runner.temp }}/release-pr-body.md
+          labels: data-release
           add-paths: |
             iana-registry-data-lib/src/registries/**
-            CHANGELOG_UPDATE.md
+            iana-registry-data-lib/package.json
+            iana-registry-data-lib/CHANGELOG.md
+            package-lock.json
+      - name: Write run summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/iana-pr-body.md" ]; then cat "$RUNNER_TEMP/iana-pr-body.md" >> "$GITHUB_STEP_SUMMARY"; fi

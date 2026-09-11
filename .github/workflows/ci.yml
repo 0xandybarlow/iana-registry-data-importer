@@ -2,25 +2,44 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
         with:
-          node-version: 20
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
       - name: Install
-        run: npm install
+        run: npm ci
       - name: Build importer
         run: npm run build:importer
-      - name: Build library
-        run: npm run build:lib
       - name: Lint importer
         run: npm run lint -w importer
       - name: Test importer
-        run: npm run test -w importer --if-present
+        run: npm run test -w importer -- --runInBand
+      - name: Validate committed datasets
+        run: npm run validate:datasets
+      - name: Validate automated release policy
+        if: github.event_name == 'pull_request' && github.head_ref == 'chore/update-iana-data'
+        run: npm run validate-data-release -- --base="${{ github.event.pull_request.base.sha }}"
+      - name: Build library
+        run: npm run build:lib
+      - name: Pack and inspect library
+        run: |
+          npm pack --workspace iana-registry-data-lib --json --pack-destination "$RUNNER_TEMP" > "$RUNNER_TEMP/pack.json"
+          node importer/dist/release/packageArtifacts.js inspect-pack < "$RUNNER_TEMP/pack.json"
+          tarball=$(node -e 'const pack=require(process.env.RUNNER_TEMP + "/pack.json")[0]; process.stdout.write(pack.filename)')
+          node importer/dist/release/smokePackedPackage.js "$RUNNER_TEMP/$tarball" "$GITHUB_WORKSPACE/node_modules/.bin/tsc"
+      - name: Validate workflows
+        run: docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.12
