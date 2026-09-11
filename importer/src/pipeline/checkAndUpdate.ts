@@ -161,17 +161,17 @@ export const checkAndUpdate = async (
       await fs.mkdir(path.dirname(file), { recursive: true });
       await writeText(file, JSON.stringify(dataset, null, 2));
     }
-    if (options.summaryPath) {
-      await fs.mkdir(path.dirname(options.summaryPath), { recursive: true });
-      await writeText(
-        options.summaryPath,
-        `${JSON.stringify(document, null, 2)}\n`,
-      );
-    }
-    if (options.prBodyPath) {
-      await fs.mkdir(path.dirname(options.prBodyPath), { recursive: true });
-      await writeText(options.prBodyPath, `${body}\n`);
-    }
+  }
+  if (options.summaryPath) {
+    await fs.mkdir(path.dirname(options.summaryPath), { recursive: true });
+    await writeText(
+      options.summaryPath,
+      `${JSON.stringify(document, null, 2)}\n`,
+    );
+  }
+  if (options.prBodyPath) {
+    await fs.mkdir(path.dirname(options.prBodyPath), { recursive: true });
+    await writeText(options.prBodyPath, `${body}\n`);
   }
 
   info(body);

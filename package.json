@@ -10,7 +10,14 @@
     "publish-data": "cd iana-registry-data-lib && npm publish",
     "build:lib": "npm run build -w iana-registry-data-lib",
     "build:importer": "npm run build -w importer",
-    "import-data:update": "npm run build:importer && node importer/dist/pipeline/checkAndUpdate.js"
+    "import-data:update": "npm run build:importer && node importer/dist/pipeline/checkAndUpdate.js",
+    "prepare-data-release": "node importer/dist/release/prepareDataRelease.js",
+    "validate-data-release": "node importer/dist/release/releasePolicy.js",
+    "validate:datasets": "node importer/dist/pipeline/validateCommitted.js --allow-legacy-3.0.1-duplicates",
+    "inspect-pack": "node importer/dist/release/packageArtifacts.js inspect-pack",
+    "package-manifest": "node importer/dist/release/packageArtifacts.js package-manifest",
+    "release-notes": "node importer/dist/release/changelogSection.js",
+    "smoke-packed-package": "node importer/dist/release/smokePackedPackage.js"
   },
   "author": "Andy Barlow",
   "license": "MIT",

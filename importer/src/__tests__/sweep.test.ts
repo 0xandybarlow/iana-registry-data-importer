@@ -150,7 +150,7 @@ describe('atomic registry sweep', () => {
     expect(written.entries[0].entry_id).toBe('new');
   });
 
-  it('keeps a filtered run diagnostic, incomplete, and write-free', async () => {
+  it('keeps a filtered run diagnostic and writes only explicit diagnostic artifacts', async () => {
     await seedExisting('second', 'old');
     const writes: string[] = [];
 
@@ -176,13 +176,18 @@ describe('atomic registry sweep', () => {
       generated_at: '2026-09-11T12:00:00.000Z',
     });
     expect(result.datasets).toHaveLength(1);
-    expect(writes).toEqual([]);
-    await expect(
-      fs.access(path.join(dataRoot, 'summary.json')),
-    ).rejects.toThrow();
-    await expect(
-      fs.access(path.join(dataRoot, 'pr-body.md')),
-    ).rejects.toThrow();
+    expect(writes).toEqual([
+      path.join(dataRoot, 'summary.json'),
+      path.join(dataRoot, 'pr-body.md'),
+    ]);
+    expect(
+      JSON.parse(
+        await fs.readFile(
+          path.join(dataRoot, 'test_registry', 'second.json'),
+          'utf8',
+        ),
+      ).entries[0].entry_id,
+    ).toBe('old');
   });
 });
 
