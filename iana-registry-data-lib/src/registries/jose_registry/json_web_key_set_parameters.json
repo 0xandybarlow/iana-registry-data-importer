@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC7517"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.113Z"
+    "last_updated_iso": "2026-10-05T12:12:03.141Z"
   },
   "entries": [
     {
@@ -16,7 +16,7 @@
       "parameter_name": "keys",
       "parameter_description": "Array of JWK Values",
       "change_controller": "IESG",
-      "reference": "RFC7517 - Section 5.1"
+      "reference": "RFC 7517 - Section 5.1"
     }
   ]
 }
