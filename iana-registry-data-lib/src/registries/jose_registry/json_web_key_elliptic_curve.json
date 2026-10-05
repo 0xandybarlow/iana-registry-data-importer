@@ -9,7 +9,7 @@
       "RFC7518",
       "RFC7638"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.043Z"
+    "last_updated_iso": "2026-10-05T12:12:02.416Z"
   },
   "entries": [
     {
@@ -18,7 +18,7 @@
       "curve_description": "Ed25519 signature algorithm key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8037 - Section 3.1"
+      "reference": "RFC 8037 - Section 3.1"
     },
     {
       "entry_id": "Ed448",
@@ -26,7 +26,7 @@
       "curve_description": "Ed448 signature algorithm key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8037 - Section 3.1"
+      "reference": "RFC 8037 - Section 3.1"
     },
     {
       "entry_id": "P-256",
@@ -34,7 +34,7 @@
       "curve_description": "P-256 Curve",
       "jose_implementation_requirements": "Recommended+",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
+      "reference": "RFC 7518 - Section 6.2.1.1"
     },
     {
       "entry_id": "P-384",
@@ -42,7 +42,7 @@
       "curve_description": "P-384 Curve",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
+      "reference": "RFC 7518 - Section 6.2.1.1"
     },
     {
       "entry_id": "P-521",
@@ -50,7 +50,7 @@
       "curve_description": "P-521 Curve",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2.1.1"
+      "reference": "RFC 7518 - Section 6.2.1.1"
     },
     {
       "entry_id": "secp256k1",
@@ -58,7 +58,7 @@
       "curve_description": "SECG secp256k1 curve",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8812 - Section 3.1"
+      "reference": "RFC 8812 - Section 3.1"
     },
     {
       "entry_id": "X25519",
@@ -66,7 +66,7 @@
       "curve_description": "X25519 function key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8037 - Section 3.2"
+      "reference": "RFC 8037 - Section 3.2"
     },
     {
       "entry_id": "X448",
@@ -74,7 +74,7 @@
       "curve_description": "X448 function key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8037 - Section 3.2"
+      "reference": "RFC 8037 - Section 3.2"
     }
   ]
 }

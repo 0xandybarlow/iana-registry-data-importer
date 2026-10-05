@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC7518"
     ],
-    "last_updated_iso": "2025-09-07T20:03:01.005Z"
+    "last_updated_iso": "2026-10-05T12:12:02.080Z"
   },
   "entries": [
     {
@@ -16,7 +16,7 @@
       "compression_algorithm_value": "DEF",
       "compression_algorithm_description": "DEFLATE",
       "change_controller": "IESG",
-      "reference": "RFC7516"
+      "reference": "RFC 7516"
     }
   ]
 }

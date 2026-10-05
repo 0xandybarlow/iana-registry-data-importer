@@ -9,7 +9,7 @@
       "RFC7518",
       "RFC7638"
     ],
-    "last_updated_iso": "2026-05-25T06:35:27.643Z"
+    "last_updated_iso": "2026-10-05T12:12:02.204Z"
   },
   "entries": [
     {
@@ -18,7 +18,7 @@
       "key_type_description": "Algorithm Key Pair",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IETF",
-      "reference": "RFC9964"
+      "reference": "RFC 9964"
     },
     {
       "entry_id": "EC",
@@ -26,7 +26,7 @@
       "key_type_description": "Elliptic Curve",
       "jose_implementation_requirements": "Recommended+",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.2"
+      "reference": "RFC 7518 - Section 6.2"
     },
     {
       "entry_id": "oct",
@@ -34,7 +34,7 @@
       "key_type_description": "Octet sequence",
       "jose_implementation_requirements": "Required",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.4"
+      "reference": "RFC 7518 - Section 6.4"
     },
     {
       "entry_id": "OKP",
@@ -42,7 +42,7 @@
       "key_type_description": "Octet string key pairs",
       "jose_implementation_requirements": "Optional",
       "change_controller": "IESG",
-      "reference": "RFC8037 - Section 2"
+      "reference": "RFC 8037 - Section 2"
     },
     {
       "entry_id": "RSA",
@@ -50,7 +50,7 @@
       "key_type_description": "RSA",
       "jose_implementation_requirements": "Required",
       "change_controller": "IESG",
-      "reference": "RFC7518 - Section 6.3"
+      "reference": "RFC 7518 - Section 6.3"
     }
   ]
 }
