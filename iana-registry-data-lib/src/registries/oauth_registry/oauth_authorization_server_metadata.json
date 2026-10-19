@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC8414"
     ],
-    "last_updated_iso": "2026-03-23T05:38:11.548Z"
+    "last_updated_iso": "2026-10-19T10:40:20.731Z"
   },
   "entries": [
     {
@@ -23,21 +23,21 @@
       "metadata_name": "authorization_details_types_supported",
       "metadata_description": "JSON array containing the authorization details types the AS supports",
       "change_controller": "IETF",
-      "reference": "RFC9396 - Section 10"
+      "reference": "RFC 9396 - Section 10"
     },
     {
       "entry_id": "authorization_endpoint",
       "metadata_name": "authorization_endpoint",
       "metadata_description": "URL of the authorization server's authorization endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "authorization_response_iss_parameter_supported",
       "metadata_name": "authorization_response_iss_parameter_supported",
       "metadata_description": "Boolean value indicating whether the authorization server provides the iss parameter in the authorization response.",
       "change_controller": "IETF",
-      "reference": "RFC9207 - Section 3"
+      "reference": "RFC 9207 - Section 3"
     },
     {
       "entry_id": "backchannel_authentication_endpoint",
@@ -98,7 +98,7 @@
     {
       "entry_id": "claims_locales_supported",
       "metadata_name": "claims_locales_supported",
-      "metadata_description": "Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP 47 RFC5646 language tag values",
+      "metadata_description": "Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP 47 RFC 5646 language tag values",
       "change_controller": "OpenID_Foundation_Artifact_Binding_WG",
       "reference": "OpenID Connect Discovery 1.0 - Section 3"
     },
@@ -128,7 +128,7 @@
       "metadata_name": "code_challenge_methods_supported",
       "metadata_description": "PKCE code challenge methods supported by this authorization server",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "contacts",
@@ -149,7 +149,7 @@
       "metadata_name": "device_authorization_endpoint",
       "metadata_description": "URL of the authorization server's device authorization endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8628 - Section 4"
+      "reference": "RFC 8628 - Section 4"
     },
     {
       "entry_id": "display_name",
@@ -170,7 +170,7 @@
       "metadata_name": "dpop_signing_alg_values_supported",
       "metadata_description": "JSON array containing a list of the JWS algorithms supported for DPoP proof JWTs",
       "change_controller": "IETF",
-      "reference": "RFC9449 - Section 5.1"
+      "reference": "RFC 9449 - Section 5.1"
     },
     {
       "entry_id": "end_session_endpoint",
@@ -198,7 +198,7 @@
       "metadata_name": "grant_types_supported",
       "metadata_description": "JSON array containing a list of the OAuth 2.0 grant type values that this authorization server supports",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "id_token_encryption_alg_values_supported",
@@ -222,6 +222,13 @@
       "reference": "OpenID Connect Discovery 1.0 - Section 3"
     },
     {
+      "entry_id": "identity_chaining_requested_token_types_supported",
+      "metadata_name": "identity_chaining_requested_token_types_supported",
+      "metadata_description": "JSON array containing a list of Token Type Identifiers supported as a requested_token_type in an Identity and Authorization Chaining Token Exchange RFC 8693 request.",
+      "change_controller": "IESG",
+      "reference": "RFC-ietf-oauth-identity-chaining-16 - Section 3"
+    },
+    {
       "entry_id": "information_uri",
       "metadata_name": "information_uri",
       "metadata_description": "URL for documentation of additional information about this authorization server viewable by the End-User",
@@ -233,49 +240,49 @@
       "metadata_name": "introspection_encryption_alg_values_supported",
       "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content key encryption (alg value)",
       "change_controller": "IETF",
-      "reference": "RFC9701 - Section 7"
+      "reference": "RFC 9701 - Section 7"
     },
     {
       "entry_id": "introspection_encryption_enc_values_supported",
       "metadata_name": "introspection_encryption_enc_values_supported",
       "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response content encryption (enc value)",
       "change_controller": "IETF",
-      "reference": "RFC9701 - Section 7"
+      "reference": "RFC 9701 - Section 7"
     },
     {
       "entry_id": "introspection_endpoint",
       "metadata_name": "introspection_endpoint",
       "metadata_description": "URL of the authorization server's OAuth 2.0 introspection endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "introspection_endpoint_auth_methods_supported",
       "metadata_name": "introspection_endpoint_auth_methods_supported",
       "metadata_description": "JSON array containing a list of client authentication methods supported by this introspection endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "introspection_endpoint_auth_signing_alg_values_supported",
       "metadata_name": "introspection_endpoint_auth_signing_alg_values_supported",
       "metadata_description": "JSON array containing a list of the JWS signing algorithms supported by the introspection endpoint for the signature on the JWT used to authenticate the client at the introspection endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "introspection_signing_alg_values_supported",
       "metadata_name": "introspection_signing_alg_values_supported",
       "metadata_description": "JSON array containing a list of algorithms supported by the authorization server for introspection response signing",
       "change_controller": "IETF",
-      "reference": "RFC9701 - Section 7"
+      "reference": "RFC 9701 - Section 7"
     },
     {
       "entry_id": "issuer",
       "metadata_name": "issuer",
       "metadata_description": "Authorization server's issuer identifier URL",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "jwks",
@@ -289,7 +296,7 @@
       "metadata_name": "jwks_uri",
       "metadata_description": "URL of the authorization server's JWK Set document",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "keywords",
@@ -310,7 +317,7 @@
       "metadata_name": "mtls_endpoint_aliases",
       "metadata_description": "JSON object containing alternative authorization server endpoints, which a client intending to do mutual TLS will use in preference to the conventional endpoints.",
       "change_controller": "IESG",
-      "reference": "RFC8705 - Section 5"
+      "reference": "RFC 8705 - Section 5"
     },
     {
       "entry_id": "nfv_token_encryption_alg_values_supported",
@@ -338,14 +345,14 @@
       "metadata_name": "op_policy_uri",
       "metadata_description": "URL that the authorization server provides to the person registering the client to read about the authorization server's requirements on how the client can use the data provided by the authorization server",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "op_tos_uri",
       "metadata_name": "op_tos_uri",
       "metadata_description": "URL that the authorization server provides to the person registering the client to read about the authorization server's terms of service",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "organization_name",
@@ -366,21 +373,21 @@
       "metadata_name": "protected_resources",
       "metadata_description": "JSON array containing a list of resource identifiers for OAuth protected resources",
       "change_controller": "IETF",
-      "reference": "RFC9728 - Section 4"
+      "reference": "RFC 9728 - Section 4"
     },
     {
       "entry_id": "pushed_authorization_request_endpoint",
       "metadata_name": "pushed_authorization_request_endpoint",
       "metadata_description": "URL of the authorization server's pushed authorization request endpoint",
       "change_controller": "IESG",
-      "reference": "RFC9126 - Section 5"
+      "reference": "RFC 9126 - Section 5"
     },
     {
       "entry_id": "registration_endpoint",
       "metadata_name": "registration_endpoint",
       "metadata_description": "URL of the authorization server's OAuth 2.0 Dynamic Client Registration Endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "request_object_encryption_alg_values_supported",
@@ -422,7 +429,7 @@
       "metadata_name": "require_pushed_authorization_requests",
       "metadata_description": "Indicates whether the authorization server accepts authorization requests only via PAR.",
       "change_controller": "IESG",
-      "reference": "RFC9126 - Section 5"
+      "reference": "RFC 9126 - Section 5"
     },
     {
       "entry_id": "require_request_uri_registration",
@@ -436,56 +443,56 @@
       "metadata_name": "require_signed_request_object",
       "metadata_description": "Indicates where authorization request needs to be protected as Request Object and provided through either request or request_uri parameter.",
       "change_controller": "IETF",
-      "reference": "RFC9101 - Section 10.5"
+      "reference": "RFC 9101 - Section 10.5"
     },
     {
       "entry_id": "response_modes_supported",
       "metadata_name": "response_modes_supported",
       "metadata_description": "JSON array containing a list of the OAuth 2.0 \"response_mode\" values that this authorization server supports",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "response_types_supported",
       "metadata_name": "response_types_supported",
       "metadata_description": "JSON array containing a list of the OAuth 2.0 \"response_type\" values that this authorization server supports",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "revocation_endpoint",
       "metadata_name": "revocation_endpoint",
       "metadata_description": "URL of the authorization server's OAuth 2.0 revocation endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "revocation_endpoint_auth_methods_supported",
       "metadata_name": "revocation_endpoint_auth_methods_supported",
       "metadata_description": "JSON array containing a list of client authentication methods supported by this revocation endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "revocation_endpoint_auth_signing_alg_values_supported",
       "metadata_name": "revocation_endpoint_auth_signing_alg_values_supported",
       "metadata_description": "JSON array containing a list of the JWS signing algorithms supported by the revocation endpoint for the signature on the JWT used to authenticate the client at the revocation endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "scopes_supported",
       "metadata_name": "scopes_supported",
       "metadata_description": "JSON array containing a list of the OAuth 2.0 \"scope\" values that this authorization server supports",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "service_documentation",
       "metadata_name": "service_documentation",
       "metadata_description": "URL of a page containing human-readable information that developers might want or need to know when using the authorization server",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "signed_jwks_uri",
@@ -499,7 +506,14 @@
       "metadata_name": "signed_metadata",
       "metadata_description": "Signed JWT containing metadata values about the authorization server as claims",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2.1"
+      "reference": "RFC 8414 - Section 2.1"
+    },
+    {
+      "entry_id": "status_list_aggregation_endpoint",
+      "metadata_name": "status_list_aggregation_endpoint",
+      "metadata_description": "URL of the Authorization Server aggregating OAuth Token Status List URLs for token status management.",
+      "change_controller": "IESG",
+      "reference": "RFC-ietf-oauth-status-list-21 - Section 9"
     },
     {
       "entry_id": "subject_types_supported",
@@ -513,35 +527,35 @@
       "metadata_name": "tls_client_certificate_bound_access_tokens",
       "metadata_description": "Indicates authorization server support for mutual-TLS client certificate-bound access tokens.",
       "change_controller": "IESG",
-      "reference": "RFC8705 - Section 3.3"
+      "reference": "RFC 8705 - Section 3.3"
     },
     {
       "entry_id": "token_endpoint",
       "metadata_name": "token_endpoint",
       "metadata_description": "URL of the authorization server's token endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "token_endpoint_auth_methods_supported",
       "metadata_name": "token_endpoint_auth_methods_supported",
       "metadata_description": "JSON array containing a list of client authentication methods supported by this token endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "token_endpoint_auth_signing_alg_values_supported",
       "metadata_name": "token_endpoint_auth_signing_alg_values_supported",
       "metadata_description": "JSON array containing a list of the JWS signing algorithms supported by the token endpoint for the signature on the JWT used to authenticate the client at the token endpoint",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "ui_locales_supported",
       "metadata_name": "ui_locales_supported",
-      "metadata_description": "Languages and scripts supported for the user interface, represented as a JSON array of language tag values from BCP 47 RFC5646",
+      "metadata_description": "Languages and scripts supported for the user interface, represented as a JSON array of language tag values from BCP 47 RFC 5646",
       "change_controller": "IESG",
-      "reference": "RFC8414 - Section 2"
+      "reference": "RFC 8414 - Section 2"
     },
     {
       "entry_id": "userinfo_encryption_alg_values_supported",

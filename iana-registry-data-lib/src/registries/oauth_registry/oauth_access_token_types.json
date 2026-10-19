@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749, RFC8414"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.775Z"
+    "last_updated_iso": "2026-10-19T10:40:18.995Z"
   },
   "entries": [
     {
@@ -17,7 +17,7 @@
       "additional_token_endpoint_response_parameters": "",
       "http_authentication_scheme": "Bearer",
       "change_controller": "IETF",
-      "reference": "RFC6750"
+      "reference": "RFC 6750"
     },
     {
       "entry_id": "DPoP",
@@ -25,7 +25,7 @@
       "additional_token_endpoint_response_parameters": "",
       "http_authentication_scheme": "DPoP",
       "change_controller": "IETF",
-      "reference": "RFC9449"
+      "reference": "RFC 9449"
     },
     {
       "entry_id": "N_A",
@@ -33,15 +33,15 @@
       "additional_token_endpoint_response_parameters": "",
       "http_authentication_scheme": "",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.2.1"
+      "reference": "RFC 8693 - Section 2.2.1"
     },
     {
       "entry_id": "PoP",
       "name": "PoP",
-      "additional_token_endpoint_response_parameters": "cnf, rs_cnf (see section 3.1 of RFC8747 and section 3.2 of RFC9201).",
+      "additional_token_endpoint_response_parameters": "cnf, rs_cnf (see RFC 8747 - Section 3.1 and RFC 9201 - Section 3.2).",
       "http_authentication_scheme": "N/A",
       "change_controller": "IETF",
-      "reference": "RFC9200"
+      "reference": "RFC 9200"
     }
   ]
 }

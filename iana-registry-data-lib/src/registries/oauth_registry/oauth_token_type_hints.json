@@ -8,14 +8,14 @@
     "required_specifications": [
       "RFC7009"
     ],
-    "last_updated_iso": "2025-09-07T20:03:00.863Z"
+    "last_updated_iso": "2026-10-19T10:40:19.533Z"
   },
   "entries": [
     {
       "entry_id": "access_token",
       "hint_value": "access_token",
       "change_controller": "IETF",
-      "reference": "RFC7009"
+      "reference": "RFC 7009"
     },
     {
       "entry_id": "pct",
@@ -27,7 +27,7 @@
       "entry_id": "refresh_token",
       "hint_value": "refresh_token",
       "change_controller": "IETF",
-      "reference": "RFC7009"
+      "reference": "RFC 7009"
     }
   ]
 }
