@@ -8,14 +8,14 @@
     "required_specifications": [
       "RFC6749"
     ],
-    "last_updated_iso": "2025-10-13T05:09:23.282Z"
+    "last_updated_iso": "2026-10-19T10:40:19.143Z"
   },
   "entries": [
     {
       "entry_id": "code",
       "name": "code",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "code id_token",
@@ -57,7 +57,7 @@
       "entry_id": "token",
       "name": "token",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "vp_token",

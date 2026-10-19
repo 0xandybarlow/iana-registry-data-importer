@@ -9,50 +9,50 @@
       "RFC7591",
       "RFC8414"
     ],
-    "last_updated_iso": "2026-05-25T06:35:27.579Z"
+    "last_updated_iso": "2026-10-19T10:40:20.100Z"
   },
   "entries": [
     {
       "entry_id": "client_secret_basic",
       "token_endpoint_authentication_method_name": "client_secret_basic",
       "change_controller": "IESG",
-      "reference": "RFC7591"
+      "reference": "RFC 7591"
     },
     {
       "entry_id": "client_secret_jwt",
       "token_endpoint_authentication_method_name": "client_secret_jwt",
       "change_controller": "IESG",
-      "reference": "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
+      "reference": "OpenID Connect Core 1.0 - Section 9; RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "client_secret_post",
       "token_endpoint_authentication_method_name": "client_secret_post",
       "change_controller": "IESG",
-      "reference": "RFC7591"
+      "reference": "RFC 7591"
     },
     {
       "entry_id": "none",
       "token_endpoint_authentication_method_name": "none",
       "change_controller": "IESG",
-      "reference": "RFC7591"
+      "reference": "RFC 7591"
     },
     {
       "entry_id": "private_key_jwt",
       "token_endpoint_authentication_method_name": "private_key_jwt",
       "change_controller": "IESG",
-      "reference": "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
+      "reference": "OpenID Connect Core 1.0 - Section 9; RFC-ietf-oauth-rfc7523bis-11"
     },
     {
       "entry_id": "self_signed_tls_client_auth",
       "token_endpoint_authentication_method_name": "self_signed_tls_client_auth",
       "change_controller": "IESG",
-      "reference": "RFC8705 - Section 2.2.1"
+      "reference": "RFC 8705 - Section 2.2.1"
     },
     {
       "entry_id": "tls_client_auth",
       "token_endpoint_authentication_method_name": "tls_client_auth",
       "change_controller": "IESG",
-      "reference": "RFC8705 - Section 2.1.1"
+      "reference": "RFC 8705 - Section 2.1.1"
     }
   ]
 }

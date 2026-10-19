@@ -8,7 +8,7 @@
     "required_specifications": [
       "RFC6749"
     ],
-    "last_updated_iso": "2026-03-29T00:03:13.830Z"
+    "last_updated_iso": "2026-10-19T10:40:19.404Z"
   },
   "entries": [
     {
@@ -16,28 +16,28 @@
       "name": "access_token",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "ace_client_recipientid",
       "name": "ace_client_recipientid",
       "parameter_usage_location": "client-rs request",
       "change_controller": "IETF",
-      "reference": "RFC9203"
+      "reference": "RFC 9203"
     },
     {
       "entry_id": "ace_profile",
       "name": "ace_profile",
       "parameter_usage_location": "token response",
       "change_controller": "IETF",
-      "reference": "RFC9200 - Sections 5.8.2, 5.8.4.3"
+      "reference": "RFC 9200 - Section 5.8.2, 5.8.4.3"
     },
     {
       "entry_id": "ace_server_recipientid",
       "name": "ace_server_recipientid",
       "parameter_usage_location": "rs-client response",
       "change_controller": "IETF",
-      "reference": "RFC9203"
+      "reference": "RFC 9203"
     },
     {
       "entry_id": "acr_values",
@@ -51,42 +51,42 @@
       "name": "actor_token",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "actor_token_type",
       "name": "actor_token_type",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "assertion",
       "name": "assertion",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC7521"
+      "reference": "RFC 7521"
     },
     {
       "entry_id": "aud",
       "name": "aud",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.3, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.3; RFC 9101"
     },
     {
       "entry_id": "audience",
       "name": "audience",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "authorization_details",
       "name": "authorization_details",
       "parameter_usage_location": "authorization request, token request, token response",
       "change_controller": "IETF",
-      "reference": "RFC9396"
+      "reference": "RFC 9396"
     },
     {
       "entry_id": "claim_token",
@@ -114,21 +114,21 @@
       "name": "client_assertion",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC7521"
+      "reference": "RFC 7521"
     },
     {
       "entry_id": "client_assertion_type",
       "name": "client_assertion_type",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC7521"
+      "reference": "RFC 7521"
     },
     {
       "entry_id": "client_id",
       "name": "client_id",
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "client_metadata",
@@ -142,42 +142,42 @@
       "name": "client_secret",
       "parameter_usage_location": "token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "cnf",
       "name": "cnf",
       "parameter_usage_location": "token response",
       "change_controller": "IETF",
-      "reference": "RFC9201 - Section 5"
+      "reference": "RFC 9201 - Section 5"
     },
     {
       "entry_id": "code",
       "name": "code",
       "parameter_usage_location": "authorization response, token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "code_challenge",
       "name": "code_challenge",
       "parameter_usage_location": "authorization request",
       "change_controller": "IESG",
-      "reference": "RFC7636"
+      "reference": "RFC 7636"
     },
     {
       "entry_id": "code_challenge_method",
       "name": "code_challenge_method",
       "parameter_usage_location": "authorization request",
       "change_controller": "IESG",
-      "reference": "RFC7636"
+      "reference": "RFC 7636"
     },
     {
       "entry_id": "code_verifier",
       "name": "code_verifier",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC7636"
+      "reference": "RFC 7636"
     },
     {
       "entry_id": "dcql_query",
@@ -191,7 +191,7 @@
       "name": "device_code",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8628 - Section 3.1"
+      "reference": "RFC 8628 - Section 3.1"
     },
     {
       "entry_id": "display",
@@ -205,7 +205,7 @@
       "name": "dpop_jkt",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC9449 - Section 10"
+      "reference": "RFC 9449 - Section 10"
     },
     {
       "entry_id": "ecdh_info",
@@ -219,28 +219,28 @@
       "name": "error",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "error_description",
       "name": "error_description",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "error_uri",
       "name": "error_uri",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "exp",
       "name": "exp",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.4, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.4; RFC 9101"
     },
     {
       "entry_id": "expected_origins",
@@ -254,21 +254,21 @@
       "name": "expires_in",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "grant_type",
       "name": "grant_type",
       "parameter_usage_location": "token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "iat",
       "name": "iat",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.6, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.6; RFC 9101"
     },
     {
       "entry_id": "id_token",
@@ -289,21 +289,21 @@
       "name": "iss",
       "parameter_usage_location": "authorization request, authorization response",
       "change_controller": "IETF",
-      "reference": "RFC9207 - Section 2, RFC9101, RFC7519 - Section 4.1.1"
+      "reference": "RFC 9207 - Section 2; RFC 9101; RFC 7519 - Section 4.1.1"
     },
     {
       "entry_id": "issued_token_type",
       "name": "issued_token_type",
       "parameter_usage_location": "token response",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.2.1"
+      "reference": "RFC 8693 - Section 2.2.1"
     },
     {
       "entry_id": "jti",
       "name": "jti",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.7, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.7; RFC 9101"
     },
     {
       "entry_id": "kdc_dh_creds",
@@ -317,7 +317,7 @@
       "name": "kdcchallenge",
       "parameter_usage_location": "rs-client response",
       "change_controller": "IETF",
-      "reference": "RFC9594"
+      "reference": "RFC 9594"
     },
     {
       "entry_id": "login_hint",
@@ -338,7 +338,7 @@
       "name": "nbf",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.5, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.5; RFC 9101"
     },
     {
       "entry_id": "nfv_token",
@@ -359,21 +359,21 @@
       "name": "nonce1",
       "parameter_usage_location": "client-rs request",
       "change_controller": "IETF",
-      "reference": "RFC9203"
+      "reference": "RFC 9203"
     },
     {
       "entry_id": "nonce2",
       "name": "nonce2",
       "parameter_usage_location": "rs-client response",
       "change_controller": "IETF",
-      "reference": "RFC9203"
+      "reference": "RFC 9203"
     },
     {
       "entry_id": "password",
       "name": "password",
       "parameter_usage_location": "token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "pct",
@@ -401,14 +401,14 @@
       "name": "redirect_uri",
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "refresh_token",
       "name": "refresh_token",
       "parameter_usage_location": "token request, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "registration",
@@ -422,7 +422,7 @@
       "name": "req_cnf",
       "parameter_usage_location": "token request",
       "change_controller": "IETF",
-      "reference": "RFC9201 - Section 5"
+      "reference": "RFC 9201 - Section 5"
     },
     {
       "entry_id": "request",
@@ -450,14 +450,14 @@
       "name": "requested_token_type",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "resource",
       "name": "resource",
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IESG",
-      "reference": "RFC8707"
+      "reference": "RFC 8707"
     },
     {
       "entry_id": "response_mode",
@@ -471,7 +471,7 @@
       "name": "response_type",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "response_uri",
@@ -492,14 +492,14 @@
       "name": "rs_cnf",
       "parameter_usage_location": "token response",
       "change_controller": "IETF",
-      "reference": "RFC9201 - Section 5"
+      "reference": "RFC 9201 - Section 5"
     },
     {
       "entry_id": "scope",
       "name": "scope",
       "parameter_usage_location": "authorization request, authorization response, token request, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "session_state",
@@ -513,35 +513,35 @@
       "name": "sign_info",
       "parameter_usage_location": "client-rs request, rs-client response",
       "change_controller": "IETF",
-      "reference": "RFC9594"
+      "reference": "RFC 9594"
     },
     {
       "entry_id": "state",
       "name": "state",
       "parameter_usage_location": "authorization request, authorization response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "sub",
       "name": "sub",
       "parameter_usage_location": "authorization request",
       "change_controller": "IETF",
-      "reference": "RFC7519 - Section 4.1.2, RFC9101"
+      "reference": "RFC 7519 - Section 4.1.2; RFC 9101"
     },
     {
       "entry_id": "subject_token",
       "name": "subject_token",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "subject_token_type",
       "name": "subject_token_type",
       "parameter_usage_location": "token request",
       "change_controller": "IESG",
-      "reference": "RFC8693 - Section 2.1"
+      "reference": "RFC 8693 - Section 2.1"
     },
     {
       "entry_id": "ticket",
@@ -555,7 +555,7 @@
       "name": "token_type",
       "parameter_usage_location": "authorization response, token response",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "transaction_data",
@@ -590,7 +590,7 @@
       "name": "username",
       "parameter_usage_location": "token request",
       "change_controller": "IETF",
-      "reference": "RFC6749"
+      "reference": "RFC 6749"
     },
     {
       "entry_id": "verifier_info",
@@ -611,7 +611,7 @@
       "name": "vtr",
       "parameter_usage_location": "authorization request, token request",
       "change_controller": "IESG",
-      "reference": "RFC8485"
+      "reference": "RFC 8485"
     },
     {
       "entry_id": "wallet_nonce",
