@@ -1,36 +1,488 @@
 ## IANA Registry Data Updates
 
-### OAuth URI (oauth_registry/oauth_uri)
+### OAuth Access Token Types (oauth_registry/oauth_access_token_types)
 - Modified: 4
+  - entry_id=Bearer
+    - reference: "RFC6750" → "RFC 6750"
+  - entry_id=DPoP
+    - reference: "RFC9449" → "RFC 9449"
+  - entry_id=N_A
+    - reference: "RFC8693 - Section 2.2.1" → "RFC 8693 - Section 2.2.1"
+  - entry_id=PoP
+    - additional_token_endpoint_response_parameters: "cnf, rs_cnf (see section 3.1 of RFC8747 and section 3.2 of RFC9201)." → "cnf, rs_cnf (see RFC 8747 - Section 3.1 and RFC 9201 - Section 3.2)."
+    - reference: "RFC9200" → "RFC 9200"
+
+### OAuth Authorization Endpoint Response Types (oauth_registry/oauth_authorization_endpoint_response_types)
+- Modified: 2
+  - entry_id=code
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=token
+    - reference: "RFC6749" → "RFC 6749"
+
+### OAuth Extensions Error Registry (oauth_registry/oauth_extensions_error_registry)
+- Modified: 27
+  - entry_id=access_denied
+    - protocol_extension: "RFC8628" → "RFC 8628"
+    - reference: "RFC8628 - Section 3.5" → "RFC 8628 - Section 3.5"
+  - entry_id=authorization_pending
+    - protocol_extension: "RFC8628" → "RFC 8628"
+    - reference: "RFC8628 - Section 3.5" → "RFC 8628 - Section 3.5"
+  - entry_id=expired_token
+    - protocol_extension: "RFC8628" → "RFC 8628"
+    - reference: "RFC8628 - Section 3.5" → "RFC 8628 - Section 3.5"
+  - entry_id=incompatible_ace_profiles
+    - protocol_extension: "RFC9200" → "RFC 9200"
+    - reference: "RFC9200 - Section 5.8.3" → "RFC 9200 - Section 5.8.3"
+  - entry_id=insufficient_scope
+    - reference: "RFC6750" → "RFC 6750"
+  - entry_id=insufficient_user_authentication
+    - reference: "RFC9470 - Section 3" → "RFC 9470 - Section 3"
+  - entry_id=invalid_authorization_details
+    - reference: "RFC9396 - Section 5" → "RFC 9396 - Section 5"
+  - entry_id=invalid_client
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=invalid_client_metadata
+    - reference: "RFC7591 - Section 3.2.2" → "RFC 7591 - Section 3.2.2"
+  - entry_id=invalid_dpop_proof
+    - reference: "RFC9449" → "RFC 9449"
+  - entry_id=invalid_grant
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=invalid_redirect_uri
+    - reference: "RFC7591 - Section 3.2.2" → "RFC 7591 - Section 3.2.2"
+  - entry_id=invalid_request
+    - reference: "RFC6749, RFC6750" → "RFC 6749; RFC 6750"
+  - entry_id=invalid_scope
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=invalid_software_statement
+    - reference: "RFC7591 - Section 3.2.2" → "RFC 7591 - Section 3.2.2"
+  - entry_id=invalid_target
+    - reference: "RFC8707" → "RFC 8707"
+  - entry_id=invalid_token
+    - reference: "RFC6750" → "RFC 6750"
+  - entry_id=server_error
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=slow_down
+    - protocol_extension: "RFC8628" → "RFC 8628"
+    - reference: "RFC8628 - Section 3.5" → "RFC 8628 - Section 3.5"
+  - entry_id=temporarily_unavailable
+    - reference: "RFC6749" → "RFC 6749"
+  - …and 7 more modifications
+
+### OAuth Parameters (oauth_registry/oauth_parameters)
+- Modified: 52
+  - entry_id=access_token
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=ace_client_recipientid
+    - reference: "RFC9203" → "RFC 9203"
+  - entry_id=ace_profile
+    - reference: "RFC9200 - Sections 5.8.2, 5.8.4.3" → "RFC 9200 - Section 5.8.2, 5.8.4.3"
+  - entry_id=ace_server_recipientid
+    - reference: "RFC9203" → "RFC 9203"
+  - entry_id=actor_token
+    - reference: "RFC8693 - Section 2.1" → "RFC 8693 - Section 2.1"
+  - entry_id=actor_token_type
+    - reference: "RFC8693 - Section 2.1" → "RFC 8693 - Section 2.1"
+  - entry_id=assertion
+    - reference: "RFC7521" → "RFC 7521"
+  - entry_id=aud
+    - reference: "RFC7519 - Section 4.1.3, RFC9101" → "RFC 7519 - Section 4.1.3; RFC 9101"
+  - entry_id=audience
+    - reference: "RFC8693 - Section 2.1" → "RFC 8693 - Section 2.1"
+  - entry_id=authorization_details
+    - reference: "RFC9396" → "RFC 9396"
+  - entry_id=client_assertion
+    - reference: "RFC7521" → "RFC 7521"
+  - entry_id=client_assertion_type
+    - reference: "RFC7521" → "RFC 7521"
+  - entry_id=client_id
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=client_secret
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=cnf
+    - reference: "RFC9201 - Section 5" → "RFC 9201 - Section 5"
+  - entry_id=code
+    - reference: "RFC6749" → "RFC 6749"
+  - entry_id=code_challenge
+    - reference: "RFC7636" → "RFC 7636"
+  - entry_id=code_challenge_method
+    - reference: "RFC7636" → "RFC 7636"
+  - entry_id=code_verifier
+    - reference: "RFC7636" → "RFC 7636"
+  - entry_id=device_code
+    - reference: "RFC8628 - Section 3.1" → "RFC 8628 - Section 3.1"
+  - …and 32 more modifications
+
+### OAuth Token Type Hints (oauth_registry/oauth_token_type_hints)
+- Modified: 2
+  - entry_id=access_token
+    - reference: "RFC7009" → "RFC 7009"
+  - entry_id=refresh_token
+    - reference: "RFC7009" → "RFC 7009"
+
+### OAuth URI (oauth_registry/oauth_uri)
+- Modified: 15
+  - entry_id=urn:ietf:params:oauth:ckt
+    - reference: "RFC9679" → "RFC 9679"
   - entry_id=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-    - reference: "RFC7523" → "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "RFC7523, RFC-ietf-oauth-rfc7523bis-11" → "RFC 7523; RFC-ietf-oauth-rfc7523bis-11"
   - entry_id=urn:ietf:params:oauth:client-assertion-type:saml2-bearer
-    - reference: "RFC7522" → "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "RFC7522, RFC-ietf-oauth-rfc7523bis-11" → "RFC 7522; RFC-ietf-oauth-rfc7523bis-11"
+  - entry_id=urn:ietf:params:oauth:grant-type:device_code
+    - reference: "RFC8628 - Section 3.1" → "RFC 8628 - Section 3.1"
   - entry_id=urn:ietf:params:oauth:grant-type:jwt-bearer
-    - reference: "RFC7523" → "RFC7523, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "RFC7523, RFC-ietf-oauth-rfc7523bis-11" → "RFC 7523; RFC-ietf-oauth-rfc7523bis-11"
   - entry_id=urn:ietf:params:oauth:grant-type:saml2-bearer
-    - reference: "RFC7522" → "RFC7522, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "RFC7522, RFC-ietf-oauth-rfc7523bis-11" → "RFC 7522; RFC-ietf-oauth-rfc7523bis-11"
+  - entry_id=urn:ietf:params:oauth:grant-type:token-exchange
+    - reference: "RFC8693 - Section 2.1" → "RFC 8693 - Section 2.1"
+  - entry_id=urn:ietf:params:oauth:jwk-thumbprint
+    - reference: "RFC9278" → "RFC 9278"
+  - entry_id=urn:ietf:params:oauth:request_uri
+    - reference: "RFC9126 - Section 2.2" → "RFC 9126 - Section 2.2"
+  - entry_id=urn:ietf:params:oauth:token-type:access_token
+    - reference: "RFC8693 - Section 3" → "RFC 8693 - Section 3"
+  - entry_id=urn:ietf:params:oauth:token-type:id_token
+    - reference: "RFC8693 - Section 3" → "RFC 8693 - Section 3"
+  - entry_id=urn:ietf:params:oauth:token-type:jwt
+    - reference: "RFC7519" → "RFC 7519"
+  - entry_id=urn:ietf:params:oauth:token-type:refresh_token
+    - reference: "RFC8693 - Section 3" → "RFC 8693 - Section 3"
+  - entry_id=urn:ietf:params:oauth:token-type:saml1
+    - reference: "RFC8693 - Section 3" → "RFC 8693 - Section 3"
+  - entry_id=urn:ietf:params:oauth:token-type:saml2
+    - reference: "RFC8693 - Section 3" → "RFC 8693 - Section 3"
 
 ### OAuth Dynamic Client Registration Metadata (oauth_registry/oauth_dynamic_client_registration_metadata)
-- Added: 1
+- Added: 22
+- Modified: 37
+  - entry_id=authorization_details_types
+    - reference: "RFC9396 - Section 10" → "RFC 9396 - Section 10"
+  - entry_id=client_id
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=client_id_issued_at
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=client_name
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=client_secret
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=client_secret_expires_at
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=client_uri
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=contacts
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=dpop_bound_access_tokens
+    - reference: "RFC9449 - Section 5.2" → "RFC 9449 - Section 5.2"
+  - entry_id=encrypted_response_enc_values_supported
+    - client_metadata_description: "Non-empty array of strings, where each string is a JWE RFC7516 enc algorithm that can be used as the content encryption algorithm for encrypting the Response" → "Non-empty array of strings, where each string is a JWE RFC 7516 enc algorithm that can be used as the content encryption algorithm for encrypting the Response"
+  - entry_id=grant_types
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=introspection_encrypted_response_alg
+    - reference: "RFC9701 - Section 6" → "RFC 9701 - Section 6"
+  - entry_id=introspection_encrypted_response_enc
+    - reference: "RFC9701 - Section 6" → "RFC 9701 - Section 6"
+  - entry_id=introspection_signed_response_alg
+    - reference: "RFC9701 - Section 6" → "RFC 9701 - Section 6"
+  - entry_id=jwks
+    - client_metadata_description: "Client's JSON Web Key Set RFC7517 document representing the client's public keys" → "Client's JSON Web Key Set RFC 7517 document representing the client's public keys"
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=jwks_uri
+    - client_metadata_description: "URL referencing the client's JSON Web Key Set RFC7517 document representing the client's public keys" → "URL referencing the client's JSON Web Key Set RFC 7517 document representing the client's public keys"
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=logo_uri
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=policy_uri
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=redirect_uris
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=registration_access_token
+    - reference: "RFC7592" → "RFC 7592"
+  - …and 17 more modifications
 
 ### OAuth Token Endpoint Authentication Methods (oauth_registry/oauth_token_endpoint_authentication_methods)
-- Modified: 2
+- Modified: 7
+  - entry_id=client_secret_basic
+    - reference: "RFC7591" → "RFC 7591"
   - entry_id=client_secret_jwt
-    - change_controller: "OpenID_Foundation_Artifact_Binding_WG" → "IESG"
-    - reference: "OpenID Connect Core 1.0 incorporating errata set 1" → "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11" → "OpenID Connect Core 1.0 - Section 9; RFC-ietf-oauth-rfc7523bis-11"
+  - entry_id=client_secret_post
+    - reference: "RFC7591" → "RFC 7591"
+  - entry_id=none
+    - reference: "RFC7591" → "RFC 7591"
   - entry_id=private_key_jwt
-    - change_controller: "OpenID_Foundation_Artifact_Binding_WG" → "IESG"
-    - reference: "OpenID Connect Core 1.0 incorporating errata set 1" → "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11"
+    - reference: "OpenID Connect Core 1.0 - Section 9, RFC-ietf-oauth-rfc7523bis-11" → "OpenID Connect Core 1.0 - Section 9; RFC-ietf-oauth-rfc7523bis-11"
+  - entry_id=self_signed_tls_client_auth
+    - reference: "RFC8705 - Section 2.2.1" → "RFC 8705 - Section 2.2.1"
+  - entry_id=tls_client_auth
+    - reference: "RFC8705 - Section 2.1.1" → "RFC 8705 - Section 2.1.1"
+
+### PKCE Code Challenge Methods (oauth_registry/pkce_code_challenge_methods)
+- Modified: 2
+  - entry_id=plain
+    - reference: "Section 4.2 of RFC7636" → "RFC 7636 - Section 4.2"
+  - entry_id=S256
+    - reference: "Section 4.2 of RFC7636" → "RFC 7636 - Section 4.2"
+
+### OAuth Token Introspection Response (oauth_registry/oauth_token_introspection_response)
+- Modified: 24
+  - entry_id=ace_profile
+    - reference: "RFC9200 - Section 5.9.2" → "RFC 9200 - Section 5.9.2"
+  - entry_id=acr
+    - reference: "RFC9470 - Section 6.2" → "RFC 9470 - Section 6.2"
+  - entry_id=act
+    - reference: "RFC8693 - Section 4.1" → "RFC 8693 - Section 4.1"
+  - entry_id=active
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=aud
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=auth_time
+    - reference: "RFC9470 - Section 6.2" → "RFC 9470 - Section 6.2"
+  - entry_id=authorization_details
+    - reference: "RFC9396 - Section 9.2" → "RFC 9396 - Section 9.2"
+  - entry_id=client_id
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=cnf
+    - reference: "RFC7800, RFC8705" → "RFC 7800; RFC 8705"
+  - entry_id=cnonce
+    - reference: "RFC9200 - Section 5.9.2" → "RFC 9200 - Section 5.9.2"
+  - entry_id=cti
+    - description: "\"CWT ID\". The identifier of a CWT as defined in RFC8392." → "\"CWT ID\". The identifier of a CWT as defined in RFC 8392."
+    - reference: "RFC9200 - Section 5.9.2" → "RFC 9200 - Section 5.9.2"
+  - entry_id=exi
+    - reference: "RFC9200 - Section 5.9.2" → "RFC 9200 - Section 5.9.2"
+  - entry_id=exp
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=iat
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=iss
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=jti
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=may_act
+    - reference: "RFC8693 - Section 4.4" → "RFC 8693 - Section 4.4"
+  - entry_id=nbf
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=scope
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - entry_id=sub
+    - reference: "RFC7662 - Section 2.2" → "RFC 7662 - Section 2.2"
+  - …and 4 more modifications
+
+### OAuth Authorization Server Metadata (oauth_registry/oauth_authorization_server_metadata)
+- Added: 2
+- Modified: 37
+  - entry_id=authorization_details_types_supported
+    - reference: "RFC9396 - Section 10" → "RFC 9396 - Section 10"
+  - entry_id=authorization_endpoint
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=authorization_response_iss_parameter_supported
+    - reference: "RFC9207 - Section 3" → "RFC 9207 - Section 3"
+  - entry_id=claims_locales_supported
+    - metadata_description: "Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP 47 RFC5646 language tag values" → "Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP 47 RFC 5646 language tag values"
+  - entry_id=code_challenge_methods_supported
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=device_authorization_endpoint
+    - reference: "RFC8628 - Section 4" → "RFC 8628 - Section 4"
+  - entry_id=dpop_signing_alg_values_supported
+    - reference: "RFC9449 - Section 5.1" → "RFC 9449 - Section 5.1"
+  - entry_id=grant_types_supported
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=introspection_encryption_alg_values_supported
+    - reference: "RFC9701 - Section 7" → "RFC 9701 - Section 7"
+  - entry_id=introspection_encryption_enc_values_supported
+    - reference: "RFC9701 - Section 7" → "RFC 9701 - Section 7"
+  - entry_id=introspection_endpoint
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=introspection_endpoint_auth_methods_supported
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=introspection_endpoint_auth_signing_alg_values_supported
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=introspection_signing_alg_values_supported
+    - reference: "RFC9701 - Section 7" → "RFC 9701 - Section 7"
+  - entry_id=issuer
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=jwks_uri
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=mtls_endpoint_aliases
+    - reference: "RFC8705 - Section 5" → "RFC 8705 - Section 5"
+  - entry_id=op_policy_uri
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=op_tos_uri
+    - reference: "RFC8414 - Section 2" → "RFC 8414 - Section 2"
+  - entry_id=protected_resources
+    - reference: "RFC9728 - Section 4" → "RFC 9728 - Section 4"
+  - …and 17 more modifications
+
+### JSON Web Encryption Compression Algorithms (jose_registry/json_web_encryption_compression_algorithms)
+- Modified: 1
+  - entry_id=DEF
+    - reference: "RFC7516" → "RFC 7516"
 
 ### JSON Web Key Types (jose_registry/json_web_key_types)
-- Modified: 1
+- Modified: 5
   - entry_id=AKP
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
+    - reference: "RFC9964" → "RFC 9964"
+  - entry_id=EC
+    - reference: "RFC7518 - Section 6.2" → "RFC 7518 - Section 6.2"
+  - entry_id=oct
+    - reference: "RFC7518 - Section 6.4" → "RFC 7518 - Section 6.4"
+  - entry_id=OKP
+    - reference: "RFC8037 - Section 2" → "RFC 8037 - Section 2"
+  - entry_id=RSA
+    - reference: "RFC7518 - Section 6.3" → "RFC 7518 - Section 6.3"
+
+### JSON Web Key Elliptic Curve (jose_registry/json_web_key_elliptic_curve)
+- Modified: 8
+  - entry_id=Ed25519
+    - reference: "RFC8037 - Section 3.1" → "RFC 8037 - Section 3.1"
+  - entry_id=Ed448
+    - reference: "RFC8037 - Section 3.1" → "RFC 8037 - Section 3.1"
+  - entry_id=P-256
+    - reference: "RFC7518 - Section 6.2.1.1" → "RFC 7518 - Section 6.2.1.1"
+  - entry_id=P-384
+    - reference: "RFC7518 - Section 6.2.1.1" → "RFC 7518 - Section 6.2.1.1"
+  - entry_id=P-521
+    - reference: "RFC7518 - Section 6.2.1.1" → "RFC 7518 - Section 6.2.1.1"
+  - entry_id=secp256k1
+    - reference: "RFC8812 - Section 3.1" → "RFC 8812 - Section 3.1"
+  - entry_id=X25519
+    - reference: "RFC8037 - Section 3.2" → "RFC 8037 - Section 3.2"
+  - entry_id=X448
+    - reference: "RFC8037 - Section 3.2" → "RFC 8037 - Section 3.2"
 
 ### JSON Web Key Parameters (jose_registry/json_web_key_parameters)
-- Modified: 2
+- Modified: 27
+  - entry_id=alg
+    - reference: "RFC7517 - Section 4.4" → "RFC 7517 - Section 4.4"
+  - entry_id=crv
+    - reference: "RFC8037 - Section 2" → "RFC 8037 - Section 2"
+  - entry_id=d
+    - reference: "RFC8037 - Section 2" → "RFC 8037 - Section 2"
+  - entry_id=dp
+    - reference: "RFC7518 - Section 6.3.2.4" → "RFC 7518 - Section 6.3.2.4"
+  - entry_id=dq
+    - reference: "RFC7518 - Section 6.3.2.5" → "RFC 7518 - Section 6.3.2.5"
+  - entry_id=e
+    - reference: "RFC7518 - Section 6.3.1.2" → "RFC 7518 - Section 6.3.1.2"
+  - entry_id=exp
+    - parameter_description: "Expiration Time, as defined in RFC7519" → "Expiration Time, as defined in RFC 7519"
+  - entry_id=iat
+    - parameter_description: "Issued At, as defined in RFC7519" → "Issued At, as defined in RFC 7519"
+  - entry_id=k
+    - reference: "RFC7518 - Section 6.4.1" → "RFC 7518 - Section 6.4.1"
+  - entry_id=key_ops
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=kid
+    - reference: "RFC7517 - Section 4.5" → "RFC 7517 - Section 4.5"
+  - entry_id=kty
+    - reference: "RFC7517 - Section 4.1" → "RFC 7517 - Section 4.1"
+  - entry_id=n
+    - reference: "RFC7518 - Section 6.3.1.1" → "RFC 7518 - Section 6.3.1.1"
+  - entry_id=nbf
+    - parameter_description: "Not Before, as defined in RFC7519" → "Not Before, as defined in RFC 7519"
+  - entry_id=oth
+    - reference: "RFC7518 - Section 6.3.2.7" → "RFC 7518 - Section 6.3.2.7"
+  - entry_id=p
+    - reference: "RFC7518 - Section 6.3.2.2" → "RFC 7518 - Section 6.3.2.2"
   - entry_id=priv
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
+    - reference: "RFC9964" → "RFC 9964"
   - entry_id=pub
-    - reference: "RFC-ietf-cose-dilithium-10" → "RFC9964"
+    - reference: "RFC9964" → "RFC 9964"
+  - entry_id=q
+    - reference: "RFC7518 - Section 6.3.2.3" → "RFC 7518 - Section 6.3.2.3"
+  - entry_id=qi
+    - reference: "RFC7518 - Section 6.3.2.6" → "RFC 7518 - Section 6.3.2.6"
+  - …and 7 more modifications
+
+### JSON Web Key Use (jose_registry/json_web_key_use)
+- Modified: 2
+  - entry_id=enc
+    - reference: "RFC7517 - Section 4.2" → "RFC 7517 - Section 4.2"
+  - entry_id=sig
+    - reference: "RFC7517 - Section 4.2" → "RFC 7517 - Section 4.2"
+
+### JSON Web Key Operations (jose_registry/json_web_key_operations)
+- Modified: 8
+  - entry_id=decrypt
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=deriveBits
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=deriveKey
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=encrypt
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=sign
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=unwrapKey
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=verify
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+  - entry_id=wrapKey
+    - reference: "RFC7517 - Section 4.3" → "RFC 7517 - Section 4.3"
+
+### JSON Web Key Set Parameters (jose_registry/json_web_key_set_parameters)
+- Modified: 1
+  - entry_id=keys
+    - reference: "RFC7517 - Section 5.1" → "RFC 7517 - Section 5.1"
+
+### JSON Web Token Claims (jwt_registry/json_web_token_claims)
+- Added: 4
+- Modified: 86
+  - entry_id=_sd
+    - reference: "RFC9901 - Section 4.2.4.1" → "RFC 9901 - Section 4.2.4.1"
+  - entry_id=_sd_alg
+    - reference: "RFC9901 - Section 4.1.1" → "RFC 9901 - Section 4.1.1"
+  - entry_id=...
+    - reference: "RFC9901 - Section 4.2.4.2" → "RFC 9901 - Section 4.2.4.2"
+  - entry_id=ace_profile
+    - reference: "RFC9200 - Section 5.10" → "RFC 9200 - Section 5.10"
+  - entry_id=act
+    - reference: "RFC8693 - Section 4.1" → "RFC 8693 - Section 4.1"
+  - entry_id=atc
+    - reference: "RFC9447" → "RFC 9447"
+  - entry_id=ath
+    - reference: "RFC9449 - Section 4.2" → "RFC 9449 - Section 4.2"
+  - entry_id=attest
+    - reference: "RFC8588" → "RFC 8588"
+  - entry_id=aud
+    - reference: "RFC7519 - Section 4.1.3" → "RFC 7519 - Section 4.1.3"
+  - entry_id=authorization_details
+    - reference: "RFC9396 - Section 9.1" → "RFC 9396 - Section 9.1"
+  - entry_id=bootcount
+    - reference: "RFC9711" → "RFC 9711"
+  - entry_id=bootseed
+    - reference: "RFC9711" → "RFC 9711"
+  - entry_id=cdnicrit
+    - reference: "RFC9246 - Section 2.1.9" → "RFC 9246 - Section 2.1.9"
+  - entry_id=cdniets
+    - reference: "RFC9246 - Section 2.1.12" → "RFC 9246 - Section 2.1.12"
+  - entry_id=cdniip
+    - reference: "RFC9246 - Section 2.1.10" → "RFC 9246 - Section 2.1.10"
+  - entry_id=cdnistd
+    - reference: "RFC9246 - Section 2.1.14" → "RFC 9246 - Section 2.1.14"
+  - entry_id=cdnistt
+    - reference: "RFC9246 - Section 2.1.13" → "RFC 9246 - Section 2.1.13"
+  - entry_id=cdniuc
+    - reference: "RFC9246 - Section 2.1.11" → "RFC 9246 - Section 2.1.11"
+  - entry_id=cdniv
+    - reference: "RFC9246 - Section 2.1.8" → "RFC 9246 - Section 2.1.8"
+  - entry_id=client_id
+    - reference: "RFC8693 - Section 4.3" → "RFC 8693 - Section 4.3"
+  - …and 66 more modifications
+
+### JWT Confirmation Methods (jwt_registry/jwt_confirmation_methods)
+- Modified: 7
+  - entry_id=jkt
+    - reference: "RFC9449 - Section 6" → "RFC 9449 - Section 6"
+  - entry_id=jku
+    - reference: "RFC7800 - Section 3.5" → "RFC 7800 - Section 3.5"
+  - entry_id=jwe
+    - reference: "RFC7800 - Section 3.3" → "RFC 7800 - Section 3.3"
+  - entry_id=jwk
+    - reference: "RFC7800 - Section 3.2" → "RFC 7800 - Section 3.2"
+  - entry_id=kid
+    - reference: "RFC7800 - Section 3.4" → "RFC 7800 - Section 3.4"
+  - entry_id=osc
+    - reference: "RFC9203 - Section 3.2.1" → "RFC 9203 - Section 3.2.1"
+  - entry_id=x5t#S256
+    - reference: "RFC8705 - Section 3.1" → "RFC 8705 - Section 3.1"
